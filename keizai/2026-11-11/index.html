@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ja" data-job="keizai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>経済の裏側 2026-11-11</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">経済の裏側</span><time>2026年11月11日(水)</time></header>
+<h1>要所を押さえる者が得て、金利差の逆流で借り手が崩れる</h1>
+<p class="deck">時事と歴史から 2 件</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#c1"><span class="no">1</span><span><b>マーベルによるルメンタム買収</b><span class="sub">実は: 供給が限られる光源部品を押さえ、株高の今、自社株で買収</span></span><span class="tag">時事</span></a></li>
+<li><a href="#c2"><span class="no">2</span><span><b>2024年の円安阻止と借り入れ投資の逆流</b><span class="sub">実は: 円安の利益は輸出企業と借金投資に偏り、負担は家計へ</span></span><span class="tag">歴史</span></a></li>
+</ol>
+<h2>損得の数</h2>
+<svg class="chart" viewBox="0 0 360 80" role="img" aria-label="立場の数。マーベルによるルメンタム買収 得をする1・困る2・板ばさみ1、2024年の円安阻止と借り入れ投資の逆流 得をする2・困る2・板ばさみ1"><text x="0" y="18">マーベルによるルメ…</text><rect class="g" x="126" y="7" width="21" height="14"/><rect class="l" x="150" y="7" width="21" height="14"/><rect class="l" x="174" y="7" width="21" height="14"/><rect class="m" x="198" y="7" width="21" height="14"/><text x="0" y="46">2024年の円安阻止と…</text><rect class="g" x="126" y="35" width="21" height="14"/><rect class="g" x="150" y="35" width="21" height="14"/><rect class="l" x="174" y="35" width="21" height="14"/><rect class="l" x="198" y="35" width="21" height="14"/><rect class="m" x="222" y="35" width="21" height="14"/><rect class="g" x="0" y="61" width="10" height="10"/><text class="legend" x="15" y="70">得をする</text><rect class="l" x="96" y="61" width="10" height="10"/><text class="legend" x="111" y="70">困る</text><rect class="m" x="192" y="61" width="10" height="10"/><text class="legend" x="207" y="70">板ばさみ</text></svg>
+<article class="case" id="c1">
+<p class="kind">時事</p>
+<h2>マーベルによるルメンタム買収</h2>
+<div class="nums"><p class="num"><b>18兆円</b><span>買収総額（企業価値）</span></p></div>
+<div class="omoteura"><div class="omote"><b>表向き</b>AI向けに半導体と光通信を一体化し、電力効率を高める狙い</div><i></i><div class="ura"><b>実は</b>供給が限られる光源部品を押さえ、株高の今、自社株で買収</div></div>
+<div class="sides"><section class="gain"><h3>得をする</h3><ul><li><b>マーベル株主・経営陣</b>光源を確保し、顧客への交渉力が高まる</li></ul></section><section class="lose"><h3>困る</h3><ul><li><b>競合チップ・モジュール社</b>外部からの部品調達条件が悪化する恐れ</li><li><b>データセンター事業者</b>部品が一社に偏り、設備投資の計画が立てにくい</li></ul></section></div>
+<div class="mixed"><h3>板ばさみ</h3><ul><li><b>規制当局</b>供給の独占性を審査し、統合の可否が問われる</li></ul></div>
+<p class="lesson">AIの足かせは周辺部品へ。需要より、その通り道を握る企業を見る</p>
+<details class="more"><summary>くわしく読む</summary><h4>表向きの説明</h4><p>発表の表向きの理由は、AIデータセンター向けに「光電融合」（半導体と光通信を一体化する技術）を取り込み、電力効率を高めることだとされている。買収は全額株式交換で、AI時代のインフラ企業を一気に統合する大型の成長投資として報じられた。</p><h4>裏にある損得</h4><p>本当に押さえたいのは、光源（レーザー）部品という供給制約の強いボトルネックである。AIの計算能力を伸ばすには、チップ同士を光でつなぐ部品が不可欠になりつつあり、その中核となるレーザー光源を握る企業は、需要が増えるほど価格決定力を持つ。マーベルは2026年2月にも光電融合の新興企業を傘下に収めており、今回の買収は単発の拡張ではなく、光部品の垂直統合を進めるシナリオの一部と読める。</p><p>株式交換による買収は、マーベル側の株価が高い水準にあるほど少ない希薄化コストで大型案件を成立させられる。AI関連株が高い評価を受けている間に、自社株を通貨として使って供給網の要所を買うという損得計算が働いている。</p><h4>誰が得をして、誰が困るか</h4><p><b>得をする側</b>: マーベルの既存株主と経営陣。光源を確保できれば、AIデータセンター事業者への交渉力が高まる。</p><p><b>競合の側</b>: 光部品を外部から調達してきた他社チップメーカーやモジュールメーカーは、供給先の囲い込みで調達条件が悪化する恐れがある。</p><p><b>データセンター事業者</b>: 光部品が特定企業に集中すると、設備投資の計画を立てにくくなる。</p><p><b>規制当局</b>: 大型の半導体・通信部品の統合は、各国の審査で供給の独占性が問われやすい。</p><h4>ここから言えること</h4><p>AIブームの本当の律速は、GPUの演算性能ではなく、電力・冷却・光接続といった周辺の物理部品に移りつつある。2021年の半導体不足と同じく、供給網の「最も替えの効かない一点」を押さえた企業が利益を取る構図である。投資判断では、AI需要そのものより、その需要を物理的に通すボトルネックをどの企業が持っているかを見る必要がある。</p></details>
+<p class="src">参照: <a href="https://www.nikkei.com/article/DGXZQOGN02AOW0S6A101C2000000/" target="_blank" rel="noopener noreferrer">日本経済新聞「米半導体マーベル、ルメンタムを18兆円で買収 AI設備に光接続活用」</a>　補強: <a href="https://xtech.nikkei.com/atcl/nxt/column/18/03627/110500046/" target="_blank" rel="noopener noreferrer">日経クロステック「マーベルの18兆円買収、狙いは光電融合の中核技術 足りぬ光源部品押さえる」</a></p>
+</article>
+<article class="case" id="c2">
+<p class="kind">歴史</p>
+<h2>2024年の円安阻止と借り入れ投資の逆流</h2>
+<div class="nums"><p class="num"><b>9.7兆円</b><span>4〜6月の円買い介入</span></p><p class="num"><b>5.5兆円</b><span>7〜9月の円買い介入</span></p></div>
+<div class="omoteura"><div class="omote"><b>表向き</b>急速な円安による物価高を防ぎ、為替の安定を図るための介入</div><i></i><div class="ura"><b>実は</b>円安の利益は輸出企業と借金投資に偏り、負担は家計へ</div></div>
+<div class="sides"><section class="gain"><h3>得をする</h3><ul><li><b>輸出大企業など</b>円安で海外収益や資産が円換算で膨らむ</li><li><b>早期に円買いした投資家</b>巻き戻しの前に動いた者は利益を得た</li></ul></section><section class="lose"><h3>困る</h3><ul><li><b>借入で円を売った投資家</b>円高で含み損、株などの資産も同時に売られた</li><li><b>家計・中小企業</b>輸入物価の上昇負担を受け、介入後も物価は戻らず</li></ul></section></div>
+<div class="mixed"><h3>板ばさみ</h3><ul><li><b>政府・日銀</b>為替の水準を守りつつ、利上げで正常化を迫られた</li></ul></div>
+<p class="lesson">介入は一時的な水準を守るが金利差は止められず、一斉の円買い戻しは市場全体に波及する</p>
+<details class="more"><summary>くわしく読む</summary><h4>表向きの説明</h4><p>政府・日銀の説明は、急速な円安が輸入物価を押し上げ、家計を圧迫するため、投機的な動きを抑えて為替の安定を図るというものだった。介入は「過度な変動を抑えるため」とされ、為替の水準を守る防衛策として受け止められた。</p><h4>裏にある損得</h4><p>根本には日米金利差がある。米国の金利が高止まりする一方で日本の政策金利は低く、低金利の円で資金を借りて高金利の資産に投じる円キャリートレードが膨らんでいた。円安はこの取引の利益を増やすため、円安が続くほど取引が拡大する自己強化の構造になっていた。</p><p>2024年4〜6月には約9.7兆円、7〜9月には約5.5兆円の円買い介入が行われた。介入は160円台前後で集中しており、政府が「防衛ライン」を実質的に示した形になった。7月には日銀が利上げに踏み切り、市場が利上げ織り込みを強めたことで、借金で円を売っていた投資家が一斉に円を買い戻した。これが急速な円高と、同年8月初めの世界的な株式の急落につながった。</p><p>つまり介入の損得は、円安で得をしていた輸出企業や海外資産保有者と、輸入コストに苦しむ家計・中小企業の間で分かれていた。介入で円高に振れれば、借り入れで円を売っていた側の損失が膨らむという、為替の一方向の賭けを生んだ。</p><h4>誰が得をして、誰が困るか</h4><p><b>得をした側</b>: 円安局面で海外収益を円換算で膨らませた輸出大企業、円建て資産を海外で運用していた投資家。介入後の巻き戻し前に早く動いた短期の円買い投資家。</p><p><b>追い詰められた側</b>: 円キャリートレードでレバレッジをかけていた投資家や運用ファンド。巻き戻しで含み損を抱え、株式や他の資産も同時に売られた。</p><p><b>家計・中小企業</b>: 円安による輸入物価上昇の負担を直接受けた。介入で一時的に円高になっても、物価水準は戻らなかった。</p><p><b>政府・日銀</b>: 為替の水準を守ることと、利上げで金融を正常化させることの両立を迫られた。</p><h4>ここから言えること</h4><p>円安で利益を得ている企業ほど、為替の反転リスクを過小評価しやすい。キャリートレードのように「低金利の通貨で借りて、高金利の資産に投じる」取引は、金利差が縮む瞬間に同時に逆流する。2024年の教訓は、介入は一時的な水準を守れても、金利差という根本の力を止めるものではなく、巻き戻しは短期間に市場全体へ波及するということである。為替や金利に依存した収益を見るときは、そのポジションが同時に売られる構図を前提にする必要がある。</p></details>
+</article>
+<footer class="foot"><p>裏の読みは公開情報からの推測を含みます。見出しと図の文は自動生成です。</p><p>作成 2026-11-11 15:02</p></footer>
+</div>
+</body>
+</html>

@@ -12,7 +12,8 @@
 [data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
 [data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
 [data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
-@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
 
 :root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
   --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
@@ -23,7 +24,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);f
 a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
 h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
 b{font-weight:700}
-.mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
 .mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
 .mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
 h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
@@ -144,6 +145,37 @@ thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)
 .due{font-size:13px;color:var(--ink-2)}
 .chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
 .c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
 /* 末尾 */
 .foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
 .foot p{margin:0 0 6px}
@@ -152,16 +184,24 @@ thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)
 <body>
 <div class="page">
 <header class="mast"><span class="job">きょうのまとめ</span><time>2026年11月11日(水)</time></header>
-<h1>きょうの 1 つを、結論から</h1>
+<h1>きょうの 2 つを、結論から</h1>
 <p class="deck">公開済みの早わかりです。</p>
 <section class="front" data-job="ronbun"><h2><a href="ronbun/2026-11-11/">論文分析</a><span class="count">8 本・11月11日</span></h2>
 <p class="say">AI評価の設計とエージェントの実行力が焦点の日</p>
 <ul class="tops"><li>1デモと世界のリハーサルで操作を学習</li><li>AIスクリーニングの誤りは見抜けない</li><li>分解手順書の自動データ化</li></ul>
 <p class="go"><a href="ronbun/2026-11-11/">論文分析を読む</a></p></section>
+<section class="front" data-job="keizai"><h2><a href="keizai/2026-11-11/">経済の裏側</a><span class="count">2 件・11月11日</span></h2>
+<p class="say">要所を押さえる者が得て、金利差の逆流で借り手が崩れる</p>
+<ul class="tops"><li>マーベルによるルメンタム買収</li><li>2024年の円安阻止と借り入れ投資の逆流</li></ul>
+<p class="go"><a href="keizai/2026-11-11/">経済の裏側を読む</a></p></section>
 <h2>これまでの分</h2>
 <section class="hist" data-job="ronbun"><h3>論文分析</h3>
 <ul class="idx">
 <li><a href="ronbun/2026-11-11/">2026-11-11</a><span class="say">AI評価の設計とエージェントの実行力が焦点の日</span></li>
+</ul></section>
+<section class="hist" data-job="keizai"><h3>経済の裏側</h3>
+<ul class="idx">
+<li><a href="keizai/2026-11-11/">2026-11-11</a><span class="say">要所を押さえる者が得て、金利差の逆流で借り手が崩れる</span></li>
 </ul></section>
 </div>
 </body>
