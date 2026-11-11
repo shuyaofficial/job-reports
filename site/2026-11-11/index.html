@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ja" data-job="site">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>サイト分析 2026-11-11</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">サイト分析</span><time>2026年11月11日(水)</time></header>
+<h1>ローカルLLMの実務検証と設計判断・クラウド安全性の記事が中心</h1>
+<p class="deck">記事 9 本・6 サイト・先に読むなら 3 本</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#a1"><span class="no">1</span><span><b>12GB GPUでローカルLLMが動く上限を検証。文脈長で載るモデルが変わる</b><span class="sub">VRAM別の動作上限と速度の目安を数値で確認できる（Qiita）</span></span><span class="tag"></span></a></li>
+<li><a href="#a3"><span class="no">2</span><span><b>マネージドに任せる部分と自前で持つ部分を判断する5ステップと判断シート</b><span class="sub">判断手順と記入シートがあり設計レビューに使える（Qiita）</span></span><span class="tag"></span></a></li>
+<li><a href="#a7"><span class="no">3</span><span><b>Private Endpointを作っても公開アクセスは残る。無効化とDNS確認の要点</b><span class="sub">公開アクセス無効化とDNS設定の確認点が具体的（DevelopersIO）</span></span><span class="tag"></span></a></li>
+</ol>
+<h2>きょうの内訳</h2>
+<div class="charts two"><div><h3>話題ごと（押すとその話題へ）</h3><svg class="chart" viewBox="0 0 360 168" role="img" aria-label="話題ごとの本数。LLM・推論 2、AIエージェント 2、クラウド 2、機械学習 1、設計・運用 1、セキュリティ 1"><a href="#t1"><text x="0" y="18">LLM・推論</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">2</text></a><a href="#t2"><text x="0" y="46">AIエージェント</text><rect x="126" y="35" width="190" height="14"/><text class="n" x="324" y="46">2</text></a><a href="#t3"><text x="0" y="74">クラウド</text><rect x="126" y="63" width="190" height="14"/><text class="n" x="324" y="74">2</text></a><a href="#t4"><text x="0" y="102">機械学習</text><rect x="126" y="91" width="95" height="14"/><text class="n" x="229" y="102">1</text></a><a href="#t5"><text x="0" y="130">設計・運用</text><rect x="126" y="119" width="95" height="14"/><text class="n" x="229" y="130">1</text></a><a href="#t6"><text x="0" y="158">セキュリティ</text><rect x="126" y="147" width="95" height="14"/><text class="n" x="229" y="158">1</text></a></svg></div><div><h3>サイトごと</h3><svg class="chart" viewBox="0 0 360 168" role="img" aria-label="サイトごとの本数。Qiita 3、Dev.to 2、CodeZine 1、DevelopersIO 1、Zenn 1、はてブIT 1"><text x="0" y="18">Qiita</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">3</text><text x="0" y="46">Dev.to</text><rect x="126" y="35" width="127" height="14"/><text class="n" x="261" y="46">2</text><text x="0" y="74">CodeZine</text><rect x="126" y="63" width="63" height="14"/><text class="n" x="197" y="74">1</text><text x="0" y="102">DevelopersIO</text><rect x="126" y="91" width="63" height="14"/><text class="n" x="197" y="102">1</text><text x="0" y="130">Zenn</text><rect x="126" y="119" width="63" height="14"/><text class="n" x="197" y="130">1</text><text x="0" y="158">はてブIT</text><rect x="126" y="147" width="63" height="14"/><text class="n" x="197" y="158">1</text></svg></div></div>
+<section id="t1" class="source"><h2>LLM・推論<span class="count">2 本</span></h2>
+<article class="row" id="a1"><h3><a href="https://qiita.com/sheephess9527/items/42dec5a43dc9d5e0136f" target="_blank" rel="noopener noreferrer">12GB GPUでローカルLLMが動く上限を検証。文脈長で載るモデルが変わる</a> <span class="star">注目</span></h3>
+<p class="sub">Qiita・12GB GPU（RTX 3060 / 4070 / 5070）でローカルLLMはどこまで動く？14Bが限界になるライン</p>
+<details class="more"><summary>くわしく読む</summary><p>この記事は、12GB VRAMのNVIDIA GPU（RTX 3060 12G、4070系、5070など）でローカルLLMを動かす際の現実的な上限を検証したものです。モデルの載るサイズは同じで速度だけが異なり、速度はメモリ帯域÷重みサイズで理論上限が決まります（Qwen3 8B Q4_K_Mでは3060が約76 tok/s、5070が約142 tok/s）。VRAMはコンテキスト長で大きく変わり、14Bモデルは8K以上で載らなくなる一方、Gemma 3 12Bは32Kでも余裕があるとしています。実務では、Ollamaの`num_ctx`設定やllama.cppの`-ngl all`を明示し、GPU外へ層が逃げていないか確認することが重要だと示しています。</p><p class="tags">#llm #LLM #GPU #ollama #LlamaCpp #ローカルLLM</p></details></article>
+<article class="row" id="a5"><h3><a href="https://dev.to/amananandrai/from-attention-to-3-bit-caches-how-llms-learned-to-remember-less-mha-gqa-mla-moe-quantisation-3obj" target="_blank" rel="noopener noreferrer">注意機構からKVキャッシュ圧縮まで、LLMのメモリ削減技術を解説した記事とみられる</a></h3>
+<p class="sub">Dev.to・From Attention to 3-Bit Caches: How LLMs Learned to Remember Less (MHA, GQA, MLA, MoE, Quantisation Explained)</p>
+<details class="more"><summary>くわしく読む</summary><p>Transformerの注意機構は2017年の「Attention」論文を起点に、推論時のKVキャッシュによるメモリ消費が課題になってきた。この記事は、MHA（Multi-Head Attention）からGQA（Grouped-Query Attention）、キー・バリューを低次元に圧縮するMLA（Multi-head Latent Attention）へと発展させる設計と、MoE（Mixture of Experts）による計算効率化、さらにKVキャッシュの3ビット量子化を解説していると推測される。長文コンテキストを扱う推論基盤のメモリコストを下げたい実務エンジニアにとって、モデル選定やサービング設計の判断材料になる内容だ。</p><p class="tags">#llm #ai #machinelearning #deeplearning</p></details></article></section>
+<section id="t2" class="source"><h2>AIエージェント<span class="count">2 本</span></h2>
+<article class="row" id="a6"><h3><a href="https://codezine.jp/article/detail/30237" target="_blank" rel="noopener noreferrer">OpenAI DevDay 2026の現地レポート。AIエージェントの新発表を紹介</a></h3>
+<p class="sub">CodeZine・「AIで秘書を誰でも持てる時代に」──ナル先生が語るOpenAI DevDay 2026現地レポート</p>
+<details class="more"><summary>くわしく読む</summary><p>OpenAI DevDay 2026の現地レポートです。サンフランシスコで開催されたイベントでは、AIエージェント「dots」や新モデル「GPT-6.1 Sol」、Codex高速化の「Ultrafast」など20を超える新発表があり、元Metaエンジニアのナル先生が2年連続で参加しました。記事は会場の様子と注目発表を、AIdiverのインタビュー前編として紹介しています。具体的な技術的仕様や実務での活用方法は本文からは読み取れず、詳細は後編や公式発表で確認する必要があります。</p><p class="tags">#aiエージェント</p></details></article>
+<article class="row" id="a8"><h3><a href="https://zenn.dev/joe_wolf_woof/articles/de818e9d30fcaa" target="_blank" rel="noopener noreferrer">カメラ画像から空間を把握し3D空間で動くAIエージェントの自作記録</a></h3>
+<p class="sub">Zenn・🐺カメラ画像から空間を理解して動く3D AIエージェントを自作してみた</p>
+<details class="more"><summary>くわしく読む</summary><p>カメラ画像から周囲の空間を理解し、3D空間内で自律的に動くAIエージェントを個人開発で自作した記録とみられる記事です。本文は見出しとトピック欄のみで詳細が省略されているため、使用した技術スタックや具体的な実装手法は推測の域を出ませんが、カメラ映像の認識から3D空間上の行動決定までを一貫して扱う点に、ロボティクスやエッジAI、ゲームAIへの応用可能性があると考えられます。</p><p class="tags">#aiエージェント #tech</p></details></article></section>
+<section id="t3" class="source"><h2>クラウド<span class="count">2 本</span></h2>
+<article class="row" id="a7"><h3><a href="https://dev.classmethod.jp/articles/azure-storage-private-endpoint-public-access/" target="_blank" rel="noopener noreferrer">Private Endpointを作っても公開アクセスは残る。無効化とDNS確認の要点</a> <span class="star">注目</span></h3>
+<p class="sub">DevelopersIO・Azure StorageにPrivate Endpointを作っても公開アクセスは止まらない？VNetの内と外から読んで確かめた</p>
+<details class="more"><summary>くわしく読む</summary><p>Azure StorageにPrivate Endpointを作成しただけでは公開経路からのアクセスは止まらず、VNet外からの接続を拒否できたのは公開ネットワークアクセスを無効にした後だったと検証した記事です。VNet内のVMと手元のPCからBlobを読み比べ、DNSの名前解決と認可を含めた接続設計を整理しています。実務では、Private Endpoint導入時に公開アクセスの無効化とDNS設定をセットで確認すべき点が要点になります。</p><p class="tags">#rag</p></details></article>
+<article class="row" id="a9"><h3><a href="https://developers.cyberagent.co.jp/blog/archives/66422/" target="_blank" rel="noopener noreferrer">AWSインフラ基礎のハンズオン研修資料と、そのコードを公開した記事</a></h3>
+<p class="sub">はてブIT・2026年度 新卒研修『AWS インフラハンズオン』の資料を公開します | CyberAgent Developers Blog</p>
+<details class="more"><summary>くわしく読む</summary><p>サイバーエージェントの2026年度新卒研修で実施した「AWS インフラハンズオン」の背景と内容の一部を紹介する記事です。筆者は株式会社WinTicketでバックエンドとインフラを担当しています。研修で使用したスライドとハンズオン用コードが公開されており、AWSインフラの基礎を実際に手を動かして学びたいエンジニアが、研修資料をそのまま学習や社内研修に活用できます。</p><p class="tags">#rag #テクノロジー #あとで読む</p></details></article></section>
+<section id="t4" class="source"><h2>機械学習<span class="count">1 本</span></h2>
+<article class="row" id="a2"><h3><a href="https://qiita.com/nonbiri15/items/1ff73ca02636298e57eb" target="_blank" rel="noopener noreferrer">頑強性の低い機械学習は使えないとし、加工データで学習を改善する案</a></h3>
+<p class="sub">Qiita・「頑強じゃない機械学習はゴミだ」</p>
+<details class="more"><summary>くわしく読む</summary><p>この記事は、頑強性（ロバストネス）の低い機械学習は実用に耐えないと主張し、回転・縮小・ノイズ・ボケ・色変化などの簡単な加工で性能を検証し、その加工をそのままデータ拡張として学習に使えば改善できると述べています。背景の偏りや、ヒートマップでは頑強性は保証されないという点も指摘しています。また後半では、後方互換性を捨てた現代的な言語のライブラリなら、並列処理を安全に実装しやすくなったという話題にも触れています。</p><p class="tags">#機械学習 #生成ai #敵対的攻撃 #画像認識 #データ中心</p></details></article></section>
+<section id="t5" class="source"><h2>設計・運用<span class="count">1 本</span></h2>
+<article class="row" id="a3"><h3><a href="https://qiita.com/Doc-Tanukichi/items/9dafff8237e571cedd5f" target="_blank" rel="noopener noreferrer">マネージドに任せる部分と自前で持つ部分を判断する5ステップと判断シート</a> <span class="star">注目</span></h3>
+<p class="sub">Qiita・【モダンアーキテクチャ #7・最終回】何をマネージドに任せ、何を自分で持つか ― 5ステップの判断フレームワークと判断シート</p>
+<details class="more"><summary>くわしく読む</summary><p>記事は、モダンアーキテクチャ連載の最終回として、マネージドサービスに任せる部分と自前で持つ部分を判断するためのフレームワークを提示しています。ステップ1で部品を洗い出し、ステップ2で差別化・状態・規制・運用力の4観点から分類し、ステップ3で選択肢を絞り込む流れです。さらに、ステップ4で退出コストを測り、ステップ5で総コストを基に決めて記録する手順と、実務で使える判断シートおよび2つの記入例が用意されています。ロックインや退出戦略を含めて意思決定を整理したい現場エンジニアにとって、そのまま設計レビューに使える実践的な内容です。</p><p class="tags">#llm #kubernetes #可観測性 #アーキテクチャ #マネージドサービス #設計 #意思決定 #Cloud</p></details></article></section>
+<section id="t6" class="source"><h2>セキュリティ<span class="count">1 本</span></h2>
+<article class="row" id="a4"><h3><a href="https://dev.to/aws-builders/stop-trusting-npm-scans-run-untrusted-packages-in-an-isolated-aws-sandbox-cmm" target="_blank" rel="noopener noreferrer">npmパッケージを隔離環境で実行し、インストール時の不審な動きを検出</a></h3>
+<p class="sub">Dev.to・Stop Trusting npm Scans: Run Untrusted Packages in an Isolated AWS Sandbox</p>
+<details class="more"><summary>くわしく読む</summary><p>npm の静的スキャナーはパッケージを実行せずに読むため、インストール時にだけ動く postinstall スクリプトを見逃すことがあります。この記事では、AI エージェントから呼び出せるツールとして、未検証のパッケージのインストールを使い捨ての AWS CodeBuild サンドボックス内で実行し、実際のビルドログから `curl | bash` のような不審な挙動を検出する方法を紹介しています。信頼できないパッケージを本番環境に入れる前に動的に検査する、という実務的な対策として応用できる内容です。</p><p class="tags">#ai-agent #aws #ai #discuss #devops</p></details></article></section>
+<footer class="foot"><p>各サイトの公開記事へのリンクです。一言と話題の分け方は自動生成です。</p><p>作成 2026-11-11 15:02</p></footer>
+</div>
+</body>
+</html>
