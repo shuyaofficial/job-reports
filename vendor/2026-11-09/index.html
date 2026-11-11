@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja" data-job="vendor">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>ベンダー週次 2026-11-09</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">ベンダー週次</span><time>2026年11月3日〜9日</time></header>
+<h1>今週は 12 社中 5 社に新着。いちばん重いのは Cisco（High 7.6）</h1>
+<p class="deck">どこが動いて、どこが静かだったか。重い物から先に見られます。</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#v1"><span class="no">1</span><span><b>Cisco</b><span class="sub">Cisco PSIRT 月次バッチ公開（cisco-sa-notice-I8z3…</span></span><span class="tag">High 7.6</span></a></li>
+<li><a href="#v6"><span class="no">2</span><span><b>Zscaler</b><span class="sub">Virtual Service Edge（旧VZEN）更新の事前通知</span></span><span class="tag">2 件</span></a></li>
+<li><a href="#v9"><span class="no">3</span><span><b>Azure</b><span class="sub">Azure WAF による CVE-2026-111497（Brotli）保護の…</span></span><span class="tag">2 件</span></a></li>
+</ol>
+<h2>ベンダー別の新着の数</h2>
+<svg class="chart" viewBox="0 0 360 140" role="img" aria-label="ベンダー別の新着の数。Cisco 1、HPE Aruba 1、Zscaler 2、Azure 2、Red Hat 1"><a href="#v1"><text x="0" y="18">Cisco</text><rect x="126" y="7" width="95" height="14"/><text class="n" x="229" y="18">1</text></a><a href="#v4"><text x="0" y="46">HPE Aruba</text><rect x="126" y="35" width="95" height="14"/><text class="n" x="229" y="46">1</text></a><a href="#v6"><text x="0" y="74">Zscaler</text><rect x="126" y="63" width="190" height="14"/><text class="n" x="324" y="74">2</text></a><a href="#v9"><text x="0" y="102">Azure</text><rect x="126" y="91" width="190" height="14"/><text class="n" x="324" y="102">2</text></a><a href="#v12"><text x="0" y="130">Red Hat</text><rect x="126" y="119" width="95" height="14"/><text class="n" x="229" y="130">1</text></a></svg>
+<h2>ベンダー別の早見表</h2>
+<table class="board"><thead><tr><th scope="col">ベンダー</th><th scope="col">新着</th><th scope="col">重さ</th></tr></thead>
+<tbody>
+<tr class="grp"><th colspan="3" scope="colgroup">ネットワーク</th></tr>
+<tr><th scope="row"><a href="#v1">Cisco</a></th><td>1 件</td><td><span class="sev high">High 7.6</span></td></tr>
+<tr><th scope="row"><a href="#v2">Juniper</a></th><td class="quiet">なし</td><td><span class="quiet">—</span></td></tr>
+<tr><th scope="row"><a href="#v3">Fortinet</a></th><td class="quiet">なし</td><td><span class="quiet">—</span></td></tr>
+<tr><th scope="row"><a href="#v4">HPE Aruba</a></th><td>1 件</td><td><span class="quiet">—</span></td></tr>
+<tr class="grp"><th colspan="3" scope="colgroup">ゼロトラスト・セキュリティ</th></tr>
+<tr><th scope="row"><a href="#v5">Palo Alto Networks</a></th><td class="quiet">なし</td><td><span class="quiet">—</span></td></tr>
+<tr><th scope="row"><a href="#v6">Zscaler</a></th><td>2 件</td><td><span class="quiet">—</span></td></tr>
+<tr><th scope="row"><a href="#v7">Cisco SSE / Secure Access</a></th><td class="quiet">なし</td><td><span class="quiet">—</span></td></tr>
+<tr class="grp"><th colspan="3" scope="colgroup">クラウド</th></tr>
+<tr><th scope="row"><a href="#v8">AWS</a></th><td class="quiet">なし</td><td><span class="quiet">—</span></td></tr>
+<tr><th scope="row"><a href="#v9">Azure</a></th><td>2 件</td><td><span class="quiet">—</span></td></tr>
+<tr><th scope="row"><a href="#v10">GCP</a></th><td class="quiet">なし</td><td><span class="quiet">—</span></td></tr>
+<tr class="grp"><th colspan="3" scope="colgroup">仮想化・OS</th></tr>
+<tr><th scope="row"><a href="#v11">VMware (Broadcom)</a></th><td class="quiet">なし</td><td><span class="quiet">—</span></td></tr>
+<tr><th scope="row"><a href="#v12">Red Hat</a></th><td>1 件</td><td><span class="quiet">—</span></td></tr>
+</tbody></table>
+<h2>今週の要点</h2>
+<ol class="points"><li>先週から継続の主役は <b>Linux kernel IPv4 TCP UAF（CVE-2026-98432・Critical）</b>。今週に入り Red Hat が RHEL 8/9/10 の kernel エラータで修正を確定させ、緩和頼みの状態は解消した。F5 BIG-IP の対応は K000164068 で追跡継続（修正版の明示は未確認）。</li><li><b>Cisco は11/4に月次バッチ公開</b>。UCS Central RCE（CVE-2026-76506・High 7.6）を筆頭に ISE / Unified Communications Manager を含む。ISE はゼロトラスト基盤として優先確認対象。</li><li><b>HPE Aruba は11/3（太平洋時間）に事前通知通りアドバイザリを公開</b>。10/22の72件パッチ（HPESBNW05162・CVSS 10.0×8）に続く第2波で、ワイヤレスOSの修正ラッシュが続く。</li><li><b>Fortinet は11/10のFG-IR一括公開を翌日に控え、10/22ハードニングリリースの適用完了が実質的な締切</b>。CVE詳細は来週確定する。</li><li>Zscaler は11/3に Virtual Service Edge の事前通知を出すとともに、CVE-2026-111497（Node.js Brotli）の非影響評価を明確化（Node.js 含む非影響・Update 2）。</li><li>クラウドは静めらかだが、Azure が11/3付で <b>WAFによるBrotli CVE-2026-111497 保護</b>を告知し、共通ランタイム脆弱性対応がSaaS/WAF側にも波及。</li></ol>
+<p class="caveat">注意: 台帳・日次ノートは本期間分が未整備のため、本稿の一次情報はWeb直接確認による。</p>
+<h2>ネットワーク</h2>
+<section class="vend" id="v1"><h3>Cisco</h3>
+<details class="more" open><summary>くわしく読む</summary><ul><li>2026-11-04: <b>Cisco PSIRT 月次バッチ公開（cisco-sa-notice-I8z3n6lK）</b>。UCS Central Software RCE（CVE-2026-76506・High・CVSS 7.6）、Unified Communications Manager XSS（CVE-2026-76419・Medium・6.1）、Identity Services Engine（ISE）の脆弱性を含む。修正版とともに公開済み。<a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-notice-I8z3n6lK" target="_blank" rel="noopener noreferrer">sec.cloudapps.cisco.com</a> （2026-11-04）</li><li>カナダCyber Centre も AV26-1127 として UCS Central（2.1(2c) 未満）の対処を呼びかけ。<a href="https://www.cyber.gc.ca/en/alerts-advisories/cisco-security-advisory-av26-1127" target="_blank" rel="noopener noreferrer">cyber.gc.ca</a> （2026-11-04）</li><li>10/21四半期バッチ（Expressway / Secure Client Posture CVE-2026-76462 等）のKEV入りは週末時点で未確認（推測: 追跡継続）。</li></ul></details></section>
+<section class="vend" id="v2"><h3>Juniper</h3>
+<details class="more"><summary>くわしく読む</summary><ul><li>期間内の新規JSAは<b>確認できず</b>。直近は10/14の四半期バレット（Junos OS / Evolved・CVSS 9.8含む）: <a href="https://supportportal.juniper.net/s/article/2026-10-Security-Bulletin-Junos-OS-and-Junos-OS-Evolved-Multiple-vulnerabilities-resolved" target="_blank" rel="noopener noreferrer">supportportal.juniper.net</a> （2026-10-14・期間外参考）</li></ul></details></section>
+<section class="vend" id="v3"><h3>Fortinet</h3>
+<details class="more"><summary>くわしく読む</summary><ul><li>期間内の新規FG-IRは<b>なし</b>。10/22のSecurity Hardening Release（FortiOS 7.6.8/7.4.13/8.0.2/7.2.14、FortiManager、FortiAnalyzer）適用が11/10のCVE公開前の実質締切。CVE/CVSS詳細は11/10に一括確定予定。<a href="https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products" target="_blank" rel="noopener noreferrer">fortinet.com</a> （2026-10-22・期間外参考）</li><li>FG-IR-26-182のCVEレコード不一致（FortiPAM/FortiSASE記載・community_reported）は公式公開時に必ず突き合わせること。</li></ul></details></section>
+<section class="vend" id="v4"><h3>HPE Aruba</h3>
+<details class="more" open><summary>くわしく読む</summary><ul><li>2026-11-03（太平洋時間）: <b>事前通知（HPESBNW05166 rev.1）通りSecurity Advisory群を公開</b>。対象・CVE詳細の個別確認は未了（本文の全数取得が未確認・推測を含む）。<a href="https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05166en_us&amp;docLocale=en_US" target="_blank" rel="noopener noreferrer">support.hpe.com</a> （通知: 2026-10下旬・公開実施2026-11-03）</li><li>前提として10/22のHPESBNW05162（AOS-8/AOS-10・72件・CVSS 10.0×8件）の適用状況確認が先決。<a href="https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&amp;docLocale=en_US" target="_blank" rel="noopener noreferrer">support.hpe.com</a> （2026-10-22・期間外参考）</li></ul></details></section>
+<h2>ゼロトラスト・セキュリティ</h2>
+<section class="vend" id="v5"><h3>Palo Alto Networks</h3>
+<details class="more"><summary>くわしく読む</summary><ul><li>期間内の新規主要公告は確認できず。CVE-2026-111497（Brotli）のPAN-OS hotfixライン公告（10/26公開・10/31更新）とPHP2Shell確定版（10/29更新）が最新。<a href="https://security.paloaltonetworks.com/CVE-2026-111497" target="_blank" rel="noopener noreferrer">security.paloaltonetworks.com</a> （2026-10-26・期間外参考）</li><li>CVE-2026-0322（管理IF認証後RCE・悪用観測）の修正済みhotfix適用継続。<a href="https://security.paloaltonetworks.com/CVE-2026-0322" target="_blank" rel="noopener noreferrer">security.paloaltonetworks.com</a> （参考）</li></ul></details></section>
+<section class="vend" id="v6"><h3>Zscaler</h3>
+<details class="more" open><summary>くわしく読む</summary><ul><li>2026-11-03: <b>Virtual Service Edge（旧VZEN）更新の事前通知</b>（Service Continuity Policy に基づく resiliency 強化・設定配信改善）。<a href="https://trust.zscaler.com/security-advisories" target="_blank" rel="noopener noreferrer">trust.zscaler.com</a> （2026-11-03）</li><li>2026-11-03（Update 2）: <b>CVE-2026-111497 の非影響評価をNode.jsを含めて明確化</b>。ZCC/SSE利用環境は追加対応不要の見立て。<a href="https://trust.zscaler.us/zscalerten.net/security-advisories" target="_blank" rel="noopener noreferrer">trust.zscaler.us</a> （2026-11-03）</li></ul></details></section>
+<section class="vend" id="v7"><h3>Cisco SSE / Secure Access</h3>
+<details class="more"><summary>くわしく読む</summary><ul><li>期間内のSecure Access公式新規公告は<b>確認できず</b>（推測: 静穏週）。11/4バッチのISEアドバイザリはNAC/ポリシー基盤としてSSE経由のアクセス制御に波及するため要確認。</li></ul></details></section>
+<section class="vend"><h3>SSE / ZTNA 製品比較（今週の公開ベース）</h3>
+<div class="tablewrap"><table class="cmp"><thead><tr><th scope="col">項目</th><th scope="col">Palo Alto</th><th scope="col">Zscaler</th><th scope="col">Cisco (SSE/ISE)</th></tr></thead><tbody><tr><td>Node.js Brotli CVE-2026-111497</td><td>PAN-OS hotfixライン提示済み（10/31更新）</td><td>非影響・Node.js含む明確化（11/3 Update 2）</td><td>10/30包括アドバイザリでSplunk等評価済み（10/30）</td></tr><tr><td>今週の主要公告</td><td>新規なし（静穏週）</td><td>VSE更新事前通知（11/3）</td><td>ISE/UCS Central/UCM 月次バッチ（11/4）</td></tr><tr><td>継続追跡</td><td>CVE-2026-0322 hotfix適用確認</td><td>VSE更新スケジュールの計画反映</td><td>CVE-2026-76462 KEV監視・11/4 ISE詳細確認</td></tr></tbody></table></div></section>
+<h2>クラウド</h2>
+<section class="vend" id="v8"><h3>AWS</h3>
+<details class="more"><summary>くわしく読む</summary><ul><li><b>CVE-2026-98432 への公式セキュリティ bulletin（2026-160）</b>: kernel 4.4以降のIPv4 TCPハンドシェイク経路が対象。IP options付きパケットによるリモート・認証前攻撃。AL2023等のAMI更新ポリシーを確認。<a href="https://aws.amazon.com/security/security-bullets/2026-160-aws/" target="_blank" rel="noopener noreferrer">aws.amazon.com</a> （2026-10中旬公開・今週週内に修正AMI追跡）</li><li>期間内（11/3-11/9）のネットワーク系目立った新規リリースは検索上確認できず（推測: 静めらか）。</li><li>参考（期間外）: 10/30のCloudFront PQC可視化ヘッダー・WAF自動SDK統合は先週記事参照。</li></ul></details></section>
+<section class="vend" id="v9"><h3>Azure</h3>
+<details class="more" open><summary>くわしく読む</summary><ul><li>2026-11-03前後: <b>Azure WAF による CVE-2026-111497（Brotli）保護の告知</b>。共通ランタイム脆弱性へのWAF側シグネチャ/緩和展開。<a href="https://www.azurebrasil.cloud/blog/azure-newsletter-2026-11-03/" target="_blank" rel="noopener noreferrer">azurebrasil.cloud</a> （2026-11-03・二次ソース。公式updatesの該当ID要確認）</li><li>2026-11-04: Azure Networking Blog に ExpressRoute 関連の新規投稿（詳細未取得・要確認）。<a href="https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog" target="_blank" rel="noopener noreferrer">techcommunity.microsoft.com</a> （2026-11-04）</li><li>Microsoft Security 2026年11月まとめ: AIエージェント保護・最小権限・露出管理の強化。<a href="https://www.microsoft.com/en-us/security/blog/2026/11/05/whats-new-in-microsoft-security-november-2026/" target="_blank" rel="noopener noreferrer">microsoft.com</a> （2026-11-05）</li></ul></details></section>
+<section class="vend" id="v10"><h3>GCP</h3>
+<details class="more"><summary>くわしく読む</summary><ul><li>期間内のCloud NGFW/VPCの目立った新規リリースは確認できず（リリースノート最終確認は検索ベース・推測を含む）。<a href="https://docs.cloud.google.com/vpc/docs/release-notes" target="_blank" rel="noopener noreferrer">docs.cloud.google.com</a></li></ul></details></section>
+<h2>仮想化・OS</h2>
+<section class="vend" id="v11"><h3>VMware (Broadcom)</h3>
+<details class="more"><summary>くわしく読む</summary><ul><li>期間内の新規VMSAは<b>確認できず</b>。VMSA-2026-0008（Node.js Brotli・10/27）が最新で、ESX/vCenter側はVMSA-2026-0006.1（8/19更新・8.0 U3k）以降の新規なし。<a href="https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39445" target="_blank" rel="noopener noreferrer">support.broadcom.com</a> （2026-10-27・期間外参考）</li></ul></details></section>
+<section class="vend" id="v12"><h3>Red Hat</h3>
+<details class="more" open><summary>くわしく読む</summary><ul><li>2026-11-01〜02: <b>CVE-2026-98432 の kernel 修正エラータをRHEL各ストリームで確定</b>。</li><li>RHEL 8.10 標準: kernel-4.18.0-553.182.1.el8_10（11/1・要再起動）— 二次ソース <a href="https://www.neoteo.com/en/red-hat-patches-cve-2026-98432-in-standard-rhel-8" target="_blank" rel="noopener noreferrer">neoteo.com</a> （2026-11-01）</li><li>RHEL 9/10: 別々のkernelエラータ（CVE集合はストリーム毎に異なる）— 二次ソース <a href="https://www.techgeeks.org/security-notice-red-hat-rhel9-10-kernels-2026-11-02/" target="_blank" rel="noopener noreferrer">techgeeks.org</a> （2026-11-02）</li><li>一次: <a href="https://access.redhat.com/security/vulnerabilities/RHSB-2026-016" target="_blank" rel="noopener noreferrer">access.redhat.com</a> （RHSB-2026-016・継続更新）</li><li>これにより nftables 緩和策は暫定措置に戻り、計画再起動で正式修正へ移行可能。</li></ul></details></section>
+<footer class="foot"><p>各社の公開情報をまとめた物です。重さは本文に書かれた語と数値をそのまま拾っています。自動生成です。</p><p>作成 2026-11-11 15:03</p></footer>
+</div>
+</body>
+</html>
