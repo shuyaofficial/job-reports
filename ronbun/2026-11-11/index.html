@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>論文分析 2026-11-11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* 1列の読み物。画像を大きく見せ、文字は1項目2行だけ */
+:root{
+  --bg:#f5f6fa; --surface:#ffffff; --ink:#1b1f2b; --ink-2:#5b6274; --line:#e2e5ee;
+  --accent:#6a3fd6; --accent-soft:#efe9fc; --on:#ffffff;
+  --ok:#1e7a4c; --ok-soft:#e1f3e8; --wait:#8f5300; --wait-soft:#fcefd9; --no:#646a7a; --no-soft:#eceef3;
+  --head:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14161d; --surface:#1d2029; --ink:#eef0f6; --ink-2:#a8afc0; --line:#2f3442;
+  --accent:#b39bff; --accent-soft:#2a2342; --on:#14161d;
+  --ok:#7fd6a5; --ok-soft:#1b2e25; --wait:#f2b866; --wait-soft:#34281a; --no:#a3a9b8; --no-soft:#262a34; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14161d; --surface:#1d2029; --ink:#eef0f6; --ink-2:#a8afc0; --line:#2f3442;
+  --accent:#b39bff; --accent-soft:#2a2342; --on:#14161d;
+  --ok:#7fd6a5; --ok-soft:#1b2e25; --wait:#f2b866; --wait-soft:#34281a; --no:#a3a9b8; --no-soft:#262a34; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75}
+.page{max-width:880px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--head);font-weight:800;text-wrap:balance;line-height:1.35;margin:0}
+h1{font-size:34px}
+.sub{color:var(--ink-2);margin:6px 0 0}
+.part{display:flex;align-items:baseline;gap:12px;margin:44px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.part .no{font-family:var(--head);font-size:15px;font-weight:800;color:var(--on);background:var(--accent);border-radius:999px;padding:2px 12px;white-space:nowrap}
+.part h2{font-size:24px}
+.items,.facts{display:grid;gap:18px}
+.item,.fact{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.item img,.fact img{display:block;width:100%;height:auto}
+.item img.half{max-width:560px;margin:0 auto}
+.pair{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:6px;background:#000}
+.pair img{display:block;width:100%;height:auto;min-width:0}
+.pair .arr{color:#c9b8ff;font-size:24px;font-weight:800;padding:0 2px}
+.item .txt{padding:12px 16px 14px;display:grid;gap:4px;min-width:0}
+.fact .txt{padding:14px 16px}
+.item h3,.fact h3{font-size:19px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.fact h3{margin-bottom:6px}
+.item h3 a{font-family:var(--body);font-size:13px;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:0 10px}
+.item h3 a:hover,.item h3 a:focus-visible{background:var(--accent-soft)}
+.row{display:grid;grid-template-columns:5.5em 1fr;gap:8px;align-items:baseline}
+.row b{font-size:13px;color:var(--ink-2);font-weight:700;letter-spacing:.04em}
+.chip{font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px;white-space:nowrap}
+.c-ok{background:var(--ok-soft);color:var(--ok)} .c-wait{background:var(--wait-soft);color:var(--wait)} .c-no{background:var(--no-soft);color:var(--no)}
+.fact ul{margin:0;padding-left:1.2em}.fact li{margin:3px 0}
+/* 比較表: 行＝見る点、列＝候補。勝った列に .win を付ける */
+.cmpwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.cmp{border-collapse:collapse;width:100%;min-width:560px;font-variant-numeric:tabular-nums}
+.cmp th,.cmp td{padding:14px 12px;text-align:center;border-bottom:1px dashed var(--line);vertical-align:middle}
+.cmp thead th{font-size:14px;font-weight:700;color:var(--ink)}
+.cmp tbody th{text-align:left;font-size:14px;font-weight:700;white-space:nowrap}
+.cmp tbody th small{display:block;font-size:11px;font-weight:400;color:var(--ink-2)}
+.cmp td{font-size:18px}
+.cmp.two{min-width:0}
+@media (max-width:600px){.cmp.two th,.cmp.two td{padding:10px 6px}.cmp.two td{font-size:15px}.cmp.two tbody th{white-space:normal}}
+.cmp .win{background:var(--accent-soft);font-weight:800}
+.cmp thead .win{color:var(--accent)}
+.cmp tr:last-child th,.cmp tr:last-child td{border-bottom:0}
+.steps{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:8px}
+.steps.three{grid-template-columns:1fr auto 1fr auto 1fr}
+.step{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg);min-width:0}
+.step b{display:block;font-family:var(--head);font-size:17px}
+.step span{color:var(--ink-2);font-size:14px}
+.step.go{border-color:var(--accent);background:var(--accent-soft)}
+.arrow{font-size:22px;color:var(--accent);font-weight:800}
+.foot{margin-top:36px;color:var(--ink-2);font-size:13px}
+.foot a{color:var(--accent)}
+@media (max-width:600px){
+  h1{font-size:27px}
+  .row{grid-template-columns:1fr;gap:0}
+  .pair{grid-template-columns:1fr}.pair .arr{transform:rotate(90deg);justify-self:center;line-height:1}
+  .steps,.steps.three{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:center}
+}
+
+.meta{color:var(--ink-2);font-size:13px;margin:0 0 8px}
+.fact p{margin:0 0 8px}
+.idx{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.idx li{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.idx li:last-child{border-bottom:0}
+.idx a{color:var(--accent);font-weight:700}
+</style>
+</head>
+<body>
+<div class="page">
+<h1>論文分析 2026-11-11 早わかり</h1>
+<p class="sub">arXiv などから拾った 8 本の要点です。</p>
+
+<div class="part"><span class="no">1</span><h2>今日の 3 行</h2></div>
+<div class="facts">
+<section class="fact">
+  <div class="txt">
+    <ul>
+      <li>実務応用では、分解手順書からのデータ抽出や、エージェントによるスクリーニングの誤り評価など、現場で信頼できるかどうかが焦点になっている。</li>
+      <li>マルチモーダルモデルやエージェントの制御では、推論時の介入、教師からの蒸留、経験のコンテキスト記録など、重みを変えずに振る舞いを調整する手法が広がっている。</li>
+      <li>データ配分の最適化や分子動力学の効率化といった基礎手法の改良が進む一方、エージェントの組織設計を評価するベンチマークも整備され始めている。</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<div class="part"><span class="no">2</span><h2>8 本の要点</h2></div>
+<div class="facts">
+<section class="fact">
+  <div class="txt">
+    <h3><a href="https://arxiv.org/abs/2611.12816v1" target="_blank" rel="noopener noreferrer">Automated Knowledge Acquisition Pipeline for Disassembly Instructions: A Comparison of NLP and Generative AI Frameworks</a></h3>
+    <p class="meta">Tim Schnieders、Tareq Maximilian Gabriel Ahrari、Oliver Petrovic ほか・arXiv</p>
+    <p>循環型経済（Re-X）への対応で需要が高まる分解作業の自動化を、中小企業が導入しにくい状況を背景に、分解手順書から手順データを抽出する2つの手法（ルールベースNLPと生成AI/LLM）を比較した研究です。実際の分解マニュアルで両者を評価し、今後の分解自動化に必要なデータ基盤を提示しています。</p>
+    <ul>
+      <li><b>背景</b>: 製品の複雑化により分解作業の自動化が難しく、特に中小企業（SME）が循環型経済への対応で課題を抱えている。</li>
+      <li><b>手法</b>: 分解マニュアルなどの非構造化テキストから分解手順を抽出し、構造化・機械可読な形式に変換する2つのフレームワークを実装した。ルールベースのNLP手法と、LLMを用いた生成AI手法を比較している。</li>
+      <li><b>結果</b>: 実際の分解マニュアルを用いて両手法の性能を比較した。要約情報には具体的な数値や優劣の結論は含まれていない（本文未取得のため不明）。</li>
+      <li><b>示唆</b>: 得られた構造化データは、将来の分解プロセス開発と自動化の基盤になる。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fact">
+  <div class="txt">
+    <h3><a href="https://arxiv.org/abs/2611.12883v1" target="_blank" rel="noopener noreferrer">Beyond Modality Preference: Controlling Multimodal Arbitration under Modality Conflict in MLLMs</a></h3>
+    <p class="meta">Zhaoying Pan、Shenyu Lu、Jun Hui Wong ほか・arXiv</p>
+    <p>MLLMの「どちらのモダリティを信頼するか」を制御する一部のアテンションヘッド（arbitration heads）を特定し、推論時に学習不要の介入でそれらを指定モダリティ側へ誘導できることを示した。これにより、視覚とテキストが矛盾する場合でも、タスクに応じた双方向の制御が可能になる。</p>
+    <ul>
+      <li><b>背景</b>: MLLMは複数モダリティの情報を統合するが、入力同士が矛盾すると、タスクにとって最適でないモダリティを優先してしまうことがある。</li>
+      <li><b>手法</b>: 因果的に予測のモダリティ選好へ影響する少数のアテンションヘッド（arbitration heads）を特定し、推論時にそれらを信頼すべきモダリティ側へ誘導する軽量・学習不要の介入を提案。</li>
+      <li><b>結果</b>: 特定されたヘッドは校正データ量に対して安定しており、複数のベンチマークで汎化しつつ、視覚・テキスト両方向へのモダリティ依存の制御が有効であることを確認。</li>
+      <li><b>示唆</b>: 推論時のアテンション制御により、MLLMの予測をタスクで指定されたモダリティの優先順位に合わせられる有効な手段となりうる。</li>
+      <li><b>補足</b>: 本文は取得できなかったため、要点はアブストラクトに基づく。コードは https://github.com/zhaoyingpan/modality-arbitration で公開されている。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fact">
+  <div class="txt">
+    <h3><a href="https://arxiv.org/abs/2611.12884v1" target="_blank" rel="noopener noreferrer">Guiding Data Allocation for Robust Subpopulation Generalization</a></h3>
+    <p class="meta">Zhaoying Pan、Yipei Wang、Shenyu Lu ほか・arXiv</p>
+    <p>学習データのサブグループ比率を完全に均等にすることが、ロバストな汎化の唯一の最適解ではないことを理論的に示した。多くの不均衡な構成でも均衡データと同程度の性能が得られ、勾配に基づいて比率を調整する方が、単純なバランシングより効率的に精度と最悪グループ精度を改善できるとしている。</p>
+    <ul>
+      <li><b>背景</b>: 機械学習モデルは学習データ上の平均精度が高くても、サブポピュレーションシフトによりテストデータで性能が落ちることがある。従来はサブグループ比率を均等にするデータ中心の対策が一般的だが、完全なバランシングはコストが高く、実現できない場合や必ずしも必要ではない場合がある。</li>
+      <li><b>手法</b>: Gaussian feature modelの枠組みを拡張し、一般的な学習サブグループ分布に対する性能の全体像を理論的に特徴づけた。さらに、調整後精度と最悪グループ精度を効率的に向上させるためのサブグループ比率の勾配方向を導出した。</li>
+      <li><b>結果</b>: 大きく不均衡な構成を含む複数の構成が、均衡データと同程度の性能を示すことを示した。</li>
+      <li><b>示唆</b>: データの配分を戦略的に設計することは、単純なバランシングよりも柔軟で原理的なロバスト性向上の道筋になりうる。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fact">
+  <div class="txt">
+    <h3><a href="https://arxiv.org/abs/2611.12880v1" target="_blank" rel="noopener noreferrer">Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics</a></h3>
+    <p class="meta">Majdi Hassan、Marta Skreta、Dominique Beaini ほか・arXiv</p>
+    <p>SDEの遷移カーネルを、軌道データを使わず周辺サンプルと既知のドリフト・拡散係数だけから学習するKC-Maps（Kolmogorov-Chapman Maps）を提案し、ペプチド分子系の動力学をGPU時間で古典的な分子動力学より効率よく再現できることを示した。</p>
+    <ul>
+      <li><b>背景</b>: SDEの数値積分は1ステップは安価だが、意味のある遷移を観測するには数百万ステップが必要になりやすく、壁時計時間とハードウェア利用効率が悪い。既存の教師あり学習型の代理モデルは長いシミュレーション軌道データを必要とするため適用範囲が狭い。</li>
+      <li><b>手法</b>: KC-Mapsは、軌道データを使わず周辺サンプルと既知のドリフト・拡散係数から、SDEの遷移カーネル（弱解に対応する、任意時刻までの状態分布）を学習する。境界条件をネットワーク構造に直接組み込み、Kolmogorov-Chapman方程式を効率的な学習目標として用いる。</li>
+      <li><b>結果</b>: ペプチド分子系の動力学をKC-Mapsで学習・再現でき、GPU時間の観点で古典的な分子動力学シミュレーションを上回ると報告している。</li>
+      <li><b>示唆</b>: 軌道データが得られない場合でも、既知の物理情報から分子動力学の高速な代理シミュレーションを構築できる可能性を示す。ただし本文が取得できなかったため、精度や対象系の範囲など詳細な評価は未確認。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fact">
+  <div class="txt">
+    <h3><a href="https://arxiv.org/abs/2611.12705v1" target="_blank" rel="noopener noreferrer">Multi-Agent Screening: What Agreement and Acceptance Cannot Tell You</a></h3>
+    <p class="meta">Benjamin Chang、Dell Zhang・arXiv</p>
+    <p>AIエージェントがスクリーニングした結果について、一致や人間による採択だけでは誤りを判定できない。再現率を特定できるのは、エージェントが通過させなかった項目を無作為抽出で評価した場合に限られる。</p>
+    <ul>
+      <li><b>背景</b>: エージェント型検索、eディスカバリー、AIによる論文査読などでは、AIエージェントが項目を選別し、高コストな人間の評価者が判定するのは通過した項目のみである。</li>
+      <li><b>手法</b>: 「エージェント同士の一致」「評価者による採択」「どのエージェントがどの関連項目を見つけたか」という3種類の証拠が、誤りについて何を示せるかを理論的に分析した。</li>
+      <li><b>結果</b>: 一致は正しさを保証せず、採択は適合率を示すものの再現率の下限しか示さない。発見の相関が負でなければ再現率の上限が得られる。真の再現率は、通過しなかった項目を無作為に抽出して判定することでしか推定できず、そのサンプルサイズはエージェント数に依存しない。</li>
+      <li><b>示唆</b>: エージェントの性能を信頼する前に、除外された項目の一部を人間が確認する設計が必要である。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fact">
+  <div class="txt">
+    <h3><a href="https://arxiv.org/abs/2611.12886v1" target="_blank" rel="noopener noreferrer">Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning</a></h3>
+    <p class="meta">Haozhi Yuan、Handong Li、Yifan Zhang ほか・arXiv</p>
+    <p>ツール返却観測を学習対象に含めるポストトレーニング枠組み「Reframe」を提案し、Mix-RLやvanilla MOPDを14の画像・動画ベンチマークで上回ったと報告しています。SFTによるコールドスタートは不要です。</p>
+    <ul>
+      <li><b>背景</b>: エージェント型強化学習と多教師オンポリシー蒸留（MOPD）は補完的な後処理手法だが、視覚エージェントではツール利用に2つの課題がある。モデルがツールの返す有用な観測を見落とすことと、根拠の弱い行動が後続の蒸留に使える証拠を減らすことである。</li>
+      <li><b>手法</b>: Ground-Drop-GRPO（GD-GRPO）は証拠を意識した報酬と元の画像入力の確率的な除去を用い、空間・時間の専門家モデルを学習させる。Observation-Gated-MOPD（OG-MOPD）は展開の途中で不十分なツール行動を正規の行動に置き換え、修復された観測から蒸留を再開する。</li>
+      <li><b>結果</b>: 14の画像・動画ベンチマークでMix-RLとvanilla MOPDを上回った。アブレーションでは、結果ベースのGRPOと比べてGD-GRPOが観測への依存度とツールによる利得を高めた。</li>
+      <li><b>示唆</b>: 出力分布だけでなく観測状態を整合の対象とすることが、視覚エージェントの後処理に有効である可能性を示している。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fact">
+  <div class="txt">
+    <h3><a href="https://arxiv.org/abs/2611.12856v1" target="_blank" rel="noopener noreferrer">WorkflowArena: Benchmarking Executable Workflow Orchestration in LLM-Based Multi-Agent Systems</a></h3>
+    <p class="meta">Zheng Jiang、Fang Niu、Bo Peng ほか・arXiv</p>
+    <p>LLMエージェントの組織設計を「ワークフロー・オーケストレーション」として定式化し、145タスクのベンチマーク WorkflowArena で評価した。モデルが自らワークフローを作るとき、その組織の質が性能を左右する。</p>
+    <ul>
+      <li><b>背景</b>: LLMエージェントは単体ではなく複数エージェントで動くようになり、どう分業させるかをモデル自身が実行時に決めるようになった。しかし既存ベンチマークは最終タスク達成率か、事前定義された構造での協調しか測っていない。</li>
+      <li><b>手法</b>: ソフトウェア工学や形式数学、法律分析、3D制作など8分野・145の長期タスクからなる WorkflowArena を提案。成果物は相互依存する複数の構成要素からなり、非公開の検証器で評価する。委譲の記録も残し、成果物の質と作業組織を同時に評価する。</li>
+      <li><b>結果</b>: 9モデルで比較したところ、全分野で最良の構成はなかった。高い effort 設定では、Claude Code の Claude モデルはワークフロー起動が少なく大きなワーカー群を使い、Codex の GPT モデルは小さな単位で頻繁に委譲した。実行モデルを固定した難しいサブセットでは、Claude Opus 5.5 が作ったワークフローが弱い実行モデルの性能を大きく改善した。</li>
+      <li><b>示唆</b>: ワークフローの組織化そのものが、タスク性能を左右する測定可能な要因だと示された。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="fact">
+  <div class="txt">
+    <h3><a href="https://arxiv.org/abs/2611.12885v1" target="_blank" rel="noopener noreferrer">World In-Context Learning for Agentic Robot Manipulation</a></h3>
+    <p class="meta">Heng Fang、Zehui Guo、Yuehan Zhang ほか・arXiv</p>
+    <p>固定されたLLMをシミュレータ上でのリハーサルによって学習させ、その経験をモデルの重みではなくコンテキストに書き込む「World In-Context Learning (WICL)」を提案した。1件のデモから重みの更新なしで、RoboTwin 2.0の50タスクで平均83.4%の成功率を達成し、学習済み方策を20ポイント以上上回った。</p>
+    <ul>
+      <li><b>背景</b>: 学習済み方策は技能を重みに埋め込むため、学習時の分布に結び付いてしまう。文脈内学習（ICL）はこの制約を回避できるが、別シーンのデモには現在の世界からのフィードバックがなく、学習済み方策に届いていなかった。</li>
+      <li><b>手法</b>: 固定モデルがデモから出発し、シミュレータなどの世界でタスクをリハーサルし、フィードバックを重みではなくコンテキストに書き込む。これを実装したモジュール式基盤「RoboScript」では、学習結果を Task Memory として凍結し、新しいシーンに展開する。</li>
+      <li><b>結果</b>: RoboTwin 2.0の全50タスクで、1デモ・勾配更新なしで平均83.4%の成功率（clean/randomized両設定）。最強の学習済み方策を20ポイント以上上回った。さらに、視覚分布をまたいだ汎化、リフレクションによる改善、基盤モデルの規模に応じたスケーリングを示し、クロスエンボディメント記憶の適応により物理的な双腕ロボットへの転移も確認された。</li>
+      <li><b>示唆</b>: 世界をループに組み込めば、ロボットは操作タスクを重みではなくコンテキストで学習しても、重み学習と同程度に習得できる可能性がある。コードは https://github.com/ArcheOne-AI/RoboScript で公開されている。</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<p class="foot">出典は各論文のリンク。要約は自動生成です。作成 2026-11-11 13:33</p>
+</div>
+</body>
+</html>
