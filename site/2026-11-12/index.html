@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ja" data-job="site">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>サイト分析 2026-11-12</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">サイト分析</span><time>2026年11月12日(木)</time></header>
+<h1>AIエージェントの統制と安全な実行環境が主要テーマ</h1>
+<p class="deck">記事 11 本・8 サイト・先に読むなら 3 本</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#a1"><span class="no">1</span><span><b>ユナイテッド航空が、外部AIによる航空券予約などの利用を禁止する方針を発表</b><span class="sub">外部AI利用の制限が広がる。認証と人間確認の設計が要点（ITmedia AI+）</span></span><span class="tag"></span></a></li>
+<li><a href="#a6"><span class="no">2</span><span><b>AIエージェントの会話履歴が意図せず保存される問題と、その対策の必要性</b><span class="sub">会話履歴の保存範囲と保持期間を見直す必要がある（Dev.to）</span></span><span class="tag"></span></a></li>
+<li><a href="#a7"><span class="no">3</span><span><b>EKS Auto ModeでGateway APIが利用可能に。ALBが自動で構成される</b><span class="sub">Gateway APIの自動構成を実検証。ALB運用の負荷軽減に有効（DevelopersIO）</span></span><span class="tag"></span></a></li>
+</ol>
+<h2>きょうの内訳</h2>
+<div class="charts two"><div><h3>話題ごと（押すとその話題へ）</h3><svg class="chart" viewBox="0 0 360 168" role="img" aria-label="話題ごとの本数。AIエージェント 3、クラウド運用 2、生成AI動向 2、セキュリティ 2、API連携 1、開発手法 1"><a href="#t1"><text x="0" y="18">AIエージェント</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">3</text></a><a href="#t2"><text x="0" y="46">クラウド運用</text><rect x="126" y="35" width="127" height="14"/><text class="n" x="261" y="46">2</text></a><a href="#t3"><text x="0" y="74">生成AI動向</text><rect x="126" y="63" width="127" height="14"/><text class="n" x="261" y="74">2</text></a><a href="#t4"><text x="0" y="102">セキュリティ</text><rect x="126" y="91" width="127" height="14"/><text class="n" x="261" y="102">2</text></a><a href="#t5"><text x="0" y="130">API連携</text><rect x="126" y="119" width="63" height="14"/><text class="n" x="197" y="130">1</text></a><a href="#t6"><text x="0" y="158">開発手法</text><rect x="126" y="147" width="63" height="14"/><text class="n" x="197" y="158">1</text></a></svg></div><div><h3>サイトごと</h3><svg class="chart" viewBox="0 0 360 224" role="img" aria-label="サイトごとの本数。ITmedia AI+ 4、CodeZine 1、Dev.to 1、DevelopersIO 1、Hacker News 1、Publickey 1、Qiita 1、Zenn 1"><text x="0" y="18">ITmedia AI+</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">4</text><text x="0" y="46">CodeZine</text><rect x="126" y="35" width="48" height="14"/><text class="n" x="182" y="46">1</text><text x="0" y="74">Dev.to</text><rect x="126" y="63" width="48" height="14"/><text class="n" x="182" y="74">1</text><text x="0" y="102">DevelopersIO</text><rect x="126" y="91" width="48" height="14"/><text class="n" x="182" y="102">1</text><text x="0" y="130">Hacker News</text><rect x="126" y="119" width="48" height="14"/><text class="n" x="182" y="130">1</text><text x="0" y="158">Publickey</text><rect x="126" y="147" width="48" height="14"/><text class="n" x="182" y="158">1</text><text x="0" y="186">Qiita</text><rect x="126" y="175" width="48" height="14"/><text class="n" x="182" y="186">1</text><text x="0" y="214">Zenn</text><rect x="126" y="203" width="48" height="14"/><text class="n" x="182" y="214">1</text></svg></div></div>
+<section id="t1" class="source"><h2>AIエージェント<span class="count">3 本</span></h2>
+<article class="row" id="a1"><h3><a href="https://www.itmedia.co.jp/news/article/2611/12/2000003127/" target="_blank" rel="noopener noreferrer">ユナイテッド航空が、外部AIによる航空券予約などの利用を禁止する方針を発表</a> <span class="star">注目</span></h3>
+<p class="sub">ITmedia AI+・ユナイテッド航空、外部のAIアシスタントによる航空券の予約などを禁止へ　「チェックインには人間の確認が必要」</p>
+<details class="more"><summary>くわしく読む</summary><p>ユナイテッド航空は、サードパーティ製AIエージェントによる同社サービスの利用（航空券の予約など）を禁止する方針を発表した。理由は機密情報の漏えい、意図しないアカウント操作、航空当局の規制違反のリスクとされる。記事は、Metaの「Muse」公開以降、米国の小売・金融業界でも外部AIの利用を制限する動きが広がっていると伝えている。AIエージェントに業務システムやアカウント操作を任せる際は、認証・権限管理と人間による確認の仕組みが重要になることを示す事例といえる。</p><p class="tags">#aiエージェント</p></details></article>
+<article class="row" id="a5"><h3><a href="https://codezine.jp/article/detail/30238" target="_blank" rel="noopener noreferrer">AIエージェント「dots」の実使用例と、他ツールとの使い分けを紹介</a></h3>
+<p class="sub">CodeZine・メールも請求書も「頼むだけ」──ナル先生が語るdots・Grok Bot・Cue・Museの使い分け</p>
+<details class="more"><summary>くわしく読む</summary><p>OpenAI DevDay 2026で発表されたAIエージェント「dots」を、ナル先生（null-sensei）が発表直後から実使用し、メール返信や請求書下書き、予定登録、3Dプリンター操作までスマホから依頼して処理している様子を紹介する記事です。あわせて、並行利用しているGrok Bot、Manusの「Cue」、Metaの「Muse」との使い分けや、企業利用時の権限設計のトレードオフ、AIエージェントが一般化した後の働き方が論じられています。記事はAIdiverのインタビュー後編で、本文からは各ツールの詳細な技術仕様や具体的な導入手順までは読み取れませんでした。</p><p class="tags">#aiエージェント</p></details></article>
+<article class="row" id="a8"><h3><a href="https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/" target="_blank" rel="noopener noreferrer">ユナイテッド航空が、AIエージェントによる航空券予約代行を禁止した件</a></h3>
+<p class="sub">Hacker News・United Airlines bans AI agents from booking flights on behalf of travelers</p>
+<details class="more"><summary>くわしく読む</summary><p>ユナイテッド航空が、旅行者に代わってAIエージェントが航空券を予約することを禁止したという記事です。本文はタイトルのみで詳細は不明ですが、AIエージェントによる予約代行を航空会社が公式に制限する動きであることが読み取れます。実務的には、航空会社のAPIや予約システムを利用するAIエージェントの設計では、各社の利用規約や自動化の制限を事前に確認する必要性を示唆しています。</p><p class="tags">#ai-agent #story</p></details></article></section>
+<section id="t2" class="source"><h2>クラウド運用<span class="count">2 本</span></h2>
+<article class="row" id="a2"><h3><a href="https://www.itmedia.co.jp/news/article/2611/12/2000003126/" target="_blank" rel="noopener noreferrer">AWS APIを手元で再現する「AWS Emulator」が無償公開。コードはAIが記述</a></h3>
+<p class="sub">ITmedia AI+・Amazon、AWSのAPIを手元で再現する「AWS Emulator」を無償公開　コードはすべてAIエージェントが記述</p>
+<details class="more"><summary>くわしく読む</summary><p>Amazonが、AWSのAPIをローカルで再現する「AWS Emulator」を無償公開した。AWSアカウントを使わずに手元でアプリ構築やCI/CDでの統合テストを行えるため、クラウド利用料やテスト環境の準備コストを抑えたい開発現場で実用性が高い。一方で、すべてのコードが自律型AIエージェントによって記述され人間のレビューを経ていない点は、再現精度や品質保証の観点から導入前に検証しておく価値がある。</p><p class="tags">#aiエージェント</p></details></article>
+<article class="row" id="a7"><h3><a href="https://dev.classmethod.jp/articles/eks-auto-mode-kubernetes-gateway-api/" target="_blank" rel="noopener noreferrer">EKS Auto ModeでGateway APIが利用可能に。ALBが自動で構成される</a> <span class="star">注目</span></h3>
+<p class="sub">DevelopersIO・[アップデート] Amazon EKS Auto ModeでKubernetes Gateway APIが使えるようになりました</p>
+<details class="more"><summary>くわしく読む</summary><p>EKS Auto Modeで Kubernetes Gateway API が利用可能になり、クラスター設定で有効化すれば AWS Load Balancer Controller を別途導入しなくても、Gateway と HTTPRoute を作成するだけで ALB が自動的に構成されるようになりました。記事では重み付けルーティングや ACM 証明書の自動検出を実際に検証した結果を紹介しており、ALB 管理の運用負荷を下げたいクラスター運用者にとって実務的な参考になる内容です。</p><p class="tags">#kubernetes</p></details></article></section>
+<section id="t3" class="source"><h2>生成AI動向<span class="count">2 本</span></h2>
+<article class="row" id="a3"><h3><a href="https://www.itmedia.co.jp/enterprise/articles/2611/11/news089.html" target="_blank" rel="noopener noreferrer">Gartnerの2027年技術トレンド。統制重視へ移り、補完技術の不足を指摘</a></h3>
+<p class="sub">ITmedia AI+・「非言語系AI」はLLMの弱点を補えるか？　Gartner「2027年の戦略的テクノロジのトップ・トレンド」</p>
+<details class="more"><summary>くわしく読む</summary><p>Gartnerの「2027年の戦略的テクノロジのトップ・トレンド」では、10項目の大半が自律型エージェントの統制と変化に耐える基盤設計に充てられており、AIの議論の軸が「何ができるか」から「どう統制するか」へ移りつつあることを示している。その一方で、Gartnerは現在のAIの「頭脳」に当たる技術として3つを挙げ、それらがまだ不足していると指摘している。記事のタイトルが示すように、LLMの弱点を補う「非言語系AI」がその候補として注目されており、実務では統制の仕組みと併せて、この不足領域への対応を検討することが重要になりそうだ。</p><p class="tags">#llm</p></details></article>
+<article class="row" id="a10"><h3><a href="https://qiita.com/aakan/items/4448344efd7d0b3d106b" target="_blank" rel="noopener noreferrer">音声認識の誤り削減やGPU高速化など、生成AIの最新ニュースを一覧</a></h3>
+<p class="sub">Qiita・〖AI News まとめ〗生成AI ニュースレポート — 2026-11-12</p>
+<details class="more"><summary>くわしく読む</summary><p>ElevenLabsのScribe v3は、Liveモデルで誤り率が43%減ったと主張し、価格は据え置きです。Google Play ServicesのLiteRTはGPU推論を約1.4倍高速化し、アプリサイズも削減します。A2UI Expressは簡潔なPython風構文を標準A2UI JSONに変換し、トークン使用量を最大3分の1にできるとされています。</p><p class="tags">#生成ai #man #ニュース #AI #GenAI</p></details></article></section>
+<section id="t4" class="source"><h2>セキュリティ<span class="count">2 本</span></h2>
+<article class="row" id="a6"><h3><a href="https://dev.to/playfulprogramming/ai-agent-sessions-are-a-data-store-nobody-designed-17be" target="_blank" rel="noopener noreferrer">AIエージェントの会話履歴が意図せず保存される問題と、その対策の必要性</a> <span class="star">注目</span></h3>
+<p class="sub">Dev.to・AI Agent Sessions Are a Data Store Nobody Designed</p>
+<details class="more"><summary>くわしく読む</summary><p>AIエージェントのセッション（会話履歴）は、Genkitや ADK などのフレームワークがツール応答を含む全ターンを自動保存しており、開発者が意図して設計していないデータストアになっている、というのが記事の主題です。保存される内容には機密情報が含まれ得るため、後から個別にサニタイズするだけでは根本的に解決できず、保存そのものを扱うフレームワーク側で対処すべきだと主張しています。実務では、エージェントのセッションストアを個人情報や認証情報の漏えい経路として棚卸しし、保持期間やマスキングの方針を早期に設計しておく必要があることを示唆しています。</p><p class="tags">#ai-agent #ai #security #go #gdpr</p></details></article>
+<article class="row" id="a9"><h3><a href="https://www.publickey1.jp/blog/26/awsaiec2vmaws_nitro_sandboxes.html" target="_blank" rel="noopener noreferrer">AIエージェント向け軽量仮想マシン「AWS Nitro Sandboxes」の提供が開始</a></h3>
+<p class="sub">Publickey・AWS、AIエージェント向けに強力な隔離環境とネイティブなEC2性能を備えた軽量VM「AWS Nitro Sandboxes」提供開始</p>
+<details class="more"><summary>くわしく読む</summary><p>AWSは、AIエージェント向けの軽量仮想マシン「AWS Nitro Sandboxes」の提供を開始した。EC2上でほぼネイティブのEC2性能を保ちつつ、Nitroシステムのハードウェアレベルによる強力な隔離環境を備えるのが特徴である。エージェントが生成・実行する不安定なコードやツール操作を安全な環境で動かせるため、信頼性とセキュリティを両立したエージェント基盤の構築に応用できると考えられる。本文が途中で切れているため、料金体系や起動速度などの詳細は推測の域を出ない。</p><p class="tags">#aiエージェント #AWS #Kubernetes #クラウド #コンテナ型仮想化 #機械学習_AI</p></details></article></section>
+<section id="t5" class="source"><h2>API連携<span class="count">1 本</span></h2>
+<article class="row" id="a4"><h3><a href="https://atmarkit.itmedia.co.jp/ait/articles/2611/12/news004.html" target="_blank" rel="noopener noreferrer">MCPの改訂でOpenAPIとの親和性が向上。API設計の見直しが論点</a></h3>
+<p class="sub">ITmedia AI+・「APIを呼ぶのは、もう人間ではない」　進化するMCPとOpenAPIとの“新しい関係”</p>
+<details class="more"><summary>くわしく読む</summary><p>MCPが2026年7月の仕様改訂で既存のWeb技術、特にOpenAPIとの親和性を高め、企業の既存APIをAIエージェントが利用する仕組みが整いつつあると述べています。AIエージェントがAPIを自ら選んで呼び出す時代に、API設計側で何を見直すべきかが論点です。本文は導入部のみのため詳細は不明ですが、既存API資産を再利用しつつ、エージェントが理解しやすい仕様や説明の明確化が実務上の検討点になると考えられます。</p><p class="tags">#aiエージェント</p></details></article></section>
+<section id="t6" class="source"><h2>開発手法<span class="count">1 本</span></h2>
+<article class="row" id="a11"><h3><a href="https://zenn.dev/dress_code/articles/568fd547315abe" target="_blank" rel="noopener noreferrer">AIが決定事項を勝手に覆す5パターンと対策。本文は一部のみ</a></h3>
+<p class="sub">Zenn・AIエージェントが決定を勝手に変えてしまった5つのパターンと工夫</p>
+<details class="more"><summary>くわしく読む</summary><p>AIエージェントが途中で決定事項を勝手に覆してしまう問題に対し、実際に観測された5つのパターンと、それを抑えるための工夫を紹介する記事です。本文はタイトルと「トピック:」の見出しのみで中身が欠けているため、具体的なパターンの内容は推測の域を出ませんが、長いタスクで文脈が薄れた際に既決事項が再検討されてしまう問題を扱っていると考えられます。実務では、決定事項を明示的に記録して毎回参照させる設計や、変更時に承認を求めるガードレールの導入などが応用候補になるでしょう。</p><p class="tags">#aiエージェント #idea</p></details></article></section>
+<footer class="foot"><p>各サイトの公開記事へのリンクです。一言と話題の分け方は自動生成です。</p><p>作成 2026-11-12 12:15</p></footer>
+</div>
+</body>
+</html>
