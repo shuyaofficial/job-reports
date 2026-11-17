@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ja" data-job="ronbun">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>論文分析 2026-11-17</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">論文分析</span><time>2026年11月17日(火)</time></header>
+<h1>実機や実装に近い論文が目立つ。AI関連が中心の日</h1>
+<p class="deck">論文 8 本・先に読むなら 3 本</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#p7"><span class="no">7</span><span><b>FPGA配置技術の転用で自由形状マッピング</b><span class="sub">FPGA技術の転用で即効性の高いハード効率化</span></span><span class="tag"></span></a></li>
+<li><a href="#p6"><span class="no">6</span><span><b>シミュレーションだけで実ロボット操作</b><span class="sub">実機で成功率60%。シミュレーション学習の実用例</span></span><span class="tag"></span></a></li>
+<li><a href="#p4"><span class="no">4</span><span><b>スマホで動く脳-テキスト変換</b><span class="sub">スマホ上で動く脳-テキスト変換の実証</span></span><span class="tag"></span></a></li>
+</ol>
+<h2>分野ごとの本数</h2>
+<svg class="chart" viewBox="0 0 360 140" role="img" aria-label="分野ごとの本数。AI 4、量子計算 1、脳科学 1、海事データ 1、ロボット 1"><text x="0" y="18">AI</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">4</text><text x="0" y="46">量子計算</text><rect x="126" y="35" width="48" height="14"/><text class="n" x="182" y="46">1</text><text x="0" y="74">脳科学</text><rect x="126" y="63" width="48" height="14"/><text class="n" x="182" y="74">1</text><text x="0" y="102">海事データ</text><rect x="126" y="91" width="48" height="14"/><text class="n" x="182" y="102">1</text><text x="0" y="130">ロボット</text><rect x="126" y="119" width="48" height="14"/><text class="n" x="182" y="130">1</text></svg>
+<h2>8 本の一覧</h2>
+<ol class="tri">
+<li><a href="#p1"><span class="no">1</span><span><b>FunSearchで耐故障量子回路を自動発見</b></span><span class="tag">量子計算</span></a></li>
+<li><a href="#p2"><span class="no">2</span><span><b>社会化で整合性を学習させる</b></span><span class="tag">AI</span></a></li>
+<li><a href="#p3"><span class="no">3</span><span><b>動きの時間順序を教師に使う表現学習</b></span><span class="tag">AI</span></a></li>
+<li><a href="#p4"><span class="no">4</span><span><b>スマホで動く脳-テキスト変換</b></span><span class="tag">脳科学</span></a></li>
+<li><a href="#p5"><span class="no">5</span><span><b>AISとRF検出の対応付けに挑戦</b></span><span class="tag">海事データ</span></a></li>
+<li><a href="#p6"><span class="no">6</span><span><b>シミュレーションだけで実ロボット操作</b></span><span class="tag">ロボット</span></a></li>
+<li><a href="#p7"><span class="no">7</span><span><b>FPGA配置技術の転用で自由形状マッピング</b></span><span class="tag">AI</span></a></li>
+<li><a href="#p8"><span class="no">8</span><span><b>言語モデルの重み操作を評価するベンチマーク</b></span><span class="tag">AI</span></a></li>
+</ol>
+<h2>1 本ずつ</h2>
+<article class="item" id="p1">
+<p class="meta"><span class="no">1 / 8</span><span>量子計算</span></p>
+<h3>FunSearchで耐故障量子回路を自動発見</h3>
+<p class="concl">LLMがツール付きで量子誤り訂正回路を自動設計し、全故障検査で耐故障性を確認</p>
+
+<div class="flow3"><div><b>困りごと</b>回路の手設計が必要で自動化は小規模に限られた</div><i></i><div><b>やったこと</b>LLMが検証器を呼ぶエージェント型進化探索を構築</div><i></i><div class="key"><b>結果</b>状態準備・論理CNOT・符号切替の回路を発見</div></div>
+<details class="more"><summary>くわしく読む</summary><p>LLMを用いたエージェント型進化的プログラム合成（agentic FunSearch）により、量子誤り訂正符号上の論理状態準備・論理ゲート・論理ルーチン（符号切替、符号成長など）のための耐故障性Clifford回路を自動発見できることを示した。各回路は全故障に対する網羅的検証で確認されている。</p><dl class="flow"><div><dt>背景</dt><dd>量子計算の実用化には論理量子ビット上の回路効率が必要だが、回路は個別に手設計されることが多く、既存の強化学習や充足可能性ソルバによる自動化は距離5程度の小規模符号や状態準備に限られていた。</dd></div><div><dt>手法</dt><dd>FunSearchの進化的探索を拡張し、LLMがツール（回路検証器）を呼び出して提案を修正できる「エージェント型」ループを構築。回路はPython関数として記述し、動的Clifford回路（中間測定と条件付きPauli補正）を対象とする。</dd></div><div class="key"><dt>結果</dt><dd>論理状態準備、論理ゲート（論理CNOTなど）、符号切替・符号成長などの論理ルーチンについて、耐故障性が網羅的故障検査で確認された回路を一貫して発見。</dd></div><div><dt>示唆</dt><dd>汎用フロンティアLLMにツールを与えるだけで、量子誤り訂正回路設計という専門的タスクを自動化できる可能性が示された。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.18504v1" target="_blank" rel="noopener noreferrer">Agentic AI for Discovering Fault-Tolerant Quantum Circuits</a><br>Aritra Lahiri、Florian Marquardt・arXiv</p>
+</article>
+<article class="item" id="p2">
+<p class="meta"><span class="no">2 / 8</span><span>AI</span></p>
+<h3>社会化で整合性を学習させる</h3>
+<p class="concl">学習環境の報酬設計が、後の訓練にも残る整合性を生む</p>
+
+<div class="flow3"><div><b>困りごと</b>タスク報酬が強いと規範軽視が起きる</div><i></i><div><b>やったこと</b>進化選択モデルで3種の方策を比較</div><i></i><div class="key"><b>結果</b>社会化方策は逆転しにくいが記憶に限界あり</div></div>
+<details class="more"><summary>くわしく読む</summary><p>進化的選択のもとで、エージェントが「タスク達成」と「行動規範の遵守」の対立をどう調停するかを分析した論文。環境が報酬を与える頻度に合わせて各行動を取る学習方策が長期成長に最適であり、人間が報酬を与える環境での学習(社会化)が、後続のタスク専用訓練にも耐える整合性を生むと示している。</p><dl class="flow"><div><dt>背景</dt><dd>AIエージェントはタスク達成と規範遵守の両方を求められるが、タスク報酬が強すぎると規範を軽視する行動が生じうる（OpenAIの評価事例や chess 盤面改ざんなどの報告を引用）。</dd></div><div><dt>手法</dt><dd>共通の不確実な報酬状態に直面する個体群の進化選択モデルを構築し、タスク専用方策、固定線形方策、学習方策の3種を比較。小規模ニューラルネットワークでも実験。</dd></div><div class="key"><dt>結果</dt><dd>長期成長は、各行動を環境が報酬を与える頻度どおりに取る（確率マッチング）ときに最大化される。学習方策は環境の報酬するトレードオフに収束し、人間が報酬を与える場合を「社会化」と呼ぶ。社会化は後続のタスク専用訓練に対して逆転しにくいが、記憶が有限だとその保護は弱まる。</dd></div><div><dt>示唆</dt><dd>アラインメントは目的関数だけでなく、エージェントの行動を形成し維持する環境にも依存する。一方で、絶対的禁止は単一の違反が致命的な場合に有効だが、誤った禁止はコストを伴う。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.18531v1" target="_blank" rel="noopener noreferrer">Alignment by Socialization: Learning Tradeoffs Under Selection</a><br>Thomas Brennan、Andrew W. Lo、Chaoyi Zhao・arXiv</p>
+</article>
+<article class="item" id="p3">
+<p class="meta"><span class="no">3 / 8</span><span>AI</span></p>
+<h3>動きの時間順序を教師に使う表現学習</h3>
+<p class="concl">前後向きの潜在空間予測で動作表現を学習し基準を上回る</p>
+
+<div class="flow3"><div><b>困りごと</b>人工的な拡張やマスクに依存していた</div><i></i><div><b>やったこと</b>潜在空間で双方向自己回帰予測を行う</div><i></i><div class="key"><b>結果</b>キャプション・予測・補間で基準超え</div></div>
+<details class="more"><summary>くわしく読む</summary><p>BAL は、3D姿勢列から人間の動きの表現を学習する自己教師あり手法で、前向き・後向きの両方向に潜在空間で自己回帰予測を行います。既存手法が依存する人工的な仮定を避けつつ、動きの時間順序という本質的な構造を利用します。モーションキャプション、予測、補間で多くの評価指標においてベースラインを上回ったと報告されています。</p><dl class="flow"><div><dt>背景</dt><dd>既存の自己教師あり手法は、拡張への不変性や一定時間スケールでのマスク復元といった人工的な仮定に依存しており、ハイパーパラメータの設定によって学習される意味表現が左右されやすい。</dd></div><div><dt>手法</dt><dd>人間の行動の自然な順序構造を教師信号とし、正確な関節配置ではなく抽象的な潜在空間で双方向の自己回帰予測を行う。各予測target は、系列全体の意味を捉える global 成分と、文脈に依存しない動きを捉える local 成分に分解し、表現崩壊を抑える。</dd></div><div class="key"><dt>結果</dt><dd>大規模データセットでの実験により、モーションキャプション、予測、補間において有効な表現を獲得し、多くの評価指標でベースラインを上回った。local target は表現が完全に崩壊しない限り非自明な角度の多様性を保つことも証明されている。</dd></div><div><dt>示唆</dt><dd>人工的な拡張やマスクに頼らず、動きの時間構造そのものを教師信号として使う設計が、ハイパーパラメータへの感度を下げつつ汎用的な動作表現につながる可能性を示している。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.18559v1" target="_blank" rel="noopener noreferrer">BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations</a><br>Genki Kinoshita、Ko Nishino・arXiv</p>
+</article>
+<article class="item" id="p4">
+<p class="meta"><span class="no">4 / 8</span><span>脳科学</span><span class="star">注目</span></p>
+<h3>スマホで動く脳-テキスト変換</h3>
+<p class="concl">言語モデルを外し、ASRを組み込んでスマホでも高速動作</p>
+<p class="num"><b>4.39%</b><span>最良のWER（誤り率）</span></p>
+<div class="flow3"><div><b>困りごと</b>多段構成で大容量RAMや遅延が必要</div><i></i><div><b>やったこと</b>ASRにアダプタとLoRAを組み込み学習</div><i></i><div class="key"><b>結果</b>WER 4.39%、実時間の最大370倍</div></div>
+<details class="more"><summary>くわしく読む</summary><p>FETTUCCINEは、大規模言語モデルを使わず、ASR（音声認識）モデルを脳信号デコーダに組み込んだエンドツーエンドの脳-テキスト変換フレームワークです。公開データで最良4.39%のWERを達成し、iPhone上で最大370倍のリアルタイム速度で動作することを初めて示しました。</p><dl class="flow"><div><dt>背景</dt><dd>従来の脳-テキスト復号は、n-gram言語モデルやLLMを含む多段のカスケード構成で、数百GBのRAMやサーバーが必要だった。また、ビームサーチにより遅延が52ms〜10秒超と大きくばらついていた。</dd></div><div><dt>手法</dt><dd>複数のASRモデル（ファミリー）に、ニューラルアダプタとエンコーダ側へのLoRA更新を組み込み、2段階（アダプタのウォームアップ後、アダプタとLoRAの共同学習）で学習するエンドツーエンド構成を採用した。</dd></div><div class="key"><dt>結果</dt><dd>公開データ（T15）で最良4.39%のWERを達成し、既存のエンドツーエンド手法を上回った。iPhone 15 Pro Maxで最大370倍のリアルタイム速度で動作し、少量の微調整で後日のデータにも適応できた。</dd></div><div><dt>示唆</dt><dd>ASRモデルの活用により、言語モデルスタックを排除しても高精度を保てることが示され、脳-テキスト通信をモバイル端末で提供できる可能性が開けた。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.18561v1" target="_blank" rel="noopener noreferrer">FETTUCCINE: Fast and efficient brain-to-text decoding on mobile devices</a><br>Jonathan D. McCart、Pranav I. Deevi、Mehdi Azabou ほか・arXiv</p>
+</article>
+<article class="item" id="p5">
+<p class="meta"><span class="no">5 / 8</span><span>海事データ</span></p>
+<h3>AISとRF検出の対応付けに挑戦</h3>
+<p class="concl">マルコフ型モデルは単純な時間重み付き最近傍法に届かず</p>
+<p class="num"><b>0.9013</b><span>最近傍法の精度（最高）</span></p>
+<div class="flow3"><div><b>困りごと</b>AISはなりすまし・送信停止に弱い</div><i></i><div><b>やったこと</b>PHMMで単一RF検出を軌跡候補に対応付け</div><i></i><div class="key"><b>結果</b>log-odds化で精度0.858まで向上</div></div>
+<details class="more"><summary>くわしく読む</summary><p>AIS（船舶自動識別装置）と宇宙からのRF検出を、Pair Hidden Markov Model（PHMM）で対応付ける手法を検証した論文です。単一検出の設定では、PHMMは時間重み付き最近傍法のナイーブなベースラインを上回れませんでした。</p><dl class="flow"><div><dt>背景</dt><dd>AISは船舶追跡に広く使われるが、なりすましや送信停止（ダークベッセル）に弱い。宇宙RF観測は独立した情報源だが、船舶の識別情報を含まない。両者の照合が課題である。</dd></div><div><dt>手法</dt><dd>CRISP-DMに沿って、単一のRF検出をAIS軌跡候補にPHMMで対応付けた。時間・空間情報を用い、ノイズと時刻のずれをモデル化している。スコアは生のForward scoreと、マッチ遷移のない帰無モデルに対するlog-odds scoreの2種類を用いた。NOAAのAISデータと合成RF検出で評価し、最近傍法ベースラインと比較した。</dd></div><div class="key"><dt>結果</dt><dd>長さ補正したForward scoreのtop-1精度は0.7776、ダークベッセル検出のAUCは0.637。log-odds scoreでは精度0.8580、AUC 0.852まで向上した。ただし、時間重み付き最近傍法（学習なし）の精度0.9013、AUC 0.904が最も高かった。</dd></div><div><dt>示唆</dt><dd>手作業で設計した単一検出向けPHMMは有望だが、単純な時間重み付き最近傍法を超えるには至らなかった。スコアには軌跡長や定常性などのバイアスが残っており、改善の余地がある。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.18563v1" target="_blank" rel="noopener noreferrer">Pairing AIS with RF: Analysis of a Markovian Approach for Maritime Data Fusion</a><br>Daniel Grimm、Kyra Jongman、Renato Cordeiro Ferreira ほか・arXiv</p>
+</article>
+<article class="item" id="p6">
+<p class="meta"><span class="no">6 / 8</span><span>ロボット</span><span class="star">注目</span></p>
+<h3>シミュレーションだけで実ロボット操作</h3>
+<p class="concl">シミュレーションRLで、27Bモデルが実機の二腕ロボットを操作</p>
+<p class="num"><b>60%</b><span>実機の成功率</span></p>
+<div class="flow3"><div><b>困りごと</b>高性能な操作モデルは商用に限られていた</div><i></i><div><b>やったこと</b>シミュレーションでの強化学習のみで訓練</div><i></i><div class="key"><b>結果</b>実機成功率60%、ベースは0%</div></div>
+<details class="more"><summary>くわしく読む</summary><p>27B規模のオープンウェイト推論モデルを、シミュレーション内の強化学習（RURL）だけで実ロボットを直接操作できるように訓練できることを示した。実機の二腕ロボットでは成功率60%に達し、ベースモデルは0%だった。</p><dl class="flow"><div><dt>背景</dt><dd>高性能なロボット操作エージェント（RUA）は GPT-6 Astra などの商用フロンティアモデルに限られ、オープンウェイトモデルは性能が大きく劣る。既存手法は補助的なハーネスに依存し、行動空間を制限しがち。</dd></div><div><dt>手法</dt><dd>強化学習基盤 PEAR を構築し、LIBERO と RoboDojo のシミュレーションタスクで Qwen3.8-27B を訓練（RURL）。モデルはカメラ画像とアーム状態を観測し、思考連鎖で推論して次のエンドエフェクタ姿勢を出力する。デモやパーセプションツールは使わない。</dd></div><div class="key"><dt>結果</dt><dd>LIBERO の成功率は 1.6% から 74.4% に向上。実機の二腕ロボットで 60%（ベースは 0%）。LIBERO-Pro では π0.5 の 0.75% に対し 57.4%。9種の汎用ベンチマークでの性能低下は見られなかった。</dd></div><div><dt>示唆</dt><dd>大規模な実ロボットデータがなくても、シミュレーションでの強化学習がロボット操作能力を汎用推論モデルに付与できる可能性がある。ロボット操作を基盤モデルの後段学習の一要素として位置づけられる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.18562v1" target="_blank" rel="noopener noreferrer">Training Reasoning Models in Simulation to Natively Use Real Robots</a><br>Jiaming Tang、Zhuoyang Zhang、Junxian Guo ほか・arXiv</p>
+</article>
+<article class="item" id="p7">
+<p class="meta"><span class="no">7 / 8</span><span>AI</span><span class="star">注目</span></p>
+<h3>FPGA配置技術の転用で自由形状マッピング</h3>
+<p class="concl">テンプレートを外し、LLMの処理効率と文脈長を改善</p>
+<p class="num"><b>4.42倍</b><span>最大スループット比</span></p>
+<div class="flow3"><div><b>困りごと</b>矩形テンプレートで空きPEやメモリが無駄</div><i></i><div><b>やったこと</b>FPGAの配置・配線手法を自由形状に適用</div><i></i><div class="key"><b>結果</b>最大4.42倍のスループット、利用率93%超</div></div>
+<details class="more"><summary>くわしく読む</summary><p>WaferTetris は、ウェハースケール加速器上でテンプレートの矩形制約を外し、FPGA の配置・配線アルゴリズムを流用して自由形状のマッピングを自動生成するシステムである。Cerebras WSE-3 では、LLM デコーディングでテンプレート方式比最大 4.42 倍のスループットを示し、WaferLLM 比で 1.8 倍の文脈長（LLaMA3.1-8B で 80k 対 44k）を実現した。</p><dl class="flow"><div><dt>背景</dt><dd>既存のウェハースケール向けマッピングは PE アイランドという矩形テンプレートに依存しており、形状の不整合により空き PE やメモリが活用されず、大規模ワークロードが複数ウェハーに分割されやすい。</dd></div><div><dt>手法</dt><dd>テンプレートを使わず、論文中の PE タスクコードを保ったまま配置・配線を行う「自由形状マッピング」を提案。ボトルネックを正しく捉える再帰ベースのスループットモデルと、WSE の色（color）ごとにゲートを置くアーキテクチャモデルで、FPGA の P&amp;R アルゴリズムを WSE の制約に適合させる。</dd></div><div class="key"><dt>結果</dt><dd>WSE-3 上で LLM デコーディングのシステムスループットが自動マッピングベースラインの 3.24〜4.42 倍、PE 利用率 93% 超。WaferLLM 比で LLaMA3.1-8B の文脈長 1.8 倍、同一文脈長では最大 1.10 倍の per-user スループット。</dd></div><div><dt>示唆</dt><dd>成熟した FPGA の P&amp;R 技術をウェハースケールのマッピングに転用することで、手作業のテンプレート開発を減らしつつ、資源利用効率を高められることを示した。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.18527v1" target="_blank" rel="noopener noreferrer">WaferTetris: Efficient Freeform Mapping on Wafer-Scale Accelerators</a><br>Dayou Du、Congjie He、Andrew Boutros ほか・arXiv</p>
+</article>
+<article class="item" id="p8">
+<p class="meta"><span class="no">8 / 8</span><span>AI</span></p>
+<h3>言語モデルの重み操作を評価するベンチマーク</h3>
+<p class="concl">最先端エージェントは小規模網は扱えるが大規模LLM編集は困難</p>
+<p class="num"><b>0.535</b><span>最高のマクロスコア</span></p>
+<div class="flow3"><div><b>困りごと</b>重み操作能力を体系的に測る基準がなかった</div><i></i><div><b>やったこと</b>42タスク・5トラックの評価環境を構築</div><i></i><div class="key"><b>結果</b>最高はOpusの0.535、Haikuは0.402</div></div>
+<details class="more"><summary>くわしく読む</summary><p>LLMは他のニューラルネットの重みを直接読み書きできる（Weight-Space Programming）ことを体系的に評価するベンチマーク「WeightBench」を提案。最先端エージェントは小規模ネットの読解や制御方策の生成は可能だが、言語モデルの修正・データなし圧縮・不可能な編集の判別はまだ困難。</p><dl class="flow"><div><dt>背景</dt><dd>LLMが重みを読み、故障したネットワークを修正し、勾配降下なしでネットワークを構築できることが先行研究（Takehi et al., 2026）で示されたが、その信頼性や汎用性は体系的に検証されていなかった。</dd></div><div><dt>手法</dt><dd>5トラック（重みの読解、修正、構築、不可能な編集の認識、データなし圧縮）にわたる42タスクのベンチマーク「WeightBench」を構築。2Kパラメータの制御方策から7B言語モデルまでを対象とし、OSレベルのサンドボックス、計量付きNumPy、ハッシュチェーン台帳で勾配降下や順伝播による試行錯誤を検出・制限する。スコアは獲得効果、副作用（MMLU等の劣化）、編集コストの複合指標。</dd></div><div class="key"><dt>結果</dt><dd>42タスク全体のマクロスコアはClaude Opus 5.5が0.535、Sonnet 5.5が0.466、Haiku 5.5が0.402、DeepSeek v4-flashが0.215。38タスクではGPT-6.1-solが0.568でOpus（0.546）を上回った。</dd></div><div><dt>示唆</dt><dd>現状のフロンティアエージェントは小規模ネットの解析や方策構築には有効だが、大規模言語モデルの編集や不可能な変更の見極めには課題が残る。コードとリーダーボードはGitHubで公開されている。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.18553v1" target="_blank" rel="noopener noreferrer">WeightBench: Evaluating Language Models as Weight-Space Programmers</a><br>Aayush Marasini、Barsat Khadka、Nick Rahimi・arXiv</p>
+</article>
+<footer class="foot"><p>出典は各論文のリンク。見出し・結論・図の文は自動生成です。</p><p>作成 2026-11-17 09:45</p></footer>
+</div>
+</body>
+</html>
