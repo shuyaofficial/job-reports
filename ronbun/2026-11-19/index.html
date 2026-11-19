@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ja" data-job="ronbun">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>論文分析 2026-11-19</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">論文分析</span><time>2026年11月19日(木)</time></header>
+<h1>エージェント安全性と推論の効率化が目立つ日</h1>
+<p class="deck">論文 8 本・先に読むなら 3 本</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#p1"><span class="no">1</span><span><b>組織間AIエージェントの信頼基盤</b><span class="sub">組織間エージェントの設計で直接参考になる</span></span><span class="tag"></span></a></li>
+<li><a href="#p6"><span class="no">6</span><span><b>小型と大型LLMの不確実性連携</b><span class="sub">コストを抑えたい実運用の選択肢として有望</span></span><span class="tag"></span></a></li>
+<li><a href="#p7"><span class="no">7</span><span><b>動画VLMの逐次推論を高速化</b><span class="sub">動画VLMの低遅延化に直接効く手法</span></span><span class="tag"></span></a></li>
+</ol>
+<h2>分野ごとの本数</h2>
+<svg class="chart" viewBox="0 0 360 140" role="img" aria-label="分野ごとの本数。LLM 3、AIエージェント 2、数理最適化 1、動画生成 1、AI科学応用 1"><text x="0" y="18">LLM</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">3</text><text x="0" y="46">AIエージェント</text><rect x="126" y="35" width="127" height="14"/><text class="n" x="261" y="46">2</text><text x="0" y="74">数理最適化</text><rect x="126" y="63" width="63" height="14"/><text class="n" x="197" y="74">1</text><text x="0" y="102">動画生成</text><rect x="126" y="91" width="63" height="14"/><text class="n" x="197" y="102">1</text><text x="0" y="130">AI科学応用</text><rect x="126" y="119" width="63" height="14"/><text class="n" x="197" y="130">1</text></svg>
+<h2>8 本の一覧</h2>
+<ol class="tri">
+<li><a href="#p1"><span class="no">1</span><span><b>組織間AIエージェントの信頼基盤</b></span><span class="tag">AIエージェント</span></a></li>
+<li><a href="#p2"><span class="no">2</span><span><b>少データ学習の高温度正則化</b></span><span class="tag">LLM</span></a></li>
+<li><a href="#p3"><span class="no">3</span><span><b>制約付き最適化の計算量改善</b></span><span class="tag">数理最適化</span></a></li>
+<li><a href="#p4"><span class="no">4</span><span><b>LLMは自己改善の手順を自ら組めるか</b></span><span class="tag">AIエージェント</span></a></li>
+<li><a href="#p5"><span class="no">5</span><span><b>動画生成を対話速度に近づける</b></span><span class="tag">動画生成</span></a></li>
+<li><a href="#p6"><span class="no">6</span><span><b>小型と大型LLMの不確実性連携</b></span><span class="tag">LLM</span></a></li>
+<li><a href="#p7"><span class="no">7</span><span><b>動画VLMの逐次推論を高速化</b></span><span class="tag">LLM</span></a></li>
+<li><a href="#p8"><span class="no">8</span><span><b>教科書を活用したAI理論物理資源</b></span><span class="tag">AI科学応用</span></a></li>
+</ol>
+<h2>1 本ずつ</h2>
+<article class="item" id="p1">
+<p class="meta"><span class="no">1 / 8</span><span>AIエージェント</span><span class="star">注目</span></p>
+<h3>組織間AIエージェントの信頼基盤</h3>
+<p class="concl">身元確認と認可を外部層で行い攻撃封じ込め率を43%から84%に</p>
+<p class="num"><b>84%</b><span>攻撃封じ込め率（改善後）</span></p>
+<div class="flow3"><div><b>困りごと</b>組織をまたぐエージェントの身元・実行整合性が未検証</div><i></i><div><b>やったこと</b>証明書と承認済みモデル・ツールを入口で検証</div><i></i><div class="key"><b>結果</b>攻撃封じ込め率43%→84%、遅延は約174μs</div></div>
+<details class="more"><summary>くわしく読む</summary><p>AI エージェントが組織をまたいで協調する際に必要な、身元確認・実行整合性・認可の仕組みを提供する「Agent Trust Infrastructure (ATI)」を提案しています。ATI をフレームワーク非依存の外部防御層として実装し、攻撃の封じ込め率を 43% から 84% に高めつつ、リクエストあたりのオーバーヘッドは約 174 μs に抑えました。</p><dl class="flow"><div><dt>背景</dt><dd>エージェントが他組織のエージェントやツールとやり取りする場面が増えていますが、CrewAI や LangGraph などの既存フレームワークには、組織間でエージェントの身元や実行構成を検証する共通の仕組みがありません。</dd></div><div><dt>手法</dt><dd>PKI、ゼロトラスト、リモートアテステーションを組み合わせ、組織ごとの認証局（AgentCA）同士のピア関係で信頼を連携させます。リクエスト前に証明書、承認済みのモデル・ツール・システムプロンプトを検証し、3 つのポリシーチェックで認可します。IETF WIMSE と Entity Attestation Token の形式を用いたオープンソース実装です。</dd></div><div class="key"><dt>結果</dt><dd>8 組織・6 フレームワーク・5 モデルを用いた評価で、攻撃封じ込め率は 43% から 84% に向上しました（全構成で一貫評価した 11 シナリオでは 40% から 80%）。モデル差し替えとシステムプロンプト改変の攻撃はすべて防げました。一方で、データ内に埋め込まれたプロンプトインジェクションは対象外です。</dd></div><div><dt>示唆</dt><dd>エージェントを独立したセキュリティ主体として扱い、モデルの振る舞いに依存しない決定的な検証を入口で行うことの有効性を示しています。ただし、評価は模擬環境と限定的な攻撃セットによるもので、実運用での効果は今後の検証が必要です。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.23202v1" target="_blank" rel="noopener noreferrer">Agent Trust Infrastructure (ATI): A Federated Identity, Trust, Attestation, and Accountability Architecture for Cross-Organization Autonomous AI Agents</a><br>Viet K. Nguyen、Mohammad I. Husain・arXiv</p>
+</article>
+<article class="item" id="p2">
+<p class="meta"><span class="no">2 / 8</span><span>LLM</span></p>
+<h3>少データ学習の高温度正則化</h3>
+<p class="concl">凍結モデルを高温度で模倣させ少データでも性能向上</p>
+<p class="num"><b>26.7%</b><span>最良基準比のperplexity低下</span></p>
+<div class="flow3"><div><b>困りごと</b>少データで過学習と分布の裾の忘却が起きる</div><i></i><div><b>やったこと</b>高温度の出力分布を教師に合わせる正則化を追加</div><i></i><div class="key"><b>結果</b>ドメイン適応でperplexity最大26.7%低下</div></div>
+<details class="more"><summary>くわしく読む</summary><p>事後学習（SFT）のデータが少ないと過学習やデータ分布の裾の忘却が起きる問題に対し、凍結した事前学習モデルを高温度で模倣させる正則化項「Ambient SFT」を提案し、標準SFTより高い性能を示した。温度パラメータで事前学習モデルへの信頼度を調整でき、T→∞で通常のSFT、T=1で知識蒸留に一致する。</p><dl class="flow"><div><dt>背景</dt><dd>事後学習データは事前学習データより桁違いに少なく、SFTでは過学習やデータ分布の裾（tail）の忘却が起きやすい。</dd></div><div><dt>手法</dt><dd>事前学習モデルを凍結した教師とし、学習モデルの高温度（T）での条件付き分布を教師の高温度分布に合わせるKLダイバージェンス項（Temperature Matching）を、通常のSFT損失に加える。</dd></div><div class="key"><dt>結果</dt><dd>ドメイン適応では最良のベースラインより最大26.7%低いperplexity、指示チューニングでは平均相対改善8.0〜20.3%、推論ベンチマークでは6つ中5つで勝利。アブストラクトでは標準SFTに対し平均相対改善が最大21%とされている。</dd></div><div><dt>示唆</dt><dd>大規模なデータ収集を伴わずに、事前学習モデルを「ノイズのある教師」として活用することでデータ効率を高められる可能性がある。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.23229v1" target="_blank" rel="noopener noreferrer">Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching</a><br>Giannis Daras、Marios Papachristou、Adam Klivans ほか・arXiv</p>
+</article>
+<article class="item" id="p3">
+<p class="meta"><span class="no">3 / 8</span><span>数理最適化</span></p>
+<h3>制約付き最適化の計算量改善</h3>
+<p class="concl">ほぼ実行可能を保つ確率的分散低減法で計算量を大幅改善</p>
+
+<div class="flow3"><div><b>困りごと</b>制約を満たす近似解の計算量が従来法で大きい</div><i></i><div><b>やったこと</b>近接問題を一階手法の近似解で不完全に解く</div><i></i><div class="key"><b>結果</b>計算量のオーダーを従来より大きく改善</div></div>
+<details class="more"><summary>くわしく読む</summary><p>制約付き凸有限和最適化問題に対し、反復点がほぼ実行可能性を保つ不完全SVRG法を提案する。ε-SFSO解の一階オラクル計算量を従来法より大幅に改善し、単一関数の場合は錐最適化向けの新しい決定的一階法になる。</p><dl class="flow"><div><dt>背景</dt><dd>制約の多くが必須要件（ハード制約）である実問題では、近似解がほぼ制約を満たす必要がある。既存のSVRFP法はε-SFSO解の計算量が悪く、ε-EFSO解との間に大きな差があった。</dd></div><div><dt>手法</dt><dd>制約付き近似点問題（射影付きの近接作用素）を、一階近接拡張ラグランジュ法で得られるε-KKT解によって不完全に解く不完全SVRG法を提案。反復点がほぼ実行可能に保たれる「実行可能側」の手法である。</dd></div><div class="key"><dt>結果</dt><dd>ε-SFSO解を O(s log s + s^{1/2}ε^{-1/2}) 回の∇f_i評価（ほぼ同等のε^{-1/2}オーダー）で計算でき、従来の O(s log s + s^{1/2}ε^{-3/2}) を大きく改善。s=1の場合は∇f_1評価が O(ε^{-1/2}) の決定的一階法となる。</dd></div><div><dt>示唆</dt><dd>制約勾配や錐への射影が目的関数の勾配より安価な場合に、従来法より実用的な性能が期待できる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.23221v1" target="_blank" rel="noopener noreferrer">An inexact stochastic variance-reduced gradient method for constrained convex finite-sum optimization</a><br>Zhaosong Lu、Yifeng Xiao・arXiv</p>
+</article>
+<article class="item" id="p4">
+<p class="meta"><span class="no">4 / 8</span><span>AIエージェント</span></p>
+<h3>LLMは自己改善の手順を自ら組めるか</h3>
+<p class="concl">高性能モデルは外部ループなしでも自ら学習手順を組み性能向上</p>
+
+<div class="flow3"><div><b>困りごと</b>自己改善の手順を人が細かく指定する必要性が未解明</div><i></i><div><b>やったこと</b>凍結モデルに編集とゲーム実行のツールだけ与えた</div><i></i><div class="key"><b>結果</b>保留テストで性能向上、3Dナビにも一部転移</div></div>
+<details class="more"><summary>くわしく読む</summary><p>LLMエージェントに「ゲームで自己改善せよ」という一般目標と最低限のツール（ファイル編集・実行・ゲームプレイ）だけを与えると、十分に高性能なモデルは外部から決められた学習ループなしに、自ら学習手順を組み立てて性能を向上させることが示された。学習で得たテキスト成果物は、別のゲームベンチマークや3Dナビゲーションにも一部転移する。</p><dl class="flow"><div><dt>背景</dt><dd>高性能なLLMエージェントは学習プロセス（データ生成、評価、更新）の設計まで任される場面が増えている。モデルが自分で自己改善手順を決められるのか、また人間による手順指定がどこまで必要かが問いとなる。</dd></div><div><dt>手法</dt><dd>凍結したLLM（Claude Opus系）を「teacher」とし、別インスタンスの「player」のコンテキスト（プロンプトやスキルファイル）を編集させる。teacherには Read / Write / Bash / Gameplay のツールと計算予算のみを与え、未知のルールを持つターン制ゲームを自作・実行させる。</dd></div><div class="key"><dt>結果</dt><dd>十分に高性能なモデルは保留テストゲームで性能を向上させた。学習戦略は自己調整学習の枠組み（Zimmerman）や自己生成カリキュラムの研究と整合的だった。得られたテキストは、ゲームの長さ・仕組み・3Dナビゲーション（MazeBench）など複数のベンチマークで改善を示した。</dd></div><div><dt>示唆</dt><dd>能力が高まるとエージェントは固定された自己改善アルゴリズムを必要とせず、自己改善の手順を自ら構成しうる。一方で、明示的なループがなくても自己改善が起きるため、安全性の観点からも重要な知見となる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.23219v1" target="_blank" rel="noopener noreferrer">Do LLM Agents Still Need to Be Told How to Self-Improve?</a><br>Shobhita Sundaram、Cansu Sancaktar、Phillip Isola・arXiv</p>
+</article>
+<article class="item" id="p5">
+<p class="meta"><span class="no">5 / 8</span><span>動画生成</span></p>
+<h3>動画生成を対話速度に近づける</h3>
+<p class="concl">動画生成の重い処理を置換し対話的な遅延を実現</p>
+<p class="num"><b>36ms/フレーム</b><span>1.3B版の1フレーム生成時間</span></p>
+<div class="flow3"><div><b>困りごと</b>自己回帰型の動画生成は遅く操作に追従しにくい</div><i></i><div><b>やったこと</b>VAEデコードとKVキャッシュ更新を軽量化</div><i></i><div class="key"><b>結果</b>1.3B版は36ms/フレーム（28RPS）で品質維持</div></div>
+<details class="more"><summary>くわしく読む</summary><p>自己回帰型のビデオ拡散モデルを、VAEデコードやKVキャッシュ更新といった軽量化の対象外とされてきた処理から見直して高速化したFastFramesを提案する。1.3B版は単一B200で36ms/フレーム（28 RPS）、14B版は8x B200で45ms/フレーム（22 RPS）を達成し、品質を維持したままインタラクティブな遅延を実現する。</p><dl class="flow"><div><dt>背景</dt><dd>自己回帰型ビデオ拡散モデルは新しい入力に応じてフレームを生成でき、インタラクティブな体験に有望だが、既存モデルは滑らかな操作には桁違いに遅い。</dd></div><div><dt>手法</dt><dd>最新モデルの推論パイプラインをプロファイリングし、VAEデコードやKVキャッシュ更新が推論遅延の半分以上を占めることを示した。これらを必須と見なさず、軽量な代替手段に置き換えた。</dd></div><div class="key"><dt>結果</dt><dd>1.3B版は約8倍遅い最新モデルと同等の品質を36ms/フレーム（28 RPS）で達成。14B版は品質と現実感が大きく向上し、45ms/フレーム（22 RPS）で動作する。</dd></div><div><dt>示唆</dt><dd>カメラ条件付きや物理条件付きのビデオ生成など、リアルタイムの対話的アプリケーションが実用的になる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.23226v1" target="_blank" rel="noopener noreferrer">FastFrames: Video Generation at Interactive Latency</a><br>Gene Chou、Guandao Yang、Fujun Luan ほか・arXiv</p>
+</article>
+<article class="item" id="p6">
+<p class="meta"><span class="no">6 / 8</span><span>LLM</span><span class="star">注目</span></p>
+<h3>小型と大型LLMの不確実性連携</h3>
+<p class="concl">予測の不確実性が高いものだけ大型LLMに回し精度と頑健性を改善</p>
+
+<div class="flow3"><div><b>困りごと</b>分布外データでは小型モデルの精度が落ちる</div><i></i><div><b>やったこと</b>不確実性が閾値を超えた例のみLLMへ転送</div><i></i><div class="key"><b>結果</b>分布外で精度向上、LLM呼出しと費用を抑制</div></div>
+<details class="more"><summary>くわしく読む</summary><p>小規模言語モデル（SLM）が出す予測の不確実性をリスク信号として使い、リスクが高いサンプルだけを大規模言語モデル（LLM）へ回す閾値ゲート型のハイブリッド推論を提案している。追加のルーター学習なしで、GLUE-X の OOD 汎化設定において精度・頑健性を改善しつつ LLM 呼び出し比率とコストを抑えられることを示している。</p><dl class="flow"><div><dt>背景</dt><dd>LLM は汎化性能が高いが推論コストが大きく、教師ありの分類タスクでは現地展開した微調整済み SLM に必ずしも勝らない。一方で SLM は OOD・ドメイン変化に弱い。既存のハイブリッド推論は学習済みルーターに依存し、生成タスク向けが中心で、ID→OOD 転移の教師あり分類では安定的かつ解釈可能な協調が十分に検討されていなかった。</dd></div><div><dt>手法</dt><dd>LinkModel は「Prediction–Estimation–Prediction」の仕組みを採る。ローカルで微調整した SLM がまず予測し、同時に不確実性を推定してリスク信号を得る。閾値ゲートのポリシーがリスクの高いサンプルを LLM に渡し、LLM が二段目の予測を行う。ルーターの追加学習は不要。</dd></div><div class="key"><dt>結果</dt><dd>GLUE-X の OOD 汎化設定で体系的に評価し、複数の学習–テスト転移の組み合わせで一貫したエンドツーエンドの改善を確認した。OOD での性能低下を大きく緩和し、LLM 呼び出し比率とコストも制御できたと報告している。</dd></div><div><dt>示唆</dt><dd>不確実性推定に基づく単純な閾値ゲートでも、SLM と LLM を低コストかつ解釈可能に組み合わせられ、ドメインシフト下の実運用に有効な選択肢になりうる。</dd></div></dl></details>
+<p class="src"><a href="https://doi.org/10.1007/s40747-026-02583-y" target="_blank" rel="noopener noreferrer">LinkModel: uncertainty-guided hybrid inference between small and large language models for out-of-distribution generalization</a><br>Wentao Bai、Jiale Song、Fan Guo ほか・Complex &amp; Intelligent Systems</p>
+</article>
+<article class="item" id="p7">
+<p class="meta"><span class="no">7 / 8</span><span>LLM</span><span class="star">注目</span></p>
+<h3>動画VLMの逐次推論を高速化</h3>
+<p class="concl">過去フレームを再計算せず状態を更新し遅延を大幅低減</p>
+<p class="num"><b>6.6倍</b><span>遅延の幾何平均低減率</span></p>
+<div class="flow3"><div><b>困りごと</b>スライド窓で古いフレームを除くため再計算が重い</div><i></i><div><b>やったこと</b>係数をキャッシュし木構造で状態を再構築</div><i></i><div class="key"><b>結果</b>p95 TTFTを幾何平均6.6倍低減、精度は+2.3pt</div></div>
+<details class="more"><summary>くわしく読む</summary><dl class="flow"><div><dt>背景</dt><dd>直近N フレームの sliding window で動画に答えるVLMは、ハイブリッドモデル（GDN等の線形再帰層を含む）では、古いフレームを状態から除くのに窓全体を再計算する必要があり高コスト。</dd></div><div><dt>手法</dt><dd>再帰更新が状態に関してアフィン（S_t = S_{t-1}A_t + B_t）である点に着目し、各フレームの (A, B) 係数をキャッシュ。セグメント木で結合し O(log W) 回の合成で状態を再構築。アテンションのKVは穴埋め（スロット再利用）とRoPEの再基準化で管理。学習不要。</dd></div><div class="key"><dt>結果</dt><dd>5〜6種のオープンソース・ハイブリッドVLM、4つの動画推論ベンチマークで、オンライン評価のp95 TTFTが全20組合せで最小。vLLM系ベースラインより幾何平均6.6倍（最大35.7倍）低減、精度は平均+2.3pt。</dd></div><div><dt>示唆</dt><dd>除去は層内では厳密だが、期限切れフレームは前段層が計算した入力を通じて残留影響を持つ（KV eviction と同様の近似）。メモリ増加は9Bモデルで4.8GiB（約18%）。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.23228v1" target="_blank" rel="noopener noreferrer">Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models</a><br>Rui Ning、Om Chabra、Hari Balakrishnan・arXiv</p>
+</article>
+<article class="item" id="p8">
+<p class="meta"><span class="no">8 / 8</span><span>AI科学応用</span></p>
+<h3>教科書を活用したAI理論物理資源</h3>
+<p class="concl">教科書・問題・検索・計算ツールを共通IDで結んだ基盤を提示</p>
+<p class="num"><b>190章</b><span>教科書の章数（18巻）</span></p>
+<div class="flow3"><div><b>困りごと</b>研究ごとに分かれ学習・AI支援が難しい</div><i></i><div><b>やったこと</b>18巻190章の教科書を検索・計算資源と結合</div><i></i><div class="key"><b>結果</b>性能評価はなし、利用例を具体例で図示</div></div>
+<details class="more"><summary>くわしく読む</summary><p>StringQFTは、弦理論による場の理論の構成を扱う18巻・190章の教科書コレクションであり、同時にAI支援による理論物理学のためのベンチマーク、検索、学習データ準備、エージェント用計算ツールを提供する基盤です。性能評価ではなく、資源の提示と具体例による利用例の説明が中心です。</p><dl class="flow"><div><dt>背景</dt><dd>弦理論による場の理論の構成法（ブレーン、ブレーンウェブ、幾何学的工学、F理論、M5ブレーン、可積分な世界面模型など）は研究コミュニティごとに分かれており、学習や相互接続が難しい。また、AIアシスタントが教科書の導出や規約を参照して計算を再現するための構造化された資料も不足している。</dd></div><div><dt>手法</dt><dd>教科書を18巻・190章・3,795ページとして整備し、ベンチマーク（1,073項目、うち499項目は自動採点可能）、検索用の1,371のセクション記録と局所的な語彙検索器、非公開の学習例21件、19個の計算ツール（入力と有限の定義域を明示）を、教科書の導出と結びつけて提供している。</dd></div><div class="key"><dt>結果</dt><dd>各資源の規模と構成を示しているが、モデルの性能は測定していない。代わりに、具体的な質問、検索された文章、有限の計算例によって利用の流れを図示している。</dd></div><div><dt>示唆</dt><dd>教科書の導出・規約・出典を共通の識別子で結びつけることで、AIによる問題演習、文献検索、計算支援を一貫して行える。公開されているのは教科書本体、検索記録、計算インターフェース、問題、一部の解説例であり、完全な解答、評価用の非公開データ、学習例は含まれない。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.23225v1" target="_blank" rel="noopener noreferrer">StringQFT: A Multiuse Textbook Resource for AI-Assisted Theoretical Physics</a><br>Xingyang Yu・arXiv</p>
+</article>
+<footer class="foot"><p>出典は各論文のリンク。見出し・結論・図の文は自動生成です。</p><p>作成 2026-11-19 09:45</p></footer>
+</div>
+</body>
+</html>
