@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ja" data-job="ronbun">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>論文分析 2026-11-20</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">論文分析</span><time>2026年11月20日(金)</time></header>
+<h1>推論運用・人間レビュー・AI供給網など実務寄りの8本</h1>
+<p class="deck">論文 8 本・先に読むなら 3 本</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#p2"><span class="no">2</span><span><b>拒否信号だけで送信量を調整</b><span class="sub">推論の拒否信号だけで送信量を調整する実務的手法</span></span><span class="tag"></span></a></li>
+<li><a href="#p5"><span class="no">5</span><span><b>レビュアーは確信度の一致で評価</b><span class="sub">レビュアー評価の指標設計。誤り検出に直接使える</span></span><span class="tag"></span></a></li>
+<li><a href="#p6"><span class="no">6</span><span><b>AI供給網の組織関係を地図化</b><span class="sub">AI供給網の公開データセット。産業分析に使える</span></span><span class="tag"></span></a></li>
+</ol>
+<h2>分野ごとの本数</h2>
+<svg class="chart" viewBox="0 0 360 140" role="img" aria-label="分野ごとの本数。AI運用 2、社会 2、生成AI 2、ロボットAI 1、AI安全 1"><text x="0" y="18">AI運用</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">2</text><text x="0" y="46">社会</text><rect x="126" y="35" width="190" height="14"/><text class="n" x="324" y="46">2</text><text x="0" y="74">生成AI</text><rect x="126" y="63" width="190" height="14"/><text class="n" x="324" y="74">2</text><text x="0" y="102">ロボットAI</text><rect x="126" y="91" width="95" height="14"/><text class="n" x="229" y="102">1</text><text x="0" y="130">AI安全</text><rect x="126" y="119" width="95" height="14"/><text class="n" x="229" y="130">1</text></svg>
+<h2>8 本の一覧</h2>
+<ol class="tri">
+<li><a href="#p1"><span class="no">1</span><span><b>VLM内で未来と行動を同時予測</b></span><span class="tag">ロボットAI</span></a></li>
+<li><a href="#p2"><span class="no">2</span><span><b>拒否信号だけで送信量を調整</b></span><span class="tag">AI運用</span></a></li>
+<li><a href="#p3"><span class="no">3</span><span><b>高齢者詐欺で家族の介入が困難</b></span><span class="tag">社会</span></a></li>
+<li><a href="#p4"><span class="no">4</span><span><b>対照学習で脱獄プロンプトを検出</b></span><span class="tag">AI安全</span></a></li>
+<li><a href="#p5"><span class="no">5</span><span><b>レビュアーは確信度の一致で評価</b></span><span class="tag">AI運用</span></a></li>
+<li><a href="#p6"><span class="no">6</span><span><b>AI供給網の組織関係を地図化</b></span><span class="tag">社会</span></a></li>
+<li><a href="#p7"><span class="no">7</span><span><b>金属度とラフネスを見た目から推定</b></span><span class="tag">生成AI</span></a></li>
+<li><a href="#p8"><span class="no">8</span><span><b>特定個人を模倣するAIの識別実験</b></span><span class="tag">生成AI</span></a></li>
+</ol>
+<h2>1 本ずつ</h2>
+<article class="item" id="p1">
+<p class="meta"><span class="no">1 / 8</span><span>ロボットAI</span></p>
+<h3>VLM内で未来と行動を同時予測</h3>
+<p class="concl">VLMの視覚空間で未来予測と行動生成を同時に行い、動画生成なしで高い成功率</p>
+<p class="num"><b>81.9%</b><span>SIMPLEでの成功率</span></p>
+<div class="flow3"><div><b>困りごと</b>動画生成の計算コストが大きい</div><i></i><div><b>やったこと</b>VLMと未来・行動の専門モジュールを結合</div><i></i><div class="key"><b>結果</b>SIMPLEで81.9%、実機で73.3%</div></div>
+<details class="more"><summary>くわしく読む</summary><p>Z-sightは、VLM（視覚言語モデル）の視覚トークン空間で未来を直接予測し、行動と同時に生成する統一型ロボット基盤モデルです。動画生成や外部エンコーダに頼らず、SIMPLEで81.9%、Unitree G1の6タスクで73.3%の成功率を110 ms/チャンクで達成しています。</p><dl class="flow"><div><dt>背景</dt><dd>動画ベースのWorld Action Models（WAM）は未来と行動の同時生成で有効だが、動画生成器の計算コストが大きい。既存の潜在空間ポリシーは中間特徴の整合や凍結エンコーダに依存し、未来予測がVLMの特徴空間から分離している。</dd></div><div><dt>手法</dt><dd>VLMと、未来予測を担う foresight expert・連続行動を担う action expert を mixture-of-transformers で結合。VLMが現在を知覚する視覚トークン空間で未来の空間トークンと行動を同時にデノイズし、ピクセル再構成や外部エンコーダは使わない。人間動画とロボット軌道で学習。</dd></div><div class="key"><dt>結果</dt><dd>SIMPLEで81.9%（最強ベースラインより+9.6pt）、Unitree G1の6タスクで73.3%（+20.0pt）、110 ms/チャンク。卓上ベンチマークでも競争力を維持。</dd></div><div><dt>示唆</dt><dd>未来予測をVLMのネイティブな特徴空間で行うことで、動画生成の計算負荷を避けつつ、行動生成に有用な未来表現を得られる可能性がある。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.24940v1" target="_blank" rel="noopener noreferrer">$Z$-sight: Unifying Vision-Language-Action and Latent World Modeling</a><br>Junjie Ye、Yiqi Zhao、Muchen Xu ほか・arXiv</p>
+</article>
+<article class="item" id="p2">
+<p class="meta"><span class="no">2 / 8</span><span>AI運用</span><span class="star">注目</span></p>
+<h3>拒否信号だけで送信量を調整</h3>
+<p class="concl">推論エンジンの拒否（429）だけで送信レートを追従させ、H100を43%削減</p>
+<p class="num"><b>43%</b><span>H100の削減率</span></p>
+<div class="flow3"><div><b>困りごと</b>容量変動に固定レートが追従できない</div><i></i><div><b>やったこと</b>拒否型上限と優先度付きキューで制御</div><i></i><div class="key"><b>結果</b>拒否率は約1/4、goodput差1%以内</div></div>
+<details class="more"><summary>くわしく読む</summary><p>Meta の LLM 推論向けトラフィックシェーパー「Cap-and-Track」を提案する。推論エンジンの admission 上限を fail-fast な 429 拒否で知らせ、その拒否情報だけで Track が送信レートを追従させる。これにより出力長予測やフリート全体のレート再調整なしで、キャパシティ変動に追従できる。</p><dl class="flow"><div><dt>背景</dt><dd>LLM 推論では需要（リクエスト量・出力長）も供給（プロバイダ容量・レプリカ数）も変動する。固定の dispatch レートは容量変化に追従できず、無駄な待ち時間や拒否を生む。</dd></div><div><dt>手法</dt><dd>各エンジンに拒否型の admission 上限（CAP）を置き、超過分は耐久性のある優先度付きキュー（FOQS）で待機させる。Track はその拒否（429）のみを手がかりに上限を探索し、増減させる。</dd></div><div class="key"><dt>結果</dt><dd>本番 A/B で、同一トラフィック下で H100 を 43% 削減。実機リプレイでは固定レート（容量の20%超）に対し goodput 差 1% 以内、拒否率は約 1/4。ただし低優先度作業の待ち時間は増加。</dd></div><div><dt>示唆</dt><dd>エンジン内キューは バッチを埋める程度に短く保ち、拒否シグナルのみで dispatch を制御し、フリートは低優先度作業がどれだけ待てるかで規模を決めるのが有効。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.24891v1" target="_blank" rel="noopener noreferrer">Cap-and-Track: Optimizing LLM Inference Request Dispatch Across Shifting Capacity</a><br>Benjamin Novotny、Doug Szeto、Chang Wang ほか・arXiv</p>
+</article>
+<article class="item" id="p3">
+<p class="meta"><span class="no">3 / 8</span><span>社会</span></p>
+<h3>高齢者詐欺で家族の介入が困難</h3>
+<p class="concl">被害者は抵抗や継続が多く、家族は見抜いても介入手段が乏しい</p>
+<p class="num"><b>5.5%〜9.4%</b><span>資金回収の成功率</span></p>
+<div class="flow3"><div><b>困りごと</b>家族が詐欺を察知しても介入できない</div><i></i><div><b>やったこと</b>Reddit・百度貼吧の投稿を分析</div><i></i><div class="key"><b>結果</b>資金回収の成功は5.5%〜9.4%</div></div>
+<details class="more"><summary>くわしく読む</summary><p>Reddit と百度貼吧（Baidu Tieba）の高齢者詐欺に関する投稿を分析した結果、高齢者は警告を受けても抵抗したり詐欺に関わり続けたりすることが多く、家族は詐欺を見抜いても介入の法的権限や資金回収の手段に乏しいことが示された。</p><dl class="flow"><div><dt>背景</dt><dd>米国IC3によると2024年に60歳以上の被害申告額は49億ドルに達した。家族は詐欺を察知しても、本人の同意なしには介入できないことが多く、既存研究は単一プラットフォーム・単一言語の分析にとどまっていた。</dd></div><div><dt>手法</dt><dd>Reddit（2021年5月〜2026年6月、9サブレディット）と百度貼吧（2007〜2026年、157フォーラム）から投稿を収集し、キーワードフィルタとLLMによる分類を経て、Reddit 13,082件・貼吧 3,933件のコーパスを構築。コードブックに基づく混合手法で分析した。</dd></div><div class="key"><dt>結果</dt><dd>Reddit で反応が記録された投稿の68.0%で高齢者が抵抗または被害の継続を示し、貼吧の対立投稿では41.9%が詐欺を信じ続けていた。Reddit の投稿の74.4%で家族が詐欺を見抜いていた。アカウントロックや認証情報変更は、受容時の33.3%に対し抵抗時は8.9%にとどまった。回収の成功は Reddit で5.5%、貼吧で9.4%と非常に少なかった。</dd></div><div><dt>示唆</dt><dd>家族が保護的措置を取れる、審査付きの一時的保留や本人の自律性を守る安全策など、明確な救済チャネルの整備が必要である。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.24899v1" target="_blank" rel="noopener noreferrer">&quot;I Don&#x27;t Think It&#x27;s a Scam&quot;: A First Look at Family Intervention Barriers in Elder Abuse Discussions on Reddit and Baidu Tieba</a><br>Yipeng Wang、Huy Gia Han Vu、Jiaming Liu ほか・arXiv</p>
+</article>
+<article class="item" id="p4">
+<p class="meta"><span class="no">4 / 8</span><span>AI安全</span></p>
+<h3>対照学習で脱獄プロンプトを検出</h3>
+<p class="concl">有害・無害の二つの基準点との距離で判定し、分類器に近い精度を示す</p>
+<p class="num"><b>0.173〜0.310</b><span>ROC-AUCの上回り幅</span></p>
+<div class="flow3"><div><b>困りごと</b>未知の攻撃に分類器が弱い</div><i></i><div><b>やったこと</b>対照学習で二つのプロトタイプを作成</div><i></i><div class="key"><b>結果</b>分類器と同等、適応後はLlama Guardを上回る</div></div>
+<details class="more"><summary>くわしく読む</summary><p>対照学習で得た表現空間上で、有害・無害の二つのプロトタイプとの相対距離から判定する手法JDPIを提案します。下流の分類器を別途学習せず、4つのベンチマークで分類器ベースラインとほぼ同等の性能を示し、データセットごとに適応させた場合は公開済みの Llama Guard 3-8B を ROC-AUC で上回ります。</p><dl class="flow"><div><dt>背景</dt><dd>分類器ベースの安全検出は、事前定義したポリシーや攻撃カテゴリに依存し、未知の攻撃への汎化やカテゴリ境界の曖昧さに課題がある。有害入力と無害入力が表現空間で幾何学的な構造を持つかが問われている。</dd></div><div><dt>手法</dt><dd>二値の安全ラベルで対照学習によりエンコーダを適応させ、有害・無害それぞれのプロトタイプを構築する。入力は両プロトタイプへの相対距離で判定され、下流分類器は不要。マルチターン対話では蓄積されたユーザー履歴も利用する。</dd></div><div class="key"><dt>結果</dt><dd>4ベンチマークで対照学習により検出精度が 9.1〜18.0 ポイント向上した。同一エンコーダでは分類器ベースラインと比べ最大 0.017 以内の差に収まり、1つのベンチマークではわずかに高い ROC-AUC を示した。データセット適応後は Llama Guard 3-8B を ROC-AUC で 0.173〜0.310 上回った。12通りの転移実験では分類器より平均 1.59 ポイント高い精度だった。</dd></div><div><dt>示唆</dt><dd>二値ラベルだけで表現空間の安全構造を利用でき、追加の分類器学習用データ分割を減らせる。ただし転移性能は分類器を僅かに上回る程度の改善であり、多ターン評価も単一データセット（TomGibbs）に限られる点は留意が必要。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.24936v1" target="_blank" rel="noopener noreferrer">Jailbreak Detection on Large Language Models via Contrastive Prototype Structures</a><br>Yan Qiu、Yuanyuan Li・arXiv</p>
+</article>
+<article class="item" id="p5">
+<p class="meta"><span class="no">5 / 8</span><span>AI運用</span><span class="star">注目</span></p>
+<h3>レビュアーは確信度の一致で評価</h3>
+<p class="concl">修正の正しさと確信度の一致で評価すべきで、活動量では評価が逆転する</p>
+<p class="num"><b>92.5%</b><span>誤りに集中した確認の割合</span></p>
+<div class="flow3"><div><b>困りごと</b>レビュアーの価値の測り方が曖昧</div><i></i><div><b>やったこと</b>541,621件の本番修正データで分析</div><i></i><div class="key"><b>結果</b>確認作業の92.5%が実際の誤りに集中</div></div>
+<details class="more"><summary>くわしく読む</summary><p>人間レビュアーの価値は、活動量・速度・同意率・在籍期間ではなく「確信度と正答率の一致（メタ認知的キャリブレーション）」で決まると主張する。541,621件のレビューで検証し、行動データだけによる専門性評価は結果を逆転させること、また人間と AI のキャリブレーションを比較して作業を振り分けると誤りの 92.5% を捕捉できることを示している。</p><dl class="flow"><div><dt>背景</dt><dd>AI が提案し人間が確認・修正する認知システムで、どの人間レビュアーが価値を持つのかは従来「活動量・合意率・経験年数」で測られてきたが、これらは本質を捉えていないという問題意識がある。</dd></div><div><dt>手法</dt><dd>会計システムの6か月分の本番データ（541,621件、483名）を用い、修正が後に覆されなかった率（correction survival）を正答の代理指標として分析した。</dd></div><div class="key"><dt>結果</dt><dd>行動指標から作った専門性プロファイルは結果が逆転し、過信群（生存率 5.2%）を専門家群（99.2%）より高く評価した。品質は在籍期間によらず一定で、同じキャリブレーション指標をモデルに適用すると人間の確認作業の 92.5% が実際の誤りに集中した。</dd></div><div><dt>示唆</dt><dd>個人レベルでは予測には使えるが、多数決集約の下では個々のレビュアーの因果的寄与は識別不能であり、因果的な主張はセグメント単位に限られる。</dd></div><div><dt>追加</dt><dd>人間とモデルの自己認識を同一の構成概念として扱い、項目ごとによりキャリブレーションの良い主体に判断を委ねるという設計が提案されている。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.24932v1" target="_blank" rel="noopener noreferrer">Knowing What You Know: A Trait Theory of Reviewer Value in Human-AI Cognitive Systems</a><br>Priyanka Sinha、Sugam Pandey・arXiv</p>
+</article>
+<article class="item" id="p6">
+<p class="meta"><span class="no">6 / 8</span><span>社会</span><span class="star">注目</span></p>
+<h3>AI供給網の組織関係を地図化</h3>
+<p class="concl">公開情報から約9,700組織の関係を抽出し、集中や要所を分析</p>
+<p class="num"><b>約9,700</b><span>抽出した組織数</span></p>
+<div class="flow3"><div><b>困りごと</b>組織間の依存関係が文書化されていない</div><i></i><div><b>やったこと</b>公開文書から関係を自動抽出</div><i></i><div class="key"><b>結果</b>中心組織・集中度・要所を特定</div></div>
+<details class="more"><summary>くわしく読む</summary><p>AI開発は多数の組織の関係によって成り立っており、その全体像を公開情報から体系的にマッピングしたのが本論文です。約9,700の組織と関係を含む大規模データセットを公開し、集中やチョークポイントの分析を示しています。</p><dl class="flow"><div><dt>背景</dt><dd>AIシステムは多数の組織がモデル、データ、計算資源、資本、人材を提供して成り立つが、層（スタック）間の組織同士の関係は十分に文書化されていない。集中、チョークポイント、連鎖的障害、責任の所在の不明確さが懸念されている。</dd></div><div><dt>手法</dt><dd>基盤モデル提供者36社を起点に、公開文書（ニュース、プレスリリース、企業ブログ等）をオンライン検索し、関係性を自動抽出・注釈付けするパイプラインを構築。関係の種類の分類体系も作成した。2022年11月〜2026年10月の約13,000文書から、約9,700組織（頻度で絞ると4,520）の関係ネットワークを作成した。</dd></div><div class="key"><dt>結果</dt><dd>中心的な組織の特定、ネットワーク集中度の分析、コミュニティとチョークポイントの特定を実施。関係が循環的になっている例や、関係の記述が文書や時期によって変化する様子も示した。</dd></div><div><dt>示唆</dt><dd>公開情報に基づくため、非公開の取引は含まれず、検索設計によって網羅性に偏りがある。データセットは研究・政策検討の資源として利用でき、AI産業の政治経済の分析に役立つとしている。</dd></div><div><dt></dt><dd>追加: データは Hugging Face（sarahcen/ai-supply-chain）および aisupplychains.org で公開されている。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.24927v1" target="_blank" rel="noopener noreferrer">Mapping the AI Supply Chain: Dependencies, Vulnerabilities, and Market Concentration in the AI Ecosystem</a><br>Sarah H. Cen、Lindsey A. Gailmard、Joohan Kim ほか・arXiv</p>
+</article>
+<article class="item" id="p7">
+<p class="meta"><span class="no">7 / 8</span><span>生成AI</span></p>
+<h3>金属度とラフネスを見た目から推定</h3>
+<p class="concl">単一画像から物理的に妥当なPBRテクスチャを生成し、既存手法を上回る</p>
+
+<div class="flow3"><div><b>困りごと</b>金属度・ラフネスの推定が難しい</div><i></i><div><b>やったこと</b>アルベドと法線の同時予測、測光的アラインメント</div><i></i><div class="key"><b>結果</b>忠実度・材質精度・物理妥当性で上回る</div></div>
+<details class="more"><summary>くわしく読む</summary><p>単一の参照画像から3Dメッシュ用のPBRテクスチャを生成する際、金属度（Metallic）とラフネス（Roughness）を物理知識で補強するカスケード型マルチビュー拡散フレームワーク「UltraTex」を提案している。既存の公開手法・商用手法を、見た目の忠実度・材質精度・物理的妥当性で上回るとしている。</p><dl class="flow"><div><dt>背景</dt><dd>単一画像の見た目は材質・反射率・照明が絡み合うため曖昧で、既存の生成手法はアルベドは現実的に作れるものの、リライティングに必要な金属度・ラフネスの推定が難しい。</dd></div><div><dt>手法</dt><dd>アルベドと世界座標系のシェーディング法線を同時予測してからMRマップを生成するカスケード構成。VLMの隠れ層特徴を軽量アダプタで材質表現トークンに変換して部位レベルの材質意味情報を注入し、さらに光制御下の正解材質レンダリングへ中間特徴を近づける測光的表現アラインメントで、照明の教師信号なしに材質変化を学習させる。</dd></div><div class="key"><dt>結果</dt><dd>高品質なテクスチャを生成し、視覚的忠実度・材質精度・物理的妥当性で既存のオープンソース手法と商用手法を上回ると報告している。</dd></div><div><dt>示唆</dt><dd>照明を明示的に教師せず、ハイライトの強さや鏡面のシャープさといった見た目の手がかりを通じて金属度・ラフネスを推定する方向は、リライト可能な3Dアセット生成に有用と考えられる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.24941v1" target="_blank" rel="noopener noreferrer">UltraTex: Aligning Physical Knowledge for High-Fidelity PBR Texture Generation</a><br>Jingzhi Bao、Xiaohe Ma、Hong Li ほか・arXiv</p>
+</article>
+<article class="item" id="p8">
+<p class="meta"><span class="no">8 / 8</span><span>生成AI</span></p>
+<h3>特定個人を模倣するAIの識別実験</h3>
+<p class="concl">個人の10年分の発言でAIを作成したが、識別は偶然水準と差がない</p>
+<p class="num"><b>p=0.26</b><span>本人との識別のp値</span></p>
+<div class="flow3"><div><b>困りごと</b>特定個人を再現できるかが不明</div><i></i><div><b>やったこと</b>20名の欺瞞実験で本人との識別を検証</div><i></i><div class="key"><b>結果</b>識別率は偶然水準と有意差なし</div></div>
+<details class="more"><summary>くわしく読む</summary><p>LLMに個人の会話データを与えると、特定の個人を模倣する会話エージェントを作れることを示した。ただし20人対象の欺瞞実験では、識別率は偶然水準と区別できず、効果は示唆的な段階にとどまる。</p><dl class="flow"><div><dt>背景</dt><dd>LLMはTuringのImitation Gameで一般的な人間らしさを示せるようになった。本論文は、汎用的な人間ではなく「特定の個人」を再現できるかを問う Personal Imitation Game を提案する。</dd></div><div><dt>手法</dt><dd>30名の参加者で人間同士のベースラインを測定し、文体・性格・経歴の識別手がかりを分析。著者本人の10年分のメッセージデータを用いたLLMベースのシステムを構築し、20名の友人・同僚による欺瞞実験を行った。</dd></div><div class="key"><dt>結果</dt><dd>友人より本システムが選ばれたのは10回中7回、本システムより著者本人が選ばれたのは20回中13回。いずれも偶然水準との差は統計的に有意ではない（p=0.34、p=0.26）。</dd></div><div><dt>示唆</dt><dd>個人AIエージェントの可能性を示す一方、アイデンティティやプライバシーへの影響が大きい。サンプルサイズが小さいため、結果は効果の大きさではなく枠組みの提案が主な貢献とされる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.24888v1" target="_blank" rel="noopener noreferrer">Who are you? The Personal Imitation Game</a><br>Muhammad Rizky Wellyanto、Hajara-Yasmin Isa、Kexin Xue ほか・arXiv</p>
+</article>
+<footer class="foot"><p>出典は各論文のリンク。見出し・結論・図の文は自動生成です。</p><p>作成 2026-11-20 09:45</p></footer>
+</div>
+</body>
+</html>
