@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ja" data-job="keizai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>経済の裏側 2026-11-20</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">経済の裏側</span><time>2026年11月20日(金)</time></header>
+<h1>GDPは内訳で読む。AI投資の裏と、離脱の裏は金融の通行権</h1>
+<p class="deck">時事と歴史から 2 件</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#c1"><span class="no">1</span><span><b>7〜9月GDPがマイナス、AI投資だけ伸びた</b><span class="sub">実は: AI設備投資は伸びた一方、補助金の前借りの反動と輸入増が成長を削った</span></span><span class="tag">時事</span></a></li>
+<li><a href="#c2"><span class="no">2</span><span><b>英国のEU離脱、金融パスポートを失う</b><span class="sub">実は: 規制の主権と引き換えに、ロンドン金融の集積利益を大陸に譲る</span></span><span class="tag">歴史</span></a></li>
+</ol>
+<h2>損得の数</h2>
+<svg class="chart" viewBox="0 0 360 80" role="img" aria-label="立場の数。7〜9月GDPがマイナス、AI投資だけ伸びた 得をする1・困る1・板ばさみ2、英国のEU離脱、金融パスポートを失う 得をする2・困る2・板ばさみ0"><text x="0" y="18">7〜9月GDPがマイナ…</text><rect class="g" x="126" y="7" width="21" height="14"/><rect class="l" x="150" y="7" width="21" height="14"/><rect class="m" x="174" y="7" width="21" height="14"/><rect class="m" x="198" y="7" width="21" height="14"/><text x="0" y="46">英国のEU離脱、金融…</text><rect class="g" x="126" y="35" width="21" height="14"/><rect class="g" x="150" y="35" width="21" height="14"/><rect class="l" x="174" y="35" width="21" height="14"/><rect class="l" x="198" y="35" width="21" height="14"/><rect class="g" x="0" y="61" width="10" height="10"/><text class="legend" x="15" y="70">得をする</text><rect class="l" x="96" y="61" width="10" height="10"/><text class="legend" x="111" y="70">困る</text><rect class="m" x="192" y="61" width="10" height="10"/><text class="legend" x="207" y="70">板ばさみ</text></svg>
+<article class="case" id="c1">
+<p class="kind">時事</p>
+<h2>7〜9月GDPがマイナス、AI投資だけ伸びた</h2>
+<div class="nums"><p class="num"><b>年率0.1%減</b><span>実質GDP成長率</span></p><p class="num"><b>1.6%増</b><span>設備投資の伸び</span></p></div>
+<div class="omoteura"><div class="omote"><b>表向き</b>消費の弱さが景気を押し下げた。天候不順や物価高が背景とされる</div><i></i><div class="ura"><b>実は</b>AI設備投資は伸びた一方、補助金の前借りの反動と輸入増が成長を削った</div></div>
+<div class="sides"><section class="gain"><h3>得をする</h3><ul><li><b>AIインフラ供給網</b>設備投資の増加を直接受け取る</li></ul></section><section class="lose"><h3>困る</h3><ul><li><b>小売・中小企業・家計</b>値上げ転嫁が追いつかず実質所得も伸びない</li></ul></section></div>
+<div class="mixed"><h3>板ばさみ</h3><ul><li><b>省エネ家電・車販売</b>4〜6月は潤い、7〜9月は反動減</li><li><b>エネルギー輸入</b>供給は戻るがGDP計算では成長を削る</li></ul></div>
+<p class="lesson">GDPは見出しでなく内訳で読む。制度の締切り後の需要も計画に織り込む</p>
+<details class="more"><summary>くわしく読む</summary><h4>表向きの説明</h4><p>「消費の弱さが景気の足を引っ張った」という説明が一般的だ。天候不順や物価高による生活防衛、というのが表向きの筋書きである。実質GDPは前期比0.02%減（年率0.1%減）、個人消費は0.3%減と2四半期連続で落ち込んだ。QUICKの民間予測（年率0.2%増）を下回った。</p><h4>裏にある損得</h4><p>数字を分解すると、見出しとは違う構造が見える。</p><p>- <b>設備投資は1.6%増と3四半期ぶりのプラス。</b> 伸びたのはサーバーや半導体製造装置などのAI関連投資だ。GDPを支えたのは国民の財布ではなく、データセンターへの資本支出である。
+- <b>消費の「反動減」は政策と補助金の副作用でもある。</b> エアコンは2027年4月の省エネ基準厳格化を見越した4〜6月の買い替え需要の反動で落ちた。自動車も減税で販売が前倒しされ、その後に減った。制度の締切りが需要を前借りさせ、その返済が統計に出た形だ。
+- <b>輸入の増加がGDPを押し下げた。</b> 4〜6月に中東・ホルムズ海峡の事実上の封鎖で急減していた原油の代替調達が進み、輸入は2.5%増。輸入はGDPから差し引かれるため、エネルギー調達の正常化が成長率の足を引っ張った。
+- <b>名目成長の中身は「価格」と「賃金」。</b> GDPデフレーターは前年同期比2.4%上昇し、その上昇の大半が労働コストによるものだった。名目GDPは年率1.6%増だが、実質は伸びていない。企業から見れば、人件費と原材料高が利益を圧迫している局面である。</p><p>つまり、GDPの表面上の「マイナス」は、一部の企業にとってはAI設備投資の好機であり、家計にとっては値上げと補助金切れの二重苦、という非対称な現象だと読める。</p><h4>誰が得をして、誰が困るか</h4><p><b>**得をしている側**</b>: AIインフラの供給網（データセンター向けのサーバー、半導体製造装置）。設備投資の増加を直接受け取る。</p><p><b>**資金を前借りした側**</b>: 省エネ家電と減税対象の自動車メーカー・販売店。需要の前倒しで4〜6月は潤ったが、7〜9月はその反動に直面した。</p><p><b>**追い詰められている側**</b>: 日用品・食料品を扱う小売と、名目賃金の上昇に価格転嫁が追いつかない中小企業、そして実質所得が増えない家計。インフレ率が2%台に戻っても、消費者が値上げを受け入れる余力は限られている。</p><p><b>**統計上の「見えない当事者」**</b>: 輸入に依存する原油などの調達コスト。エネルギーの代替調達が進むほど、GDPの計算上は成長を削る。</p><h4>ここから言えること</h4><p>- <b>GDPの数字は「何が動いたか」を分解して読むべき。</b> 総量が下がっても、一部の投資が伸びていれば、その業界は好況である。統計の見出しだけで景況感を判断すると、勝ち組と負け組を取り違える。
+- <b>補助金・減税は需要の「前借り」である。</b> 省エネ基準や減税の締切りは、直前の駆け込み需要と直後の反動を生む。事業計画では、制度が切れた後の需要を織り込むべきである。
+- <b>エネルギーの地政学リスクは、GDP統計の輸入項目を通じて現れる。</b> 供給制約が解けて輸入が戻ると、国内の成長率は下がる。チョークポイントの緊張緩和が、必ずしも成長の追い風にはならない。
+- <b>AI投資は「成長の主役」になりつつあるが、雇用・所得への波及は限定的。</b> 設備投資が伸びても、家計の実質所得が伴わなければ、消費は戻りにくい。AIの経済圏を論じるなら、誰の所得に変わるかを問う必要がある。</p></details>
+</article>
+<article class="case" id="c2">
+<p class="kind">歴史</p>
+<h2>英国のEU離脱、金融パスポートを失う</h2>
+<div class="nums"><p class="num"><b>51.9%</b><span>離脱支持率</span></p></div>
+<div class="omoteura"><div class="omote"><b>表向き</b>主権の回復が狙い。規制を自ら決められるようになるとされた</div><i></i><div class="ura"><b>実は</b>規制の主権と引き換えに、ロンドン金融の集積利益を大陸に譲る</div></div>
+<div class="sides"><section class="gain"><h3>得をする</h3><ul><li><b>大陸の金融センター</b>業務の一部を取り込み、ロンドン一極集中が崩れる</li><li><b>離脱を掲げた政治勢力</b>国内対立を利用し政権基盤を固めた</li></ul></section><section class="lose"><h3>困る</h3><ul><li><b>ロンドンの金融機関</b>子会社設立や業務再配置のコストが発生</li><li><b>英国内の製造業・中小企業</b>通関手続きや規制対応の負担が増えた</li></ul></section></div>
+<p class="lesson">規制の主権と市場アクセスは同時に得にくい。金融の集積は制度の権利に依存する</p>
+<details class="more"><summary>くわしく読む</summary><h4>表向きの説明</h4><p>「主権の回復」「移民と規制からの解放」が離脱派の表向きの主張だった。政治的には、EU官僚機構への反発と、英国民のナショナリズムの高まりによる選択とされる。「経済的な打撃は限定的」という政府・離脱派の初期の見通しもあった。</p><h4>裏にある損得</h4><p>経済の観点では、離脱の本質は「金融の通行許可証」の問題だった。</p><p>- <b>金融パスポートという権利。</b> シティは、EU域内の金融機関が英国を拠点に域内全体へサービスを提供できる単一市場のルールを活用してきた。デリバティブ取引や外為取引の大半がロンドンに集中していたのは、このルールによる。離脱はこの権利を失うことを意味した。
+- <b>「規制の主権」と引き換えの損失。</b> 英国はEUの規制枠組みから離れることで、規制を自ら決められる。しかしその代償として、域内の顧客に直接サービスを提供する資格を失う。主権の回復は、金融の集積という「レント（独占的な利益）」の放棄とセットだった。
+- <b>大陸側の受益者。</b> フランクフルト、パリ、ダブリン、アムステルダムは、域内の金融業務を取り込む好機になった。法人の拠点移転や人員の一部移転が、実務的に進んだ。
+- <b>交渉力の非対称。</b> 英国はEUとの自由貿易協定で関税ゼロを確保しようとしたが、金融サービスは「同等性（equivalence）」の判断に委ねられた。EU側は判断権を保持し、金融の取引を政治的な交渉カードとして使える構造になった。</p><p>結果として、英国は「主権の回復」を得たが、「金融の集積による利益」の一部を大陸に譲る形になった。</p><h4>誰が得をして、誰が困るか</h4><p><b>**得をした側**</b>: 大陸の金融センター（フランクフルト、パリ、ダブリン、アムステルダム）。金融業務の一部を取り込み、ロンドン一極集中を崩す機会を得た。</p><p><b>**追い詰められた側**</b>: ロンドンの金融機関。域内顧客へのサービス提供に、子会社設立や業務の再配置というコストが発生した。</p><p><b>**政治的な勝者**</b>: 離脱を掲げた政治勢力。国内の対立を利用して政権基盤を固めた。</p><p><b>**見えない被害者**</b>: 英国内の製造業と、EUとの国境ルールに直面した中小企業。関税ゼロを確保しても、通関手続きや規制対応の負担が発生した。</p><h4>ここから言えること</h4><p>- <b>「規制の主権」と「市場アクセス」は、同時には手に入らないことが多い。</b> 規制を自ら決めることと、他国の市場への参入資格を保つことはトレードオフである。通商交渉では、どの権利をどこまで手放すかを明確にする必要がある。
+- <b>金融の集積は制度上の権利に依存している。</b> 地理的な優位だけでは、ルールを失えば集積は崩れうる。金融拠点を選ぶ企業は、制度の変更リスクを評価すべきである。
+- <b>同等性の判断という「見えない関税」。</b> 金融サービスの市場アクセスを相手の裁量に委ねると、政治的な交渉カードにされやすい。現代の半導体規制や輸出管理にも、同じ構造が見られる。
+- <b>政治的な主権回復は、経済的なレントの再配分を伴う。</b> 誰かの権利が回復すると、別の誰かの既得権益が移転する。政治的なスローガンの裏で、どのレントが誰に移ったかを読むことが重要である。</p></details>
+</article>
+<footer class="foot"><p>裏の読みは公開情報からの推測を含みます。見出しと図の文は自動生成です。</p><p>作成 2026-11-20 09:45</p></footer>
+</div>
+</body>
+</html>
