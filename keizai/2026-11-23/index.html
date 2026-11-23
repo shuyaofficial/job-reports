@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ja" data-job="keizai">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>経済の裏側 2026-11-23</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">経済の裏側</span><time>2026年11月23日(月)</time></header>
+<h1>AI上場もFRB利上げも、前提が崩れると評価が一気に動く</h1>
+<p class="deck">時事と歴史から 2 件</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#c1"><span class="no">1</span><span><b>アンソロピックの米国上場（AI企業の株式公開）</b><span class="sub">実は: 上場で巨額の設備投資を賄う資金を集める。含み益の実現機会も</span></span><span class="tag">時事</span></a></li>
+<li><a href="#c2"><span class="no">2</span><span><b>2022年のインフレ再来とFRBの急速利上げ</b><span class="sub">実は: 低金利で膨らんだ資産が下落し、借り手は利払いが急増</span></span><span class="tag">歴史</span></a></li>
+</ol>
+<h2>損得の数</h2>
+<svg class="chart" viewBox="0 0 360 80" role="img" aria-label="立場の数。アンソロピックの米国上場（AI企業の株式公開） 得をする2・困る2・板ばさみ0、2022年のインフレ再来とFRBの急速利上げ 得をする1・困る3・板ばさみ0"><text x="0" y="18">アンソロピックの米…</text><rect class="g" x="126" y="7" width="21" height="14"/><rect class="g" x="150" y="7" width="21" height="14"/><rect class="l" x="174" y="7" width="21" height="14"/><rect class="l" x="198" y="7" width="21" height="14"/><text x="0" y="46">2022年のインフレ再…</text><rect class="g" x="126" y="35" width="21" height="14"/><rect class="l" x="150" y="35" width="21" height="14"/><rect class="l" x="174" y="35" width="21" height="14"/><rect class="l" x="198" y="35" width="21" height="14"/><rect class="g" x="0" y="61" width="10" height="10"/><text class="legend" x="15" y="70">得をする</text><rect class="l" x="96" y="61" width="10" height="10"/><text class="legend" x="111" y="70">困る</text><rect class="m" x="192" y="61" width="10" height="10"/><text class="legend" x="207" y="70">板ばさみ</text></svg>
+<article class="case" id="c1">
+<p class="kind">時事</p>
+<h2>アンソロピックの米国上場（AI企業の株式公開）</h2>
+<div class="nums"><p class="num"><b>約1.5兆ドル</b><span>評価額</span></p><p class="num"><b>約130兆円</b><span>AIインフラ投資計画</span></p></div>
+<div class="omoteura"><div class="omote"><b>表向き</b>生成AI「Claude」開発元の米上場。AIブームの成長力の象徴と報道</div><i></i><div class="ura"><b>実は</b>上場で巨額の設備投資を賄う資金を集める。含み益の実現機会も</div></div>
+<div class="sides"><section class="gain"><h3>得をする</h3><ul><li><b>創業者・初期出資者</b>上場で保有株を現金化しやすくなる</li><li><b>計算資源の供給者</b>GPUや電力の安定受注が見込める</li></ul></section><section class="lose"><h3>困る</h3><ul><li><b>一般投資家・年金基金</b>AI需要が減速すれば株価が大きく振れる</li><li><b>中小AI企業・新興企業</b>資金力の差が開発競争力の差として固定化</li></ul></section></div>
+<p class="lesson">AI投資の規模が個社の資金力を超え、資本市場が計算資源の配分を担い始めた</p>
+<details class="more"><summary>くわしく読む</summary><h4>表向きの説明</h4><p>生成AI「Claude」の開発元が、創業約5年で米国の株式市場に上場する。評価額は約1兆5000億ドル（約240兆円）とされ、AIブームの成長力を示す象徴的な出来事として報じられている。目論見書は「会社の価値が実際より1ドルも高く評価されてはならない」という異例の言葉で始まり、成長と社会的責任の両立を強調している。</p><h4>裏にある損得</h4><p>AI企業は、モデルの学習と推論に必要な計算資源（GPU、データセンター、電力）に巨額の先行投資を要する。目論見書で示されたとされるAIインフラへの約130兆円規模の投資計画は、その資金需要の大きさを物語る。つまり上場は、利益が出る前に巨額の設備投資を賄うための資本調達の手段である。</p><p>売上がまだ赤字の段階でも、AI成長への期待で評価額が膨らめば、少ない株式の希薄化で大規模な資金を集められる。高い評価額は、既存の投資家やベンチャーキャピタルにとって含み益の実現機会でもある。一方で、評価額の多くは「将来のGPU需要が続く」という前提に依存している。</p><h4>誰が得をして、誰が困るか</h4><p><b>得をする側</b>: 創業者・初期投資家・ベンチャーキャピタル（上場による流動性の獲得）、そして計算資源の供給者（半導体・クラウド・データセンター関連）。資金需要が設備需要に直結するため、GPUや電力を売る側は安定的な受注を得やすい。</p><p><b>リスクを負う側</b>: 上場後に株を買う一般投資家と年金基金。評価額が将来の収益化に大きく依存するため、AI需要が減速すれば株価は大きく振れる。</p><p><b>間接的な影響を受ける側</b>: 大規模な資金調達競争に入れない中小のAI企業やスタートアップ。資本力の差が、モデル開発の競争力の差として固定化しやすい。</p><h4>ここから言えること</h4><p>1990年代末のITバブル期には、インターネット企業が収益より成長期待で巨額の資金を集め、その後の急落で多くの投資家が損失を被った。通信インフラの過剰投資が「光ファイバーの敷設はしたが、需要は後から来た」という形で残った点も、AIインフラ投資と重なる。</p><p>実務上の教訓は、「設備投資の規模」と「収益化の速度」の差を見ることだ。AI企業のIPOは、AIの資本集約性が個社の資金力を超え、資本市場が計算資源の配分を担うようになったことを示している。日本の企業にとっては、AI投資をどう資金化するか（自社開発、提携、株式、クラウド利用）を選ぶ判断材料になる。</p></details>
+</article>
+<article class="case" id="c2">
+<p class="kind">歴史</p>
+<h2>2022年のインフレ再来とFRBの急速利上げ</h2>
+<div class="omoteura"><div class="omote"><b>表向き</b>コロナ禍後の物価急騰を抑えるため、FRBが政策金利を短期で大幅に上げた</div><i></i><div class="ura"><b>実は</b>低金利で膨らんだ資産が下落し、借り手は利払いが急増</div></div>
+<div class="sides"><section class="gain"><h3>得をする</h3><ul><li><b>ドル建て資産の保有者</b>金利上昇で運用利回りが増加</li></ul></section><section class="lose"><h3>困る</h3><ul><li><b>変動金利の住宅ローン利用者</b>返済額が上がり家計を圧迫</li><li><b>新興国の政府・企業</b>ドル建て債務の返済負担が増加</li><li><b>長期債を持つ金融機関</b>含み損が生まれ後の破綻の伏線に</li></ul></section></div>
+<p class="lesson">低金利の前提が崩れると資産評価と調達条件が同時に変わる。AI投資も例外ではない</p>
+<details class="more"><summary>くわしく読む</summary><h4>表向きの説明</h4><p>コロナ禍の財政出動と供給制約により物価が急上昇した。米連邦準備制度（FRB）は、インフレを抑えるため政策金利を短期間で大幅に引き上げた。これは「インフレ退治」のための標準的な金融政策として説明された。</p><h4>裏にある損得</h4><p>ゼロ金利と量的緩和の長期化によって、資産価格は大きく膨らんでいた。金利が急上昇すると、将来のキャッシュフローを割り引く率が上がり、株式や長期債、不動産の評価が一斉に下がる。この再評価は、低金利を前提に借り入れを増やしていた企業や政府、家計の財務を直撃した。</p><p>また、資金を低金利で調達していた主体は、利上げによって利払い負担が急増した。債券を保有していた金融機関には含み損が生まれ、その一部は2023年のSVB破綻の伏線になった。利上げは物価を抑える一方で、金融システムの脆弱性を露わにする「テスト」でもあった。</p><h4>誰が得をして、誰が困るか</h4><p><b>得をする側</b>: ドル建て資産を保有し、金利上昇で運用利回りを得た投資家や預金者。米国の金利水準が高まることで、ドルは資本流入を受けて強くなった。</p><p><b>追い詰められた側</b>: 変動金利の住宅ローン利用者、借り換えを迫られた新興国の政府や企業（ドル建て債務の返済負担が増加）、そして長期債の含み損を抱えた金融機関。</p><h4>ここから言えること</h4><p>低金利が続くと、資産価格の上昇が「実力」に見えやすい。金利が正常化する局面では、その前提が崩れ、評価と資金調達条件が同時に変わる。現在のAI投資ブームも、資本コストの前提が変われば、同じ構造で評価が見直される可能性がある。</p><p>企業経営者にとっては、借入の金利条件と資産の評価前提を定期的に見直すことが重要だ。国際政治の面では、基軸通貨国の金融政策が他国の通貨・債務・資本流出に波及する構造が、現在も続いていることを示している。</p></details>
+</article>
+<footer class="foot"><p>裏の読みは公開情報からの推測を含みます。見出しと図の文は自動生成です。</p><p>作成 2026-11-23 09:45</p></footer>
+</div>
+</body>
+</html>
