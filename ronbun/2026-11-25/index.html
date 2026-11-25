@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ja" data-job="ronbun">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>論文分析 2026-11-25</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">論文分析</span><time>2026年11月25日(水)</time></header>
+<h1>検証の重要性が増す一方、学習不要の改善手法が実用的な日</h1>
+<p class="deck">論文 7 本・先に読むなら 3 本</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#p5"><span class="no">5</span><span><b>推論型自動運転VLAを学習なしで圧縮</b><span class="sub">学習なしで39.4%削減。推論を高速化する実例</span></span><span class="tag"></span></a></li>
+<li><a href="#p6"><span class="no">6</span><span><b>ハブ誤りを抑える軽い補正で検索改善</b><span class="sub">学習もアーキテクチャ変更も不要な簡便な補正</span></span><span class="tag"></span></a></li>
+<li><a href="#p1"><span class="no">1</span><span><b>AIで作る個人向けソフトの実態</b><span class="sub">AI時代の検証・保守支援の設計指針になる</span></span><span class="tag"></span></a></li>
+</ol>
+<h2>分野ごとの本数</h2>
+<svg class="chart" viewBox="0 0 360 140" role="img" aria-label="分野ごとの本数。画像・映像AI 3、ソフト開発 1、通信網 1、自動運転 1、数値計算 1"><text x="0" y="18">画像・映像AI</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">3</text><text x="0" y="46">ソフト開発</text><rect x="126" y="35" width="63" height="14"/><text class="n" x="197" y="46">1</text><text x="0" y="74">通信網</text><rect x="126" y="63" width="63" height="14"/><text class="n" x="197" y="74">1</text><text x="0" y="102">自動運転</text><rect x="126" y="91" width="63" height="14"/><text class="n" x="197" y="102">1</text><text x="0" y="130">数値計算</text><rect x="126" y="119" width="63" height="14"/><text class="n" x="197" y="130">1</text></svg>
+<h2>7 本の一覧</h2>
+<ol class="tri">
+<li><a href="#p1"><span class="no">1</span><span><b>AIで作る個人向けソフトの実態</b></span><span class="tag">ソフト開発</span></a></li>
+<li><a href="#p2"><span class="no">2</span><span><b>意図からネットワーク制御へ橋渡し</b></span><span class="tag">通信網</span></a></li>
+<li><a href="#p3"><span class="no">3</span><span><b>表現を共有し理解と生成を統合</b></span><span class="tag">画像・映像AI</span></a></li>
+<li><a href="#p4"><span class="no">4</span><span><b>1枚の写真から長い歩行映像を生成</b></span><span class="tag">画像・映像AI</span></a></li>
+<li><a href="#p5"><span class="no">5</span><span><b>推論型自動運転VLAを学習なしで圧縮</b></span><span class="tag">自動運転</span></a></li>
+<li><a href="#p6"><span class="no">6</span><span><b>ハブ誤りを抑える軽い補正で検索改善</b></span><span class="tag">画像・映像AI</span></a></li>
+<li><a href="#p7"><span class="no">7</span><span><b>PDE解の出力を保証付きで検証する</b></span><span class="tag">数値計算</span></a></li>
+</ol>
+<h2>1 本ずつ</h2>
+<article class="item" id="p1">
+<p class="meta"><span class="no">1 / 7</span><span>ソフト開発</span><span class="star">注目</span></p>
+<h3>AIで作る個人向けソフトの実態</h3>
+<p class="concl">機能の68%は作成中に生まれ、作業の47%は出力の検証に使われた</p>
+<p class="num"><b>68%</b><span>作成中に生まれた機能の割合</span></p>
+<div class="flow3"><div><b>困りごと</b>AIで作られる個人用ソフトの実態が未研究</div><i></i><div><b>やったこと</b>6,168件の投稿分析と8名の最長1週間観察</div><i></i><div class="key"><b>結果</b>価値は適合度にあり、作業は検証へ移った</div></div>
+<details class="more"><summary>くわしく読む</summary><p>個人向けソフトウェア（自分のデータや習慣に合わせて作るソフト）を、AIコーディングエージェントで作る実態を調べた混合手法研究。作られる機能の大半は作成中に生まれ、作り手の作業はコードを書くことから出力を確認することへ移っていた。</p><dl class="flow"><div><dt>背景</dt><dd>個人向けソフトウェアはこれまでプログラミング能力により作成者が限られていた。生成AIにより非プログラマーも作れるようになったが、その実態はほとんど研究されていない。</dd></div><div><dt>手法</dt><dd>6,168件のウェブ・Reddit投稿を分析するグレーレビューと、8名が自分用ソフトをAIエージェントで作り、最長1週間使用する観察研究を組み合わせた。</dd></div><div class="key"><dt>結果</dt><dd>価値は機能の多さではなく特定の個人やコミュニティへの適合度にある。機能の68%は作成中に生まれ、作業時間の47%はエージェント出力のテスト・確認に費やされ、コード編集はわずか0.2%だった。</dd></div><div><dt>示唆</dt><dd>作り手にとって検証が中心的な作業になるため、AIエージェント時代の検証支援やメンテナンス支援の設計が重要になる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.31217v1" target="_blank" rel="noopener noreferrer">A Mixed-Methods Study of Personal Software Creation</a><br>Shaokang Jiang、Kira Yuha Cho、Emerson Murphy-Hill ほか・arXiv</p>
+</article>
+<article class="item" id="p2">
+<p class="meta"><span class="no">2 / 7</span><span>通信網</span></p>
+<h3>意図からネットワーク制御へ橋渡し</h3>
+<p class="concl">3つのAIエージェントで意図を無線資源制御まで自律実行できる</p>
+
+<div class="flow3"><div><b>困りごと</b>高レベルな意図を具体的な制御に変換できない</div><i></i><div><b>やったこと</b>LLM・ベイズ最適化・強化学習の3エージェント連携</div><i></i><div class="key"><b>結果</b>無線資源管理の事例で要件や状況変化に適応</div></div>
+<details class="more"><summary>くわしく読む</summary><p>ネットワークの高レベルなintent（意図）を、LLMベースの解釈器・ベイズ最適化による最適化器・多目的強化学習による制御器の3エージェントで自律的に実行制御する枠組みを提案し、無線リソース管理の事例でその有効性を示した。</p><dl class="flow"><div><dt>背景</dt><dd>将来のモバイルネットワークでは高レベルなintentを具体的な最適化・制御動作に変換する必要があるが、既存研究はintent管理・オーケストレーションに偏り、下位のRAN最適化・制御機能の適応は十分に扱われていない。</dd></div><div><dt>手法</dt><dd>解釈器（LLM）がintentを機械可読な最適化テンプレートに変換・洗練し、最適化器（ベイズ最適化）が制御ポリシーをintentに適合させ、制御器（多目的強化学習）が高速に意思決定する三者連携のエージェントAIフレームワークを提案。</dd></div><div class="key"><dt>結果</dt><dd>無線リソース管理（差別化コネクティビティ）のケーススタディで実装・評価し、intent仕様と制御ポリシーがサービス要件やネットワーク状況の変化に適応することを示した。</dd></div><div><dt>示唆</dt><dd>遅い熟考的な外側ループ（intent管理）と速い反応的な内側ループ（RAN制御）を分離し閉ループで連携させることで、高レベルintentと実時間ネットワーク制御を橋渡しできる可能性がある。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.31223v1" target="_blank" rel="noopener noreferrer">Agentic AI for Intent Management and Control in Autonomous Communication Networks</a><br>Burak Demirel、Yu Wang、Pablo Soldati・arXiv</p>
+</article>
+<article class="item" id="p3">
+<p class="meta"><span class="no">3 / 7</span><span>画像・映像AI</span></p>
+<h3>表現を共有し理解と生成を統合</h3>
+<p class="concl">VLMの凍結エンコーダ表現で画像生成を効率化できる</p>
+<p class="num"><b>約0.89B</b><span>生成専用パラメータ数</span></p>
+<div class="flow3"><div><b>困りごと</b>理解と生成で目的が干渉し、生成に知識が活きない</div><i></i><div><b>やったこと</b>凍結エンコーダの多層表現を融合して共有トークン化</div><i></i><div class="key"><b>結果</b>理解性能を保ち、生成学習が別表現より効率的</div></div>
+<details class="more"><summary>くわしく読む</summary><p>VLM の凍結ビジョンエンコーダの多層表現を融合して共有視覚トークンを作り、理解と生成を同一表現空間で行う統合モデル「Integral」を提案。理解性能を保ったまま、別個の表現空間を使う場合より生成学習が効率的になることを示した。</p><dl class="flow"><div><dt>背景</dt><dd>理解と生成を一つのモデルで統合する際、両者の目的が干渉しやすい。既存手法は生成用に別の視覚表現空間（VAE等）を用いることが多く、VLM の知識を生成に活かしきれていない。</dd></div><div><dt>手法</dt><dd>Abstraction Fusion（AF）が凍結ビジョンエンコーダの複数階層の表現を集約して共有視覚トークンを構成。Block-wise MoT は VLM の内部表現をブロック境界でのみ参照する軽量な生成ストリーム（生成専用パラメータ約0.89B）。</dd></div><div class="key"><dt>結果</dt><dd>合成的生成、知識集約型生成、マルチモーダル理解を要する画像編集で強い性能を示す。別の視覚表現空間を用いる場合と比べ、再構成精度が同程度でも共有表現の方が生成学習を大きく改善。</dd></div><div><dt>示唆</dt><dd>事前学習済み VLM の表現は、理解能力を損なわずに視覚生成の有効な基盤となりうる。深層の低レベル情報の保持（propagation bottleneck）が意味性と再構成のトレードオフの原因という仮説も提示。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.31237v1" target="_blank" rel="noopener noreferrer">Let Vision-Language Models Generate Images through Their Representations</a><br>JB Kim、Byungwoo Jeon、Kyungmin Lee ほか・arXiv</p>
+</article>
+<article class="item" id="p4">
+<p class="meta"><span class="no">4 / 7</span><span>画像・映像AI</span></p>
+<h3>1枚の写真から長い歩行映像を生成</h3>
+<p class="concl">未観測部分もVLMの粗い3Dレイアウトで補い、経路のずれを抑えた</p>
+<p class="num"><b>3.8倍</b><span>カメラ誤差の低減率</span></p>
+<div class="flow3"><div><b>困りごと</b>既見領域しか保てず、カメラが経路から逸れやすい</div><i></i><div><b>やったこと</b>点群メモリとVLM作成の3Dボックスを併用</div><i></i><div class="key"><b>結果</b>カメラ誤差3.8倍減、戻り一貫性22%向上</div></div>
+<details class="more"><summary>くわしく読む</summary><p>単一の写真から、撮影されていない領域も含めて一貫性を保つ長いカメラ制御映像を生成する手法 Lyris を提案します。観測済み領域の点群メモリと、VLM が作る 3D ボックスのレイアウトを組み合わせることで、既存手法を大きく上回りました。</p><dl class="flow"><div><dt>背景</dt><dd>メモリベースの映像生成は既に見た内容を保持できるが、その先に手がかりがないためカメラが経路から逸れやすい。レイアウト条件付き手法は精密な制御を与えるが、レイアウトを人手で作る必要がある。</dd></div><div><dt>手法</dt><dd>観測・生成済みの領域は点群メモリで保持し、未観測の領域は VLM が 3D レイアウトを作成する。レイアウトは「ラベル付き 3D ボックス（物体ごと 1 つ）」という粗い表現で、カメラ経路に沿って描画して映像モデルに与える。</dd></div><div class="key"><dt>結果</dt><dd>単一写真から 3 分以上、50m 規模の歩行映像を生成できた。4 つのデータセットでの 1 分程度の往復評価では、カメラ誤差を 3.8 倍低減し、戻ってきた際の一貫性は平均 22% 向上した。</dd></div><div><dt>示唆</dt><dd>映像モデルと 3D 表現の接点は粗い構造で十分であり、VLM が自動生成したレイアウトを人が編集する運用も現実的であることを示した。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.31239v1" target="_blank" rel="noopener noreferrer">Lyris: Layout-Guided Long Video Generation with Persistent 3D Memory</a><br>Chen Wang、Jiahui Huang、Riccardo de Lutio ほか・arXiv</p>
+</article>
+<article class="item" id="p5">
+<p class="meta"><span class="no">5 / 7</span><span>自動運転</span><span class="star">注目</span></p>
+<h3>推論型自動運転VLAを学習なしで圧縮</h3>
+<p class="concl">重要パラメータを残す枝刈りで、39.4%削減と1.37倍高速化</p>
+<p class="num"><b>39.4%</b><span>パラメータ削減率</span></p>
+<div class="flow3"><div><b>困りごと</b>推論と行動の計算が重く、リアルタイム運用に届かない</div><i></i><div><b>やったこと</b>両目的の重要度を統合し、行動側は一部MLPだけ残す</div><i></i><div class="key"><b>結果</b>24%削減で既存手法並み、30%でも推論が崩れず</div></div>
+<details class="more"><summary>くわしく読む</summary><p>自動運転向け推論型VLA（Alpamayo-1.5-10B）を、重要度の高いパラメータを残して構造的に枝刈りする手法MoOPを提案した。VLMは推論と行動の両目的の重要度ランクを統合して枝刈りし、Action Expertは安定したMLPチャネルだけを残す。追加学習なしで39.4%のパラメータ削減と1.37倍の推論高速化を実現している。</p><dl class="flow"><div><dt>背景</dt><dd>推論型VLAはCoC（Chain-of-Causation）の自己回帰生成と反復的なデノイジングにより計算コストが大きく、リアルタイム運用の妨げになっている。VLMの推論と行動生成で重要なパラメータが部分的にしか一致しないため、単一目的の枝刈りでは片方が崩れる。</dd></div><div><dt>手法</dt><dd>Taylor重要度で両目的の重要度を計測し、MoOP（Mixture-of-Objective Pruning）を提案。VLMは両目的のランクの最大値でユニットを評価し、Action ExpertはデノイジングステップごとのMLPチャネル重要度を集約して固定のサブセットを選ぶ。</dd></div><div class="key"><dt>結果</dt><dd>24.0%削減ではVLMのみの枝刈りで既存最良手法と同等以上の運転性能を示し、LingoQAスコアは元モデルの94.0%を維持。30.0%削減では推論が崩れず、他手法より劣化が小さい。Expert MLPチャネルの93.75%を削除すると全体削減率は39.4%に達し、推論時間1.37倍高速化、ピークメモリ36.6%減を実現した。</dd></div><div><dt>示唆</dt><dd>推論型VLAの枝刈りでは、推論と行動の両方の目的を考慮する必要がある。Action Expertは少数のMLPチャネルで行動予測を維持でき、後処理の微調整なしでも実用的な圧縮が可能。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.31240v1" target="_blank" rel="noopener noreferrer">Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action</a><br>Seongchan Kim、Soowon Son、Sangoh Kim ほか・arXiv</p>
+</article>
+<article class="item" id="p6">
+<p class="meta"><span class="no">6 / 7</span><span>画像・映像AI</span><span class="star">注目</span></p>
+<h3>ハブ誤りを抑える軽い補正で検索改善</h3>
+<p class="concl">学習なしの閉形式補正で、全21モデルのCOCO検索が改善</p>
+<p class="num"><b>+16.8</b><span>COCO検索の平均改善値</span></p>
+<div class="flow3"><div><b>困りごと</b>誤った候補が上位に来て画像検索が失敗する</div><i></i><div><b>やったこと</b>誤答に寄与する方向だけを少し縮小</div><i></i><div class="key"><b>結果</b>COCO平均+16.8、ImageNet低下は最大0.5pt</div></div>
+<details class="more"><summary>くわしく読む</summary><p>CLIP型デュアルエンコーダの検索誤りは、両モダリティ間の「モダリティギャップ」を担う方向のうち、ハードネガティブに偏る方向を軽く縮小することで改善できると示した。この補正を閉形式で書き出した TowerBridge は、学習やアーキテクチャ変更なしに、評価した全21チェックポイントでCOCO検索を改善する。</p><dl class="flow"><div><dt>背景</dt><dd>CLIP系モデルでは、誤ったハードネガティブ（ハブ画像など）が正解より高くスコアされて検索が失敗する。従来はモダリティギャップの除去が有力視されていたが、除去すると全チェックポイントで検索精度が下がる。</dd></div><div><dt>手法</dt><dd>ハードネガティブ方向を識別する対ごとの統計量 D を導入した。LLMエージェント（Astra）が重みを直接編集する「重み空間プログラミング」でその補正を探索し、そこで繰り返し現れた補正を閉形式のレシピ TowerBridge にまとめた。レシピは2万5千組のラベル付きペアから数秒で計算でき、出力射影を縮小する（10%縮小、その後の再マイニングで追加の小さな縮小）。</dd></div><div class="key"><dt>結果</dt><dd>COCO test の RSUM が全21チェックポイントで平均 +16.8、Flickr30k test で平均 +6.6 向上した。ImageNet ゼロショット精度の低下は最大0.5ポイントに抑えられ、ハブ化も減少した。他系統のデュアルエンコーダ5種中4種でも検索が改善した。</dd></div><div><dt>示唆</dt><dd>モダリティギャップを消すのではなく、ハードネガティブに寄与する方向だけを穏やかに弱めるのが有効である。推論コストを増やさず、重みに焼き込める簡便な後処理として実用性がある。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.31233v1" target="_blank" rel="noopener noreferrer">TowerBridge: Bridging the Dual-Encoder Modality Gap via Weight-Space Programming</a><br>Hani Alomari、Md Atabuzzaman、Chris Thomas・arXiv</p>
+</article>
+<article class="item" id="p7">
+<p class="meta"><span class="no">7 / 7</span><span>数値計算</span></p>
+<h3>PDE解の出力を保証付きで検証する</h3>
+<p class="concl">ソルバー非依存の検証器で誤差範囲を保証し、収束試験で漏れる誤りも検出</p>
+<p class="num"><b>0.1%</b><span>正解ソルバーの誤差上限</span></p>
+<div class="flow3"><div><b>困りごと</b>物理シミュレーション出力の正しさを確認しきれない</div><i></i><div><b>やったこと</b>仕様に基づく保証付き誤差範囲を計算する検証器</div><i></i><div class="key"><b>結果</b>正解は0.1%以内に認証、誤りは全て棄却・反証</div></div>
+<details class="more"><summary>くわしく読む</summary><p>外部ソルバー（FEniCSx、LLM が書いたプログラム、ニューラルサロゲート）の出力を、ソルバーに依存しない小さな検証器で保証付き誤差範囲として検証できることを示した。格子収束試験では見逃される誤りも検出できる。ただし、境界が有用になるのは、出力がエネルギーノルムで十分正確で、格子が問題を解像している場合に限られる。</p><dl class="flow"><div><dt>背景</dt><dd>専門家が確認しない物理シミュレーション出力（サードパーティ製ソルバー、LLM 生成コード、学習型サロゲート）が増えている。格子収束試験（GCI）は収束していれば誤った方程式を解くプログラムも通してしまい、統計的な保証（コンフォーマル予測）は個々の入力に対する保証にならない。</dd></div><div><dt>手法</dt><dd>ソルバーは許容ポテンシャルと電荷保存電流からなる「証明書（certificate）」を返す。独立した小さな検証器が、仕様（物理モデル）に対して Prager–Synge 超円とボール演算（256 ビット）を用いて、丸め誤差を含む保証付き誤差範囲を計算する。検証器はソルバーを変えても変更しない。</dd></div><div class="key"><dt>結果</dt><dd>- FEniCSx の証明書は、著者の自作ソルバーと同じ範囲を得た。 - 正しいソルバーに 5 種類のバグを入れた場合、格子収束試験は全て通ったが、証明書は全て棄却または反証された（うち 1 つはインピーダンスの真値から約 0.2% の誤差）。 - LLM が書いた 3 つのソルバーのうち、正しいものは 0.1% 以内に認証され、解けていないのに収束するものは検出された。 - 縮約基底係数を予測するニューラルネットでは、学習範囲内の幅は最大 0.0021%、範囲外は 0.3〜25% の有効な境界が得られた。一方、90% コンフォーマル区間は 14 件のテストのいずれも真値を含まなかった。 - 調整していないフーリエニューラル演算子（FNO）の境界は有効だが情報量が乏しかった。エネルギーノルムで学習すると区間は約 1/10 になり、縮約基底への射影で 2〜4 桁狭まったが、それでも情報量は不十分だった。</dd></div><div><dt>示唆</dt><dd>保証は「記述された仕様」に対するもので、入力範囲にかかわらず任意の出力に成り立つ。一方で、実用的な情報量を得るには、出力がエネルギー的に正確であることと、格子が問題を解像していることが前提になる。ニューラルサロゲートは、精度が低い場合に境界が広がるため、検証器はその状態を正直に示すことになる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.31211v1" target="_blank" rel="noopener noreferrer">Verifying the Outputs of PDE Solvers: From Finite Elements to Neural Surrogates</a><br>Konstantinos Dovelos・arXiv</p>
+</article>
+<footer class="foot"><p>出典は各論文のリンク。見出し・結論・図の文は自動生成です。</p><p>作成 2026-11-25 09:45</p></footer>
+</div>
+</body>
+</html>
