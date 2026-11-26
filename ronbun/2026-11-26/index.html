@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ja" data-job="ronbun">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>論文分析 2026-11-26</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">論文分析</span><time>2026年11月26日(木)</time></header>
+<h1>構造情報や行動データの活用が目立つ5本</h1>
+<p class="deck">論文 5 本・先に読むなら 3 本</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#p2"><span class="no">2</span><span><b>行動のみで長期タスクを蒸留</b><span class="sub">実行データだけで蒸留可能。非公開の思考過程に依存しない</span></span><span class="tag"></span></a></li>
+<li><a href="#p1"><span class="no">1</span><span><b>論文構造を使う医療画像VLM</b><span class="sub">論文の図と本文の関係を学習に使う手法。検索にも有効</span></span><span class="tag"></span></a></li>
+<li><a href="#p5"><span class="no">5</span><span><b>視点間で一貫した素材推定</b><span class="sub">視点間で一貫した素材・法線推定。再照明や編集に直結</span></span><span class="tag"></span></a></li>
+</ol>
+<h2>分野ごとの本数</h2>
+<svg class="chart" viewBox="0 0 360 140" role="img" aria-label="分野ごとの本数。医療画像AI 1、AIエージェント 1、音声映像AI 1、ロボット 1、3D視覚 1"><text x="0" y="18">医療画像AI</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">1</text><text x="0" y="46">AIエージェント</text><rect x="126" y="35" width="190" height="14"/><text class="n" x="324" y="46">1</text><text x="0" y="74">音声映像AI</text><rect x="126" y="63" width="190" height="14"/><text class="n" x="324" y="74">1</text><text x="0" y="102">ロボット</text><rect x="126" y="91" width="190" height="14"/><text class="n" x="324" y="102">1</text><text x="0" y="130">3D視覚</text><rect x="126" y="119" width="190" height="14"/><text class="n" x="324" y="130">1</text></svg>
+<h2>5 本の一覧</h2>
+<ol class="tri">
+<li><a href="#p1"><span class="no">1</span><span><b>論文構造を使う医療画像VLM</b></span><span class="tag">医療画像AI</span></a></li>
+<li><a href="#p2"><span class="no">2</span><span><b>行動のみで長期タスクを蒸留</b></span><span class="tag">AIエージェント</span></a></li>
+<li><a href="#p3"><span class="no">3</span><span><b>発話タイミングと話者を同時推定</b></span><span class="tag">音声映像AI</span></a></li>
+<li><a href="#p4"><span class="no">4</span><span><b>一つのポリシーで多様な形態を制御</b></span><span class="tag">ロボット</span></a></li>
+<li><a href="#p5"><span class="no">5</span><span><b>視点間で一貫した素材推定</b></span><span class="tag">3D視覚</span></a></li>
+</ol>
+<h2>1 本ずつ</h2>
+<article class="item" id="p1">
+<p class="meta"><span class="no">1 / 5</span><span>医療画像AI</span><span class="star">注目</span></p>
+<h3>論文構造を使う医療画像VLM</h3>
+<p class="concl">論文の図とキャプションの関係を学習に使い、既存モデルを上回った</p>
+<p class="num"><b>56.82%</b><span>67タスクの分野平均精度</span></p>
+<div class="flow3"><div><b>困りごと</b>図やパネルと本文の関係が活かせていなかった</div><i></i><div><b>やったこと</b>関連ペアを弱い正例に、5,240万組を構築</div><i></i><div class="key"><b>結果</b>67の分類タスクで平均56.82%、既存を上回る</div></div>
+<details class="more"><summary>くわしく読む</summary><p>論文の構造情報（図・パネル・キャプション・本文の言及段落）を対照学習の監督信号として取り入れ、5,240万組の画像-テキストデータセット「Loom52M」で学習したバイオメディカルVLM「BioLoom」が、67の医療・科学ゼロショット分類タスクやクロスモーダル検索で既存手法を上回ることを示した。</p><dl class="flow"><div><dt>背景</dt><dd>バイオメディカルVLMは大規模な画像-テキストデータで発展してきたが、論文内の図・パネル・キャプション・本文の関係性は独立した画像-テキストペアとして扱われ、活用されていない。</dd></div><div><dt>手法</dt><dd>完全一致ペアは維持しつつ、同一図内の兄弟パネルとキャプションなど関連ペアを弱い正例として扱う。同種コンテンツの異論文間ネガティブを重み付けし、パネル説明を視覚内容・原キャプション・言及段落で強化して、Loom52M（5,240万ペア）を構築した。</dd></div><div class="key"><dt>結果</dt><dd>BioLoom（DFN-2B）は43データセット・10分野の67ゼロショット分類タスクで分野バランス平均精度56.82%（MedPMC-CLIPは48.77%）。BioLoomBenchの検索でRecall@1の双方向平均は63.20%（BiomedCLIPは46.37%）、BioMedFlickrでは10.59%（MedPMC-CLIPは7.55%）。</dd></div><div><dt>示唆</dt><dd>データを増やすだけでなく、既存の科学論文の構造を監督信号として活用することで、バイオメディカルVLMの表現力を高められる可能性がある。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.33151v1" target="_blank" rel="noopener noreferrer">BioLoom: Scaling Biomedical Vision-Language Models by Learning from the Structure of Scientific Articles</a><br>Yuwei Yang、Xiaoxiao Sun、Alejandro Lozano ほか・arXiv</p>
+</article>
+<article class="item" id="p2">
+<p class="meta"><span class="no">2 / 5</span><span>AIエージェント</span><span class="star">注目</span></p>
+<h3>行動のみで長期タスクを蒸留</h3>
+<p class="concl">思考過程を使わず行動だけで、教師並みの振る舞いを学習できた</p>
+<p class="num"><b>18%</b><span>AppWorldの成功率（4B）</span></p>
+<div class="flow3"><div><b>困りごと</b>教師の思考過程は非公開で蒸留が難しい</div><i></i><div><b>やったこと</b>思考ブロックを空にして行動のみを教師あり学習</div><i></i><div class="key"><b>結果</b>Qwen3-4BのAppWorld成功率が7%から18%に</div></div>
+<details class="more"><summary>くわしく読む</summary><p>教師モデルの思考過程（CoT）を一切使わず、行動（action）だけで長期タスク用の方策を蒸留できることを示した。思考ブロックを空にした学習でも推論時には生徒モデルが自前の思考を行い、教師並みに振る舞う「クロスフォーマット転移」が起きる。CoT-proxy（思考の短い要約）を加えると、AppWorldでの成功率がさらに向上する。</p><dl class="flow"><div><dt>背景</dt><dd>強力な教師モデル（特にクローズドモデル）の思考過程は API 上で隠されており、CoT をそのまま蒸留することが難しい。また小型モデルは強力な推論者のトレースから学びにくい。</dd></div><div><dt>手法</dt><dd>学習ターゲットの思考ブロックを空にして行動のみを教師あり学習し、生徒自身の生成に対する KL 正則化（リプレイバッファ）で初期モデルからのドリフトを抑える。さらに、思考の短い要約（CoT-proxy）を思考ブロックの外に置いて追加する。</dd></div><div class="key"><dt>結果</dt><dd>AppWorld で Qwen3-4B は 7%→18%（CoT-proxy で 35%）、Qwen3-32B は 12%→25%。GPT-5.6 Luna の可視出力と推論要約から蒸留した場合、Qwen3-4B は AppWorld で 7%→48%、SWE-bench Verified で 3%→28% に向上。</dd></div><div><dt>示唆</dt><dd>長期タスクの失敗は推論よりも実行に起因する可能性があり、行動のみの教示で十分な場合がある。隠れた CoT に依存しないため、クローズドモデルからも蒸留できる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.33148v1" target="_blank" rel="noopener noreferrer">CoT-Proxy: Cross-Format Transfer for Distilling Long-Horizon Policies</a><br>Dawid J. Kopiczko、Tijmen Blankevoort、Yuki M. Asano・arXiv</p>
+</article>
+<article class="item" id="p3">
+<p class="meta"><span class="no">3 / 5</span><span>音声映像AI</span></p>
+<h3>発話タイミングと話者を同時推定</h3>
+<p class="concl">発話の時刻と話者を一つのモデルで同時に推定し、時刻精度が大きく向上</p>
+<p class="num"><b>76.59</b><span>時刻精度（TIME指標）</span></p>
+<div class="flow3"><div><b>困りごと</b>発話時刻と話者分離が別々に扱われていた</div><i></i><div><b>やったこと</b>合成教師あり学習後、強化学習で時刻を最適化</div><i></i><div class="key"><b>結果</b>時刻精度が比較対象の42.76から大幅向上</div></div>
+<details class="more"><summary>くわしく読む</summary><p>DiaCap は、動画内の各発話について「文字起こし・タイミング・話者の視覚的特徴」を一つのモデルで同時に推定する音声映像LLMです。強化学習で発話タイミングと話者の対応を直接最適化することで、タイムスタンプ精度でGemini 4 Argonを大きく上回ります。</p><dl class="flow"><div><dt>背景</dt><dd>誰がいつ話したかを捉える対話キャプションでは、発話タイミングと音声映像の話者分離（ダイアライゼーション）が密接に関係しているが、従来は別々に扱われることが多かった。</dd></div><div><dt>手法</dt><dd>2段階で学習する。第1段階では225Kクリップに対し、各発話を詳細に記述した合成キャプションで教師あり学習を行う。第2段階では2.9Kの人手修正済みクリップを用い、発話タイミング・話者のグルーピング・話者への結び付けを直接評価する細粒度フィードバックで強化学習を行う。</dd></div><div class="key"><dt>結果</dt><dd>DiaDemBench（発話単位のタイムスタンプと字幕の墨消しを追加して拡張）で、音声映像ダイアライゼーションはGemini 4 Argonと同等、タイムスタンプ精度は76.59 vs 42.76（TIME指標）と大きく上回る。多言語や分単位の長い動画でも高い性能を維持し、音声映像の質問応答にも転移する。</dd></div><div><dt>示唆</dt><dd>発話のタイミングと話者分離を統合して学習することが、対話理解の精度向上に有効であることを示している。なお、抄録中の「Gemini 4 Argon」というモデル名は本文の表記をそのまま引用しており、実在のモデルかどうかは確認していない。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.33153v1" target="_blank" rel="noopener noreferrer">DiaCap: Jointly Learning Who Speaks When for Audiovisual Dialogue Captioning</a><br>Binfei Ji、Zhiwen Cao、Anqi Yang ほか・arXiv</p>
+</article>
+<article class="item" id="p4">
+<p class="meta"><span class="no">4 / 5</span><span>ロボット</span></p>
+<h3>一つのポリシーで多様な形態を制御</h3>
+<p class="concl">ロボットの構造情報を入力し、未知の実機でも既存の約2倍の成功率</p>
+<p class="num"><b>63.0%</b><span>2,000エピソードの成功率</span></p>
+<div class="flow3"><div><b>困りごと</b>形態差が操作戦略に与える影響が捉えられない</div><i></i><div><b>やったこと</b>運動学グラフを条件に、100万の仮想ロボットで学習</div><i></i><div class="key"><b>結果</b>2,000エピソードの成功率63.0%、既存最良は57.9%</div></div>
+<details class="more"><summary>くわしく読む</summary><p>ロボットの運動学グラフ（関節位置・動作軸・視覚観測との接続）を入力に、フローマッチングで関節の相対運動を予測する単一ポリシーで、多様なロボット形態に対応できることを示した。100万通りの仮想ロボットで学習し、未知の実ロボットでも既存手法の約2倍の成功率を得た。</p><dl class="flow"><div><dt>背景</dt><dd>1つのポリシーで複数のロボットを制御する際、既存手法は共有の行動表現によるタスク知識の転移に頼るが、ロボット形態の違いが操作戦略にどう影響するかは十分に捉えられていない。</dd></div><div><dt>手法</dt><dd>各ロボットのキネマティクスをシーン内の文脈で表した「運動学グラフ」を条件として入力し、フローマッチングで各ノードの相対関節運動を予測する。手続き的に生成・フィルタした100万の物理的に実現可能なロボットを、シミュレーション上の軌道データで学習する。</dd></div><div class="key"><dt>結果</dt><dd>未知のシーン・ロボットを含む2,000エピソードの評価で成功率63.0%を達成し、pi 0.5（17.8%）や最良のベースライン（57.9%）を上回った。未見の実ロボットでは、次点のMolmoAct2のほぼ2倍の成功率となった。</dd></div><div><dt>示唆</dt><dd>形態ごとの能力と制約を条件として取り込むことで、ロボットごとに異なる操作戦略が自然に現れることが分かった。大規模な仮想ロボット群を用いたクロスエンボディメント学習の有効性を示す結果である。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.33158v1" target="_blank" rel="noopener noreferrer">OmniAct: One Policy, One Million Embodiments</a><br>Xiang Fan、Yuheng Wang、Jiayuan Yan ほか・arXiv</p>
+</article>
+<article class="item" id="p5">
+<p class="meta"><span class="no">5 / 5</span><span>3D視覚</span><span class="star">注目</span></p>
+<h3>視点間で一貫した素材推定</h3>
+<p class="concl">複数視点から表面点ごとに一つの素材・法線を予測し、視点間で一貫</p>
+
+<div class="flow3"><div><b>困りごと</b>画素ごとの推定で同じ点の分解がずれる</div><i></i><div><b>やったこと</b>表面点ごとに視点情報をプールし一度だけ予測</div><i></i><div class="key"><b>結果</b>視点間の一貫性が大幅向上、視点増で精度も改善</div></div>
+<details class="more"><summary>くわしく読む</summary><p>PointX は、未姿勢の複数画像から 3D 表面点ごとに albedo、roughness、metallicity、normal などの intrinsics を予測するフィードフォワードモデルです。視点間で一貫した分解を得られ、1 枚の画像でも精度を保ちつつ、視点を増やすと改善します。</p><dl class="flow"><div><dt>背景</dt><dd>画像から albedo や normal などの intrinsics を復元するのは本質的にあいまいで、画素ごとに予測する従来手法では、同じ表面点が視点ごとに異なる分解を受けてしまう。</dd></div><div><dt>手法</dt><dd>複数視点の Transformer で画像群を符号化し、問い合わせた 3D 表面点について、その点が写る視点のトークンをプールして intrinsics を一度だけデコードする。これにより、点群やメッシュの各点が単一の予測を受け取る。</dd></div><div class="key"><dt>結果</dt><dd>既存手法より視点間の一貫性が大幅に高く、単一画像でも精度は競争力があり、視点が増えるほど改善する。</dd></div><div><dt>示唆</dt><dd>視点一貫性のある relighting や編集が可能になり、3D 再構成と組み合わせた逆レンダリングの実用性が高まる。</dd></div></dl></details>
+<p class="src"><a href="https://arxiv.org/abs/2611.33157v1" target="_blank" rel="noopener noreferrer">PointX: Multi-View Consistent Intrinsics by Querying Surface Points</a><br>Miguel Farinha、Sam Sartor、Iliyan Georgiev ほか・arXiv</p>
+</article>
+<footer class="foot"><p>出典は各論文のリンク。見出し・結論・図の文は自動生成です。</p><p>作成 2026-11-26 09:45</p></footer>
+</div>
+</body>
+</html>
