@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ja" data-job="site">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>サイト分析 2026-11-27</title>
+<style>
+:root{--paper:#fcfbf9;--surface:#ffffff;--ink:#211e19;--ink-2:#625b50;--rule:#e3ded3;--strong:#211e19;--good:#1f6b4a;--warn:#8a5208;--bad:#a3302a;--on:#ffffff;--accent:#2c4a8a;--accent-soft:#e9eef8;--line:var(--rule);--ok:var(--good);--body:var(--sans);}
+[data-job="ronbun"]{--accent:#2c4a8a;--accent-soft:#e9eef8}
+[data-job="keizai"]{--accent:#8f2f2a;--accent-soft:#f7eae8}
+[data-job="vendor"]{--accent:#1d6652;--accent-soft:#e6f2ee}
+[data-job="site"]{--accent:#8a5210;--accent-soft:#f6ecdd}
+[data-job="private"]{--accent:#5b3f7a;--accent-soft:#f0eaf6}
+@media (prefers-color-scheme:dark){:root{--paper:#181613;--surface:#211e1a;--ink:#efe9de;--ink-2:#b3ab9b;--rule:#3a352c;--strong:#efe9de;--good:#7fd0a4;--warn:#e9b565;--bad:#f09a92;--on:#181613;--accent:#9db6ee;--accent-soft:#232b3d;color-scheme:dark}[data-job="ronbun"]{--accent:#9db6ee;--accent-soft:#232b3d}[data-job="keizai"]{--accent:#eaa29b;--accent-soft:#3a2523}[data-job="vendor"]{--accent:#84cdb5;--accent-soft:#1d302a}[data-job="site"]{--accent:#e2b477;--accent-soft:#33291b}[data-job="private"]{--accent:#c9b0e6;--accent-soft:#2d2438}}
+
+:root{--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;--head:var(--serif)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.page{max-width:720px;margin:0 auto;padding:18px 16px 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.45;margin:0;text-wrap:balance}
+b{font-weight:700}
+.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;padding-bottom:8px;border-bottom:3px double var(--strong)}
+.mast .job{font-family:var(--head);font-weight:700;font-size:17px;color:var(--accent)}
+.mast time{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+h1{font-size:27px;line-height:1.5;margin:20px 0 6px}
+.deck{color:var(--ink-2);font-size:15px;margin:0;font-variant-numeric:tabular-nums}
+h2{font-size:21px;margin:44px 0 14px;padding-top:12px;border-top:1px solid var(--strong)}
+h2 .count{font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-2);margin-left:10px;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink-2)}
+/* 選別の一覧（先に読むなら・全部の一覧） */
+.tri{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tri li{border-bottom:1px solid var(--rule)}
+.tri a{display:grid;grid-template-columns:1.7em 1fr auto;gap:2px 8px;align-items:baseline;padding:10px 0;min-height:44px;color:var(--ink);text-decoration:none}
+.tri .no{font-family:var(--head);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tri b{display:block;line-height:1.5}
+.tri .sub{display:block;font-size:14px;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.tri .tag{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.tri a:hover b,.tri a:focus-visible b{text-decoration:underline}
+.star{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
+/* グラフ（SVG） */
+.charts{display:grid;gap:8px 32px}
+.charts h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.chart{display:block;width:100%;max-width:400px;height:auto}
+.chart text{font:13px var(--sans);fill:var(--ink)}
+.chart .n{font-weight:700}
+.chart .legend{font-size:12px;fill:var(--ink-2)}
+.chart rect{fill:var(--accent)}
+.chart rect.g{fill:var(--good)} .chart rect.l{fill:var(--bad)} .chart rect.m{fill:var(--ink-2)}
+.chart a:hover text,.chart a:focus-visible text{text-decoration:underline}
+@media (min-width:640px){.charts.two{grid-template-columns:1fr 1fr}}
+/* 1 件ぶん */
+.item{padding:26px 0 10px;border-top:1px solid var(--rule);scroll-margin-top:12px}
+.item:first-of-type{border-top:0;padding-top:0}
+.item .meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:0 0 2px;font-size:14px;color:var(--ink-2)}
+.item .meta .no{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.item h3{font-size:21px}
+.concl{margin:6px 0 12px}
+.num{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 12px}
+.num b{font-family:var(--head);font-size:34px;line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.num span{font-size:14px;color:var(--ink-2)}
+.nums{display:flex;flex-wrap:wrap;gap:0 28px}
+.src{font-size:13px;color:var(--ink-2);margin:10px 0 0;line-height:1.6}
+.item .src{margin-top:0}
+/* 流れの図: 困りごと → やったこと → 結果 */
+.flow3{display:grid;grid-template-columns:1fr 12px 1fr 12px 1fr;align-items:stretch;margin:0 0 6px}
+.flow3>div{border:1px solid var(--rule);padding:8px 8px 9px;font-size:13px;line-height:1.6;background:var(--surface)}
+.flow3 b{display:block;font-size:12px;color:var(--ink-2);margin-bottom:2px}
+.flow3 .key{border-color:var(--accent);background:var(--accent-soft)}
+.flow3 .key b{color:var(--accent)}
+.flow3 i,.omoteura i{align-self:center;justify-self:center;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid var(--ink-2)}
+/* 経済の裏側: 表と裏、得をする側・困る側 */
+.kind{margin:44px 0 0;padding-top:12px;border-top:1px solid var(--strong);font-size:14px;font-weight:700;color:var(--accent)}
+.case h2{border:0;margin:4px 0 8px;padding:0;font-size:23px}
+.omoteura{display:grid;grid-template-columns:1fr 14px 1.15fr;align-items:stretch;margin:4px 0 16px}
+.omoteura>div{padding:10px 10px 11px;font-size:14px;line-height:1.65;border:1px solid var(--rule);background:var(--surface)}
+.omoteura b{display:block;font-size:12px;margin-bottom:2px}
+.omoteura .omote{color:var(--ink-2)}
+.omoteura .ura{border-color:var(--accent);background:var(--accent-soft)}
+.omoteura .ura b{color:var(--accent)}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.sides section{border-top:3px solid var(--good);padding-top:8px;min-width:0}
+.sides section:only-child{grid-column:1/-1}
+.sides .lose{border-top-color:var(--bad)}
+.sides h3{font-family:var(--sans);font-size:14px;color:var(--good);margin:0 0 4px}
+.sides .lose h3{color:var(--bad)}
+.sides ul,.mixed ul{list-style:none;margin:0;padding:0}
+.sides li,.mixed li{font-size:13px;line-height:1.6;margin:0 0 8px;color:var(--ink-2)}
+.sides li b,.mixed li b{display:block;font-size:14px;color:var(--ink)}
+.mixed{border-top:3px solid var(--rule);padding-top:8px;margin:0 0 8px}
+.mixed h3{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin:0 0 4px}
+.lesson{margin:14px 0 6px;padding-left:14px;border-left:3px solid var(--accent);font-family:var(--head);font-size:19px;line-height:1.6}
+/* 論文の流れ（くわしく読むの中） */
+.flow{margin:0;border-top:1px solid var(--rule)}
+.flow>div{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.flow dt{font-size:14px;font-weight:700;color:var(--ink-2);line-height:1.95}
+.flow dd{margin:0;font-size:15px;line-height:1.75}
+.flow .key{background:var(--accent-soft);margin:0 -10px;padding:10px;border-bottom-color:transparent}
+.flow .key dt{color:var(--accent)}
+/* たたんだ長文 */
+.more summary{display:flex;align-items:center;min-height:44px;font-size:14px;color:var(--accent);cursor:pointer}
+.more[open] summary{color:var(--ink-2)}
+.more h4{font-family:var(--sans);font-size:14px;margin:14px 0 2px}
+.more p{font-size:15px;margin:0 0 10px}
+/* ベンダー週次: 早見表と詳細 */
+.points{margin:0;padding-left:1.3em}.points li{margin:8px 0}
+.caveat{font-size:13px;color:var(--ink-2);margin:12px 0 0}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline;line-height:1.6}
+thead th{font-size:13px;color:var(--ink-2);border-bottom:1px solid var(--strong)}
+.board tr.grp th{font-size:13px;color:var(--ink-2);padding-top:18px}
+.board td:last-child,.board th:last-child{padding-right:0}
+.board td{white-space:nowrap}
+.quiet{color:var(--ink-2)}
+.sev{white-space:nowrap;font-weight:700}
+.sev::before{content:"";display:inline-block;width:.6em;height:.6em;border-radius:50%;margin-right:.4em;background:currentColor}
+.sev.crit{color:var(--bad)} .sev.high{color:var(--warn)} .sev.med{color:var(--ink-2)}
+.cmp{min-width:600px}
+.vend{margin:22px 0 0;scroll-margin-top:12px}
+.vend h3{font-family:var(--sans);font-size:17px}
+.vend ul{margin:6px 0 0;padding-left:1.2em}.vend li{margin:6px 0;font-size:15px}
+/* サイト分析: 話題ごとの記事 */
+.source{scroll-margin-top:12px}
+.row{padding:12px 0 2px;border-bottom:1px solid var(--rule);scroll-margin-top:12px}
+.row:last-child{border-bottom:0}
+.row h3{font-family:var(--sans);font-size:16px;line-height:1.55}
+.row h3 a{color:var(--ink)}
+.row .sub{font-size:13px;color:var(--ink-2);margin:2px 0 0;line-height:1.6}
+.row .tags{font-size:13px;color:var(--ink-2)}
+/* きょうのまとめ（目次） */
+.front h2 a{color:var(--accent);text-decoration:none}
+.front .say{font-family:var(--head);font-size:18px;line-height:1.6;margin:0 0 8px}
+.tops{margin:0;padding-left:1.3em}.tops li{margin:6px 0}
+.go{margin:8px 0 0;font-size:14px}
+.hist h3{font-size:17px;margin:22px 0 6px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.idx li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:8px 0;min-height:44px;border-bottom:1px solid var(--rule)}
+.idx a{font-weight:600;font-variant-numeric:tabular-nums}
+.idx .say{flex:1 1 100%;font-size:13px;color:var(--ink-2);line-height:1.6}
+.due{font-size:13px;color:var(--ink-2)}
+.chip{font-size:12px;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:0 8px;white-space:nowrap}
+.c-ok{color:var(--good)} .c-wait{color:var(--warn)} .c-no{color:var(--ink-2)}
+/* 印・図・数字のタイル・区画 */
+.mast .only{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-left:8px;white-space:nowrap}
+.fig{display:block;width:100%;max-width:400px;height:auto}
+.fig text{font:12px var(--sans);fill:var(--ink-2)}
+.fig .v{font-weight:700;fill:var(--ink);font-size:13px}
+.fig .on{fill:var(--accent);stroke:var(--accent)}
+.fig .mid{fill:var(--accent-soft);stroke:var(--accent)}
+.fig .off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.fig .onv{fill:var(--paper);font-weight:700;font-size:13px}
+.fig .line{fill:none;stroke:var(--accent);stroke-width:2}
+.fig .dot{fill:var(--accent)}
+.fig .axis{stroke:var(--rule);stroke-width:1}
+.fig .bar{fill:var(--accent)} .fig .bar.now{fill:var(--accent-soft);stroke:var(--accent)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:14px 0 6px}
+.tiles .num{margin:0}
+.tiles .num b{font-size:26px}
+table.plain td:last-child,table.plain th:last-child{text-align:right;white-space:nowrap}
+table.plain th,table.plain td:first-child{white-space:nowrap}
+table.wide{min-width:560px}
+table.wide td{white-space:nowrap}
+.front h2 .count{display:inline-block}
+table.kv th{white-space:nowrap;padding-right:16px}
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:1.6em 1fr;padding:10px 0;border-bottom:1px solid var(--rule)}
+.todo li::before{content:"□";color:var(--accent)}
+.private-zone{margin-top:56px;padding-top:8px;border-top:3px double var(--strong)}
+.private-zone>h2{border:0;margin:8px 0 0;padding:0}
+.private-zone>.deck{margin-bottom:8px}
+.private-zone .front:first-of-type h2{margin-top:24px}
+.bots{margin-top:44px;padding-top:12px;border-top:1px solid var(--strong)}
+.bots h3{margin-top:0}
+/* 末尾 */
+.foot{margin-top:48px;padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2)}
+.foot p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><span class="job">サイト分析</span><time>2026年11月27日(金)</time></header>
+<h1>自律型AIの検証と社内Q&amp;Aの評価手法が注目の日</h1>
+<p class="deck">記事 15 本・7 サイト・先に読むなら 3 本</p>
+<h2>先に読むなら</h2>
+<ol class="tri">
+<li><a href="#a2"><span class="no">1</span><span><b>自律型AIの途中判断まで検証する必要性を示す</b><span class="sub">途中の判断過程まで見る検証の必要性が分かる（ITmedia AI+）</span></span><span class="tag"></span></a></li>
+<li><a href="#a8"><span class="no">2</span><span><b>社内マニュアルQ&amp;Aを罠入り20問で比較評価した実験記録</b><span class="sub">罠入り問題による比較評価の具体的手法がわかる（Qiita）</span></span><span class="tag"></span></a></li>
+<li><a href="#a6"><span class="no">3</span><span><b>隔離環境で自律型AIとレビューツールを使う手順</b><span class="sub">隔離環境での導入手順を具体的に解説（Qiita）</span></span><span class="tag"></span></a></li>
+</ol>
+<h2>きょうの内訳</h2>
+<div class="charts two"><div><h3>話題ごと（押すとその話題へ）</h3><svg class="chart" viewBox="0 0 360 168" role="img" aria-label="話題ごとの本数。自律型AI 4、生成AI活用 3、クラウド 3、文書検索連携 2、開発手法 2、データ基盤 1"><a href="#t1"><text x="0" y="18">自律型AI</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">4</text></a><a href="#t2"><text x="0" y="46">生成AI活用</text><rect x="126" y="35" width="142" height="14"/><text class="n" x="276" y="46">3</text></a><a href="#t3"><text x="0" y="74">クラウド</text><rect x="126" y="63" width="142" height="14"/><text class="n" x="276" y="74">3</text></a><a href="#t4"><text x="0" y="102">文書検索連携</text><rect x="126" y="91" width="95" height="14"/><text class="n" x="229" y="102">2</text></a><a href="#t5"><text x="0" y="130">開発手法</text><rect x="126" y="119" width="95" height="14"/><text class="n" x="229" y="130">2</text></a><a href="#t6"><text x="0" y="158">データ基盤</text><rect x="126" y="147" width="48" height="14"/><text class="n" x="182" y="158">1</text></a></svg></div><div><h3>サイトごと</h3><svg class="chart" viewBox="0 0 360 196" role="img" aria-label="サイトごとの本数。ITmedia AI+ 5、Qiita 3、Dev.to 2、はてブIT 2、CodeZine 1、Publickey 1、Zenn 1"><text x="0" y="18">ITmedia AI+</text><rect x="126" y="7" width="190" height="14"/><text class="n" x="324" y="18">5</text><text x="0" y="46">Qiita</text><rect x="126" y="35" width="114" height="14"/><text class="n" x="248" y="46">3</text><text x="0" y="74">Dev.to</text><rect x="126" y="63" width="76" height="14"/><text class="n" x="210" y="74">2</text><text x="0" y="102">はてブIT</text><rect x="126" y="91" width="76" height="14"/><text class="n" x="210" y="102">2</text><text x="0" y="130">CodeZine</text><rect x="126" y="119" width="38" height="14"/><text class="n" x="172" y="130">1</text><text x="0" y="158">Publickey</text><rect x="126" y="147" width="38" height="14"/><text class="n" x="172" y="158">1</text><text x="0" y="186">Zenn</text><rect x="126" y="175" width="38" height="14"/><text class="n" x="172" y="186">1</text></svg></div></div>
+<section id="t1" class="source"><h2>自律型AI<span class="count">4 本</span></h2>
+<article class="row" id="a2"><h3><a href="https://atmarkit.itmedia.co.jp/ait/articles/2611/27/news035.html" target="_blank" rel="noopener noreferrer">自律型AIの途中判断まで検証する必要性を示す</a> <span class="star">注目</span></h3>
+<p class="sub">ITmedia AI+・AIエージェントの行動が「適切か暴走か」をどう見極める？　Googleが明かすテストの盲点</p>
+<details class="more"><summary>くわしく読む</summary><p>AIエージェントの動作検証では、最終回答だけを見る評価や実行結果だけを確認するテストでは、不適切な振る舞いを見抜けないことがある。Googleは、AIコーディングエージェント向けのプラグイン開発を通じてこの盲点を明らかにした。実務では、回答の正しさに加えて、エージェントが途中でどの操作を選び、どのように判断したかという過程まで検証する必要があることを示唆している。</p><p class="tags">#aiエージェント</p></details></article>
+<article class="row" id="a4"><h3><a href="https://monoist.itmedia.co.jp/mn/articles/2611/27/news050.html" target="_blank" rel="noopener noreferrer">アマダと日立が自律型AIとフィジカルAIの実証で効果確認</a></h3>
+<p class="sub">ITmedia AI+・アマダと日立、AIエージェントのPoCで効果確認 フィジカルAIの現場実装へ</p>
+<details class="more"><summary>くわしく読む</summary><p>アマダと日立製作所は、AIエージェントとフィジカルAIを組み合わせたPoCで効果を確認し、ユーザー工場の自律化と保守サービスの高度化を目指して協創を加速する。工場の現場にAIを実装することで、設備の自律運転と保守業務の効率化・高度化が期待される。本記事は発表の概要が中心で、具体的な技術構成や定量的な効果までは示されていないが、製造業におけるフィジカルAIの実務応用の方向性を示す内容といえる。</p><p class="tags">#aiエージェント</p></details></article>
+<article class="row" id="a6"><h3><a href="https://qiita.com/goofmint/items/99745ecc7f9f488ca729" target="_blank" rel="noopener noreferrer">隔離環境で自律型AIとレビューツールを使う手順</a> <span class="star">注目</span></h3>
+<p class="sub">Qiita・Docker SandboxesでCodeRabbit CLIを使う</p>
+<details class="more"><summary>くわしく読む</summary><p>Docker Sandboxes上でClaude CodeやCodexなどのAIエージェントを安全に動かし、その中でCodeRabbit CLIを利用する手順を紹介した記事です。`sbx` コマンドでのインストール（Windows/macOS）、エージェントごとのCodeRabbitプラグイン導入、ネットワークポリシーで `cli.coderabbit.ai` を許可してCLIを入れる流れ、そして認証用のポート開放までを解説しています。AIエージェントの自律実行をサンドボックスで隔離しつつ、レビューツールを組み合わせる実務的なアプローチとして参考になります。</p><p class="tags">#aiエージェント #CodeRabbit #DockerSandboxes</p></details></article>
+<article class="row" id="a7"><h3><a href="https://qiita.com/good59548/items/b609502b6a44a840fbbd" target="_blank" rel="noopener noreferrer">複数AIや外部ツールを統括して業務を進める力を解説</a></h3>
+<p class="sub">Qiita・AIオーケストラ能力の重要性を解説</p>
+<details class="more"><summary>くわしく読む</summary><p>AIオーケストラ能力とは、複数のAIモデル・専門エージェント・外部ツールを統括して複雑な業務プロセス全体を遂行する力を指す。単一AIの一問一答を超え、タスク分解から担当割り当て、並列・逐次処理、検証・統合までを一連の流れとして設計する点が特徴である。単一AIでは文脈の抜け漏れやハルシネーションが起きやすい工程でも、役割分担によって精度と処理速度を高められる。さらに、モデルを差し替え可能な構造にすることでベンダーロックインを避け、権限管理・ログ監査・人間による最終承認を組み込めば、実務で安全にスケールさせられる。</p><p class="tags">#llm #aiエージェント #AI #オーケストラ #技術</p></details></article></section>
+<section id="t2" class="source"><h2>生成AI活用<span class="count">3 本</span></h2>
+<article class="row" id="a1"><h3><a href="https://atmarkit.itmedia.co.jp/ait/articles/2611/27/news038.html" target="_blank" rel="noopener noreferrer">電通、Geminiを使う人材約3000人の育成を開始</a></h3>
+<p class="sub">ITmedia AI+・電通が「Geminiを使いこなすFDE」ら3000人育成プログラムを開始　その内容とは？</p>
+<details class="more"><summary>くわしく読む</summary><p>電通が、約3000人を対象に「Gemini Enterprise」を使いこなし、現場で生成AIを業務に生かせる人材（FDE）を育成するプログラムを始めた。生成AIを導入しても現場で活用されなければ成果につながらないという課題に対し、ツール導入ではなく人材育成で解決を図る取り組みだと読み取れる。他社が全社的にAI活用を進める際の、教育計画や推進体制づくりの参考になりそうだ。</p><p class="tags">#生成ai</p></details></article>
+<article class="row" id="a3"><h3><a href="https://www.itmedia.co.jp/aiplus/article/2611/27/2000003505/" target="_blank" rel="noopener noreferrer">生成AI導入で人員が増える部門と減る部門に分かれる</a></h3>
+<p class="sub">ITmedia AI+・生成AI登場で人員増えた部門、減った部門は？　デロイト調査</p>
+<details class="more"><summary>くわしく読む</summary><p>生成AIの導入により、人員が増えた部門と減った部門が企業ごとに分かれつつあることが、デロイトの調査で示された。調査は2026年時点の企業におけるAIの導入・活用状況を対象としている。本文は要旨のみのため、具体的な部門名や数値、調査手法は推測の域を出ないが、AI活用が組織の人員配置に直接影響し始めていることを押さえておくと実務上の判断材料になる。</p><p class="tags">#生成ai</p></details></article>
+<article class="row" id="a5"><h3><a href="https://www.itmedia.co.jp/news/article/2611/26/2000003447/" target="_blank" rel="noopener noreferrer">AI生成の商品画像は景品表示法に触れるかの見解</a></h3>
+<p class="sub">ITmedia AI+・飲食店の“AI商品画像”は景品表示法違反にならないの？　弁護士の見解</p>
+<details class="more"><summary>くわしく読む</summary><p>飲食店がメニューにAIで生成した商品画像を使う場合、景品表示法（優良誤認表示の規制）に抵触するかが論点になっている。記事では弁護士の見解として、実際の商品と大きく異なる画像を載せると消費者に誤認を与えるおそれがあり、生成画像であること自体が直ちに違反になるわけではないと整理されていると推測される。実務では、AI画像を使う際に実物との差異を明示する、誇張表現を避けるといった対応が現実的な対策になるだろう。</p><p class="tags">#生成ai</p></details></article></section>
+<section id="t3" class="source"><h2>クラウド<span class="count">3 本</span></h2>
+<article class="row" id="a11"><h3><a href="https://www.publickey1.jp/blog/26/aiai_1.html" target="_blank" rel="noopener noreferrer">月額固定でAIを使えるサービス「シンプルAI」の発表</a></h3>
+<p class="sub">はてブIT・さくらインターネット、AIを月額固定料金で提供する「シンプルAI」発表、システムへの組み込み用途を想定</p>
+<details class="more"><summary>くわしく読む</summary><p>さくらインターネットは、2026年11月の大規模イベント「SAKURA DEKIRU Conference 2026」の基調講演で、月額固定料金でAIを使える新サービス「シンプルAI」を発表した。従来のAPI従量課金では利用量に応じてコストが変動しやすいが、本サービスは安定したAIモデルを定額で提供し、既存システムへの組み込みを想定している。業務システムにAI機能を組み込む際に、コストを予測しやすくなる点が実務上の利点になると考えられる。</p><p class="tags">#生成ai #テクノロジー #AI #あとで読む #未分類 #cloud #インターネット #サービス</p></details></article>
+<article class="row" id="a13"><h3><a href="https://codezine.jp/article/detail/30477" target="_blank" rel="noopener noreferrer">仮想デスクトップでAIの接続・管理を支援する新機能</a></h3>
+<p class="sub">CodeZine・AWS、Amazon WorkSpacesでAIエージェントの接続・管理を支援する新機能を発表</p>
+<details class="more"><summary>くわしく読む</summary><p>AWSがAmazon WorkSpaces上でAIエージェントの接続と管理を支援する新機能を発表した。仮想デスクトップ環境からAIエージェントを安全に利用・統制できる点が特徴とみられ、企業の従業員端末でのAI活用を一元管理したい現場にとって実務上の応用余地がある。本文は見出しと要旨のみで詳細が乏しいため、具体的な機能や対応範囲は元記事での確認が必要。</p><p class="tags">#aiエージェント</p></details></article>
+<article class="row" id="a14"><h3><a href="https://www.publickey1.jp/blog/26/awsazureobject_storage_suiteos2.html" target="_blank" rel="noopener noreferrer">他社クラウドにもバックアップ可能な新ストレージを発表</a></h3>
+<p class="sub">Publickey・さくらインターネット、AWSやAzureなど他クラウドでバックアップ可能な新ストレージ「Object Storage Suite」（OS2）発表</p>
+<details class="more"><summary>くわしく読む</summary><p>さくらインターネットは、11月25日・26日開催の「SAKURA DEKIRU Conference 2026」の基調講演で、新ストレージ「Object Storage Suite」（OS2）を発表した。最大の特徴は、AWSやAzureなど他社クラウドへのバックアップに対応する点で、クラウド間のデータ保護やマルチクラウド運用の選択肢を広げるものと考えられる。本文は途中で切れており詳細な仕様は確認できないため、料金や対応リージョン、API互換性などは元記事で確認が必要である。</p><p class="tags">#rag #クラウド #ストレージ #さくらインターネット</p></details></article></section>
+<section id="t4" class="source"><h2>文書検索連携<span class="count">2 本</span></h2>
+<article class="row" id="a8"><h3><a href="https://qiita.com/tajin86/items/50443d2a3da15eb53a51" target="_blank" rel="noopener noreferrer">社内マニュアルQ&amp;Aを罠入り20問で比較評価した実験記録</a> <span class="star">注目</span></h3>
+<p class="sub">Qiita・RAGなし vs RAG：旅館の社内マニュアルQ&amp;Aボットを「罠入り20問」で評価してみた（Gemini無料枠）</p>
+<details class="more"><summary>くわしく読む</summary><p>RAGなし版（マニュアル全文をプロンプトに入れる方式）とRAG版（質問に関連する箇所だけを検索して渡す方式）を、旅館の社内マニュアルQ&amp;Aボットで比較した記事です。改訂前の古い情報、表記ゆれ、複数文書にまたがる規定、マニュアルに記載のない事項などを仕込んだ20問で評価しています。Gemini APIの無料枠だけで、検索部分はベクトルDBを使わずPythonで自作しています。ボットは根拠箇所を示し、記載がない内容には推測せず「記載がありません」と答えるなど、実務の社内Q&amp;A構築に参考になる内容です。</p><p class="tags">#rag #Python #Gemini #Streamlit #生成AI</p></details></article>
+<article class="row" id="a10"><h3><a href="https://dev.to/ayush_singh321/my-simulation-exaggerated-the-cost-of-my-own-safety-feature-565p" target="_blank" rel="noopener noreferrer">文ごと検証する安全機能のコスト評価を見直した投稿</a></h3>
+<p class="sub">Dev.to・My Simulation Exaggerated the Cost of My Own Safety Feature</p>
+<details class="more"><summary>くわしく読む</summary><p>本文は冒頭の一節しか含まれていないため、詳細は推測になります。筆者は前回の記事で、RAGシステムの回答を表示する前に文ごとに検証する安全機能が性能を悪化させると書いたようです。今回の記事では、その悪影響はシミュレーションが誇張していたと見直しており、安全機能の導入コストを過大評価しないための検証の重要性を示していると思われます。</p><p class="tags">#rag #ai #discuss #productivity</p></details></article></section>
+<section id="t5" class="source"><h2>開発手法<span class="count">2 本</span></h2>
+<article class="row" id="a9"><h3><a href="https://dev.to/nfrankel/on-reviewing-ai-generated-code-3olj" target="_blank" rel="noopener noreferrer">AI生成コードは全行を人間がレビューすべきかという論点</a></h3>
+<p class="sub">Dev.to・On reviewing AI-generated code</p>
+<details class="more"><summary>くわしく読む</summary><p>AIエージェントが生成したコードについて、すべての行を人間がレビューすべきだと主張する開発者の投稿が多く見られるという話題です。本文は冒頭のみしか提示されていないため、具体的な解決策や実務への示唆は推測の範囲にとどまります。ただ、AI生成コードの全行レビューが現実的かどうか、そしてレビューの粒度や重点の置き方をどう設計すべきかという問題提起であると考えられます。</p><p class="tags">#ai-agent #ai #codereview #opinion #codingassistants</p></details></article>
+<article class="row" id="a15"><h3><a href="https://zenn.dev/ai_training_nbs/articles/0985d8842f3485" target="_blank" rel="noopener noreferrer">AWSと生成AIで作ったITパスポート問題アプリの開発記録</a></h3>
+<p class="sub">Zenn・AWSと生成AIを活用したITパスポート問題アプリの開発記録</p>
+<details class="more"><summary>くわしく読む</summary><p>AWSと生成AIを使い、ITパスポート試験の問題演習アプリを開発した過程を記録した記事と思われます。本文は「トピック:」以降が空のため詳細は不明ですが、問題作成や解説の自動化に生成AIを、サーバーレス基盤の構築にAWSを用いる構成が推測されます。学習コンテンツを低コストかつ素早く量産する手法として、教育系アプリ開発の実務にも応用できる内容と考えられます。</p><p class="tags">#生成ai #tech</p></details></article></section>
+<section id="t6" class="source"><h2>データ基盤<span class="count">1 本</span></h2>
+<article class="row" id="a12"><h3><a href="https://speakerdeck.com/civitaspo/the-architecture-and-design-philosophy-of-the-data-platform-for-ai-agents-at-layerx" target="_blank" rel="noopener noreferrer">AIエージェント向けデータ基盤の設計思想を示す登壇資料</a></h3>
+<p class="sub">はてブIT・2026-11-26 LayerXにおけるAI Agentを支えるデータ基盤のアーキテクチャと設計思想 / The Architecture and Design Philosophy of the Data Platform For AI Agents at LayerX</p>
+<details class="more"><summary>くわしく読む</summary><p>LayerXがAIエージェントを支えるデータ基盤について、そのアーキテクチャと設計思想を『アーキテクチャカンファレンス 2026』で発表した登壇資料です。本文は短く詳細は読み取れませんが、タイトルから推測すると、AIエージェントが業務データを安全かつ正確に扱うための課題(データの品質、アクセス制御、鮮度など)と、それを解決する基盤設計の考え方が中心と考えられます。社内で同様のデータ基盤をAIエージェント向けに設計する際の参考になりそうです。</p><p class="tags">#ai-agent #テクノロジー #データ #あとで読む #AI #設計 #技術 #資料</p></details></article></section>
+<footer class="foot"><p>各サイトの公開記事へのリンクです。一言と話題の分け方は自動生成です。</p><p>作成 2026-11-27 12:15</p></footer>
+</div>
+</body>
+</html>
